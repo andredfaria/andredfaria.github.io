@@ -1,0 +1,106 @@
+  <!DOCTYPE HTML>
+  <html>
+  <head>
+  <title>Piano</title>
+  <link rel="icon" href="imagens/piano.ico">
+  </head>
+  <body>
+
+    <script>
+  function doo(){
+       var nota = document.getElementById("audio1");
+       nota.play();
+     }
+   function re(){
+       var nota = document.getElementById("audio2");
+       nota.play();
+     }
+  function mi(){
+       var nota = document.getElementById("audio3");
+       nota.play();
+     }
+  function fa(){
+       var nota = document.getElementById("audio4");
+       nota.play();
+     }
+  function sol(){
+       var nota = document.getElementById("audio5");
+       nota.play();
+     }
+  function la(){
+       var nota = document.getElementById("audio6");
+       nota.play();
+     }
+  function si(){
+       var nota = document.getElementById("audio7");
+       nota.play();
+     }
+   </script>
+   <style type="text/css">
+   body{
+    background-image: url("imagens/musica.png");
+    background-repeat: repeat;
+    }
+      section{
+      background-color: gray;
+      font-size: 50px;
+      font-family: "Comic Sans MS";
+      font-stretch: expanded;
+      text-transform: uppercase;
+      display: block;
+      padding: 10px;
+      margin: 0px
+      height: auto;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+    }
+    footer{
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-family: Verdana;
+    font-size: 12px;
+    text-align: center;
+    }
+   </style>
+   <CENTER>
+   <section>
+     <a href="index.html">inicio</a>
+     <a href="piano.html">piano</a>
+     <a href="desenho.html">desenho</a>
+     <a href="conta.html">somar</a>
+    </section>
+    
+    <h1>são 7 notas musicais de Dó a Si</h1>
+
+<button onclick="doo()"><img src="imagens/teclae.png" height="400" width="100" title="Dó"></button>
+<button onclick="re()"><img src="imagens/teclam.png" height="400" width="100" title="Ré"></button>
+<button onclick="mi()"><img src="imagens/teclad.png" height="400" width="100" title="Mi"></button>
+<button onclick="fa()"><img src="imagens/teclae.png" height="400" width="100" title="Fa"></button>
+<button onclick="sol()"><img src="imagens/teclam.png" height="400" width="100" title="Sol"></button>
+<button onclick="la()"><img src="imagens/teclad.png" height="400" width="100" title="LA"></button>
+<button onclick="si()"><img src="imagens/teclae.png" height="400" width="100" title="Sí"></button>
+<button onclick="doo()"><img src="imagens/teclam.png" height="400" width="100" title="Dó"></button>
+<button onclick="re()"><img src="imagens/teclad.png" height="400" width="100" title="Ré"></button>
+
+<audio id="audio1" src="sons/do.mp3" ></audio> 
+<audio id="audio2" src="sons/re.mp3" ></audio> 
+<audio id="audio3" src="sons/mi.mp3" ></audio>
+<audio id="audio4" src="sons/fa.mp3" ></audio> 
+<audio id="audio5" src="sons/sol.mp3" ></audio> 
+<audio id="audio6" src="sons/la.mp3" ></audio>
+<audio id="audio7" src="sons/si.mp3" ></audio>
+<audio id="audio1" src="sons/do.mp3" ></audio>
+<audio id="audio2" src="sons/re.mp3" ></audio>
+
+<P> Dó    Ré Mi  Fá Sol    Lá   Sí   Dó  Mi   Fá</P>
+</CENTER>
+<footer>
+    desenvolvido por <a href="https://www.facebook.com/andredefariacarvalho">André de Faria</a>
+  </footer>
+</body>
+ </body>
+ </html>

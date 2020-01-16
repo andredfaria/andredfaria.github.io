@@ -1,0 +1,157 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script type="text/javascript">
+            var x = 0;
+            var y = 0;
+            var ctx;
+            var matriz = new Array(3);
+            var i = 0;
+            var j = 0;
+            var pontuacao = 0;
+            var velocidade = 2000;
+            var encontrou = 0;
+            
+            setInterval(automatica, velocidade);
+            
+            function atualizaTela() {
+                //Percorre toda a matriz
+                for (i = 0; i < 3; i++) {
+                    for (j = 0; j < 3; j++) {
+                        //Verifica se a posição corrente tem valor 1, 
+                        //o que significa que foi preenchida
+                        if (matriz[i][j] == 1) {
+                            ctx.fillStyle = "#000000";
+                            //Realiza o desenho do quadrado na posicao relativa da tela
+                            //Multiplica por 30 porque cada posicao na tela tem 30px.
+                            ctx.fillRect(j * 300 + 2, i * 300 + 2, 298, 298);
+                            matriz[i][j] == 2;
+                            
+                        }
+                        if (matriz[i][j] == 2) {
+                            ctx.fillStyle = "#ff0000";
+                            ctx.fillRect(j * 300 + 2, i * 300 + 2, 298, 298);
+                            matriz[i][j] == 1;
+                        }
+                    }
+                }
+                encontrou = 0;
+            }
+            function iniciaJogo() {
+                 var i = 0;
+                var j = 0;
+                var pontuacao = 0;
+                var velocidade = 2000;
+                var encontrou = 0;
+                
+                var c = document.getElementById("cnv01");
+                //Gera a Matriz vazia na memória
+                var i = 0;
+                var j = 0;
+                for (i = 0; i < 3; i++) {
+                    matriz[i] = new Array(3);
+                }
+                //Coloca ZEROS em todas as posições da matriz
+                for (i = 0; i < 3; i++) {
+                    for (j = 0; j < 3; j++) {
+                        matriz[i][j] = 0;
+                    }
+                }
+                ctx = c.getContext("2d");
+                //Define a cor do elemento como verde
+                ctx.fillStyle = "white";
+                //Desenha o fundo verde com tamanho de 300px por 300px
+                ctx.fillRect(0, 0, 900, 900);
+                //Define a cor do elemento como preta				
+                ctx.fillStyle = "#000000";
+                //Desenha as linhas horizontais
+
+                ctx.fillRect(1, 300, 900, 2);
+                ctx.fillRect(1, 600, 900, 2);
+                ctx.fillRect(1, 900, 900, 2);
+
+                ctx.fillRect(300, 1, 2, 900);
+                ctx.fillRect(600, 1, 2, 900);
+                ctx.fillRect(900, 1, 2, 900);
+
+                
+                //funcao que chama outra funçao de tempo em tempos
+            }
+            function clique(event) {
+                
+                var x = event.clientX - 8;
+                var y = event.clientY - 8;
+                
+                i = Math.floor(y / 300);
+                j = Math.floor(x / 300);
+                
+                if (matriz[i][j] == 1) {
+                    var x = event.clientX - 8;
+                    var y = event.clientY - 8;
+                    matriz[i][j] = 2;
+                    pontuacao += 10;
+                    document.getElementById("teste").innerHTML = "Pontuação: " + pontuacao;
+                    if (pontuacao == 30) {
+                        velocidade -= 2000;
+                    }
+                    atualizaTela();
+                }
+            }
+
+            function automatica() {
+//              COLOCAR EM BRANCO O QUE ESTAVA PRETO
+                for (i = 0; i < 3; i++) {
+                    for (j = 0; j < 3; j++) {
+                        if (matriz[i][j] == 2) {
+                            ctx.fillStyle = "#ffFFFF";
+                            ctx.fillRect(j * 300 + 2, i * 300 + 2, 298, 298);
+                            matriz[i][j] = 0;
+                        }
+                    }
+                }
+
+                
+//              SORTEAR UMA POSIÇÃO DA MATRIZ PARA 
+//              COLOCAR COMO PRETO
+
+                var linha, coluna;
+                
+                linha = Math.floor(Math.random() * 3);//puxa um numero aleatorio entre 1e8
+                coluna = Math.floor(Math.random() * 3);
+                
+                while(matriz[linha][coluna] == 1){
+                    
+                    linha = Math.floor(Math.random() * 3);//puxa um numero aleatorio entre 1e8
+                    coluna = Math.floor(Math.random() * 3);
+                }
+
+                matriz[linha][coluna] = 1;
+                atualizaTela();
+                
+                //VERIFICA FIM DO JOGO
+                var verificaFim = true;
+                for (i = 0; i < 3; i++) {
+                    for (j = 0; j < 3; j++) {
+                        if(matriz[i][j] != 1){
+                            
+                            verificaFim = false;
+                            break;
+                       
+                        }
+                    }
+                }
+                if(verificaFim == true){
+                    alert("Fim de Jogo");
+                    iniciaJogo();
+                }
+            }
+        </script>
+    </head>
+    <body onload="iniciaJogo();">
+        <canvas id="cnv01" width="900" height="900" background-color="#white" onclick="clique(event);">
+            Navegador sem suporte
+        </canvas>
+        <p id="teste">Pontuação: </p>
+    </body>
+</html>

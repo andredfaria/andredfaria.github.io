@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript">
+			var x=0;
+			var y=0;
+			var ctx;
+			var matriz=new Array(3);
+			var vezJogador = true;
+			var encontrou = 0;
+
+			function verificaGanhador(){
+				var i=0;
+				var j=0;
+				var temGanhador = false;
+				
+				//Percorre toda a matriz
+				if(matriz[0][0] != "" || matriz[0][1] != "" || matriz[0][2] != ""){
+					if((matriz[0][0] == matriz[0][1] && matriz[0][1] == matriz[0][2])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+						iniciaJogo();
+
+					}
+				}
+				if(matriz[1][0] != "" || matriz[1][1] != "" || matriz[1][2] != ""){
+					if((matriz[1][0] == matriz[1][1] && matriz[1][1] == matriz[1][2])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+
+				if(matriz[2][0] != "" || matriz[2][1] != "" || matriz[2][2]){
+					if((matriz[2][0] == matriz[2][1] && matriz[2][1] == matriz[2][2])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+				if(matriz[0][0] != "" || matriz[1][0] != "" || matriz[2][0]){
+					if((matriz[0][0] == matriz[1][0] && matriz[1][0] == matriz[2][0])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+				if(matriz[0][1] != "" || matriz[1][1] != "" || matriz[2][1]){
+					if((matriz[0][1] == matriz[1][1] && matriz[1][1] == matriz[2][1])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+				if(matriz[0][2] != "" || matriz[1][2] != "" || matriz[2][2]){
+					if((matriz[0][2] == matriz[1][2] && matriz[1][2] == matriz[2][2])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+				if(matriz[0][0] != "" || matriz[1][1] != "" || matriz[2][2]){
+					if((matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+				if(matriz[0][2] != "" || matriz[1][1] != "" || matriz[2][0]){
+					if((matriz[0][2] == matriz[1][1] && matriz[1][1] == matriz[2][0])){
+						if(vezJogador == true){
+							alert("Rosa");
+						}
+						else{
+							alert("vermelho");
+						}
+						temGanhador = true;
+
+					}
+				}
+
+				if(temGanhador == false){
+					deuVelha();
+				}
+
+			}
+
+			function deuVelha(){
+				var i=0;
+				var j=0;
+				var verificacao = true;
+				//Percorre toda a matriz
+				for(i=0;i<3;i++){
+					for(j=0;j<3;j++){
+						if(matriz[i][j] != ""){
+							verificacao = true;
+						}
+						else{
+							verificacao = false;
+							break;
+							alert("deu velha");
+						}
+					}
+				}
+				if(verificacao == true){
+					alert("deu velha");
+				}
+			}
+
+
+			function atualizaTela(){
+				var i=0;
+				var j=0;
+				//Percorre toda a matriz
+				for(i=0;i<3;i++){
+					for(j=0;j<3;j++){
+						//Verifica se a posição corrente tem valor 1, 
+						//o que significa que foi preenchida
+						if(matriz[i][j]==1 && encontrou == 0){
+
+							
+
+							encontrou = 1;
+							//alert(vezJogador);
+							var c=document.getElementById("cnv01");
+							ctx=c.getContext("2d");
+
+							if(vezJogador == true){
+								ctx.fillStyle = "#FF0000";	
+								matriz[i][j]=2;
+							}
+							else{
+								ctx.fillStyle = "#FF00FF";
+								matriz[i][j]=3;
+							}
+							vezJogador = !vezJogador;
+							if(vezJogador == true){
+							document.getElementById("paragrafoVezDoJogador").innerHTML = "<div style='color: red'> a vez do jogador vermelho</div>" ;
+						}
+						else{
+							document.getElementById("paragrafoVezDoJogador").innerHTML = "<div style='color: pink'>é a vez do jogador rosa</div>" ;
+						}
+							
+							//Realiza o desenho do quadrado na posicao relativa da tela
+							//Multiplica por 30 porque cada posicao na tela tem 30px.
+							ctx.fillRect(j*100+2,i*100+2,98,98);
+
+							verificaGanhador();
+							
+						}
+					}
+				}
+				encontrou = 0;
+			}
+			function iniciaJogo(){
+				var c=document.getElementById("cnv01");
+				//Gera a Matriz vazia na memória
+				var i=0;
+				var j=0;
+				for(i=0;i<3;i++){
+					matriz[i]=new Array(3);
+				}
+				//Coloca ZEROS em todas as posições da matriz
+				for(i=0;i<3;i++){
+					for(j=0;j<3;j++){
+						matriz[i][j]="";
+					}
+				}
+				ctx=c.getContext("2d");
+				//Define a cor do elemento como verde
+				ctx.fillStyle = "#FFFFFF";
+				//Desenha o fundo verde com tamanho de 300px por 300px
+				ctx.fillRect(0,0,300,300);
+				//Define a cor do elemento como preta				
+				ctx.fillStyle = "#000000";
+				//Desenha as linhas horizontais
+				ctx.fillRect(1,100,300,2);
+				ctx.fillRect(1,200,300,2);
+				ctx.fillRect(1,300,300,2);
+				
+				
+				//Desenha as linhas verticais
+				ctx.fillRect(100,1,2,300);
+				ctx.fillRect(200,1,2,300);
+				ctx.fillRect(300,1,2,300);
+				
+				
+			}
+			function clique(event){
+				//Recupera a posção x y onde ocorreu o clique do mouse
+				//Subtrai 8 px por conta da borda branca antes do elemento verde
+				var x = event.clientX - 8;
+				var y = event.clientY - 8;
+				//Mostra a posição onde o clique ocorreu
+				//alert(x + "-" + y);
+				//Realiza o cálculo da posição da matriz relativa ao local clicado na tela
+				//Quando divide-se por 30, define-se quantas casas existem antes do local clicado
+				i = Math.floor(y/100);
+				j = Math.floor(x/100);				
+				//Define a posição da matriz com o valor 1.
+				if(matriz[i][j]==""){
+					matriz[i][j]=1;
+					//Mostra as coordenadas da matriz
+					atualizaTela();
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body onload="iniciaJogo();">
+		<canvas id="cnv01" width="300" height="300" background-color="#00FF00" onclick="clique(event);">
+			Navegador sem suporte
+		</canvas>
+		<p id="paragrafoVezDoJogador">é a vez do jogador vermelho</p>
+	</body>
+</html>
