@@ -24,6 +24,7 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/orbit-1.css">
@@ -32,17 +33,23 @@
 
 <body>
     <div class="container">
-        <div class="row mt-10">
-            <div class="col-md-12">
-                <input type="number" id="n1" name="n1">
-                está para
-                <input type="number" id="n2" name="n2">
-                <br>
-                Tal que
-                <input type="number" id="p1" name="p1">
-                esta pra
-                <input type="text" value="X" id="x" name="x">
-
+        <div class="row">
+            <div class="col-md-12 horizontal-center">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-5">
+                        <input type="number" id="n1" name="n1">
+                        está para
+                        <input type="number" id="n2" name="n2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-5">        
+                        Tal que
+                        <input type="number" id="p1" name="p1">
+                        esta pra
+                        <input type="text" value="X" id="x" name="x">
+                    </div>
+                </div>
                 <button onclick="calcular()" class="btn button-primary">
                     Calcular
                 </button>
