@@ -32,28 +32,45 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 horizontal-center">
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-5">
-                        <input type="number" id="n1" name="n1">
-                        está para
-                        <input type="number" id="n2" name="n2">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-5">        
-                        Tal que
-                        <input type="number" id="p1" name="p1">
-                        esta pra
-                        <input type="text" value="X" id="x" name="x">
-                    </div>
-                </div>
-                <button onclick="calcular()" class="btn button-primary">
+    <div class="container margin-top-25">
+        <div class="row form-group justify-content-center align-self-center align-items-center">
+            <div class="col-md-2 horizontal-center">
+                <input  class="form-control" 
+                        type="number" 
+                        id="n1" 
+                        name="n1">
+            </div>
+            <h1 >Está para</h1>
+            <div class="col-md-2">
+                <input  class="form-control" 
+                        type="number" 
+                        id="n2" 
+                        name="n2">
+            </div>
+        </div>
+        <div class="row form-group justify-content-center align-self-center align-items-center">
+            <div class="col-md-2">        
+                <h1 >Tal que</h1>
+            </div>
+            <div class="col-md-2">        
+                <input  class="form-control" 
+                        type="number" 
+                        id="p1" 
+                        name="p1">
+            </div>
+                <h1 >Está pra</h1>
+            <div class="col-md-2">        
+                <input  class="form-control" 
+                        type="text" 
+                        placeholder="X" 
+                        id="x" 
+                        name="x">
+
+            </div>
+            <div class="col-md-12  horizontal-center">        
+                <button onclick="calcular()" class="btn btn-primary">
                     Calcular
                 </button>
-
             </div>
         </div>
     </div>
