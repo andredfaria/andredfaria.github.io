@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>desenho</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" href="imagens/pincel.ico">
+	<link rel="stylesheet" href="css/global.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript"></script>
+	<script>
+		var ctx;
+		var esc = 0;
+		function inicio() {
+			var canvas = document.getElementById("can");
+			ctx = canvas.getContext("2d");
+
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, 500, 400);
+
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 100, 100, 0)
+
+
+		}
+		function clique(event) {
+			var x = event.clientX - 425;
+			var y = event.clientY - 189;
+
+			//alert(x);
+			//alert(y);
+			switch (esc) {
+				case 1:
+					ctx.fillStyle = "#009933";
+					break;
+				case 2:
+					ctx.fillStyle = "#0033cc";
+					break;
+				case 3:
+					ctx.fillStyle = "#cc0000";
+					break;
+				case 4:
+					ctx.fillStyle = "#ffffff";
+					break;
+				case 5:
+					ctx.fillStyle = "#ffff00";
+					break;
+				case 6:
+					ctx.fillStyle = "#ff3399";
+					break;
+				case 7:
+					ctx.fillStyle = "#000000";
+					break;
+			}
+			ctx.fillRect(x, y, 10, 10);
+
+		}
+		function escolha(cor) {
+			esc = cor;
+		}
+	</script>
+	<style type="text/css">
+		body {
+			background-image: url(imagens/pintura.png);
+			background-repeat: repeat;
+		}
+	</style>
+
+</head>
+
+<body onload="inicio();">
+	<center>
+		<section>
+			<a href="index.html">inicio</a>
+			<a href="piano.html">piano</a>
+			<a href="desenho.html">desenho</a>
+			<a href="conta.html">somar</a>
+		</section>
+	</center>
+	<center>
+		<img src="imagens/verde.png" onclick="escolha(1)" width="100" height="100">
+		<img src="imagens/azul.png" onclick="escolha(2)" width="100" height="100">
+		<img src="imagens/vermelho.png" onclick="escolha(3)" width="100" height="100">
+		<img src="imagens/braco.png" onclick="escolha(4)" width="100" height="100">
+		<img src="imagens/amarelo.png" onclick="escolha(5)" width="100" height="100">
+		<img src="imagens/rosa.png" onclick="escolha(6)" width="100" height="100">
+		<img src="imagens/preto.png" onclick="escolha(7)" width="100" height="100"><br>
+		<canvas id="can" width="500" height="400" onclick="clique(event);">NAO TEM SUPORTE</canvas><br>
+
+
+	</center>
+	<footer>
+		desenvolvido por <a href="https://www.facebook.com/andredefariacarvalho">André de Faria</a>
+	</footer>
+</body>
+
+</html>

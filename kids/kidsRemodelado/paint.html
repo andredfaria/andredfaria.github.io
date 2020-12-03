@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+    <head>
+        <title>Paint</title>
+        <script type="text/javascript" src="http://rightjs.org/hotlink/right-2.0.0.js"></script>
+        <script type="text/javascript">
+            Event.include({offset: function() {
+                return {x: this.pageX - this.target.position().x,
+                    y: this.pageY - this.target.position().y};
+            }});
+
+            // simple mouse capture plugin inspired by http://benanne.net/code/?p=238
+            var mouse = function(RightJS, window) {
+                var mouse = window.mouse || {};
+
+                if (!('capture' in mouse)) {
+                    var mousePressed;
+
+                    mouse.capture = function(selector, cbs) {
+                        selector.on({
+                            'mousedown': function(e) {
+                                mousePressed = true;
+
+                                if('down' in cbs) {
+                                    cbs.down(e);
+                                }
+                            },
+                            'mousemove': function(e) {
+                                if(mousePressed) {
+                                    if('move' in cbs) {
+                                        cbs.move(e);
+                                    }
+                                }
+                            },
+                            'mouseup': function(e) {
+                                mousePressed = false;
+
+                                if('up' in cbs) {
+                                    cbs.up(e);
+                                }
+                            }
+                        });
+                    };
+                }
+
+                return mouse;
+            }(RightJS, window);
+
+            var prev;
+            mouse.capture('#myCanvas', {down: function() {
+                    prev = null;
+                },
+                move: function(e) {
+                    var cur = e.offset();
+
+                    if(prev != null) {
+                        var canvas = $('myCanvas')._;
+                        var ctx = canvas.getContext('2d');
+
+                        ctx.strokeStyle = "black";
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(prev.x, prev.y);
+                        ctx.lineTo(cur.x, cur.y);
+
+                        ctx.stroke();
+                        ctx.closePath();
+                    }
+
+                    prev = cur;
+                }}
+            );
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" style="background-color:grey" width="300" height="300"></canvas>
+    </body>
+</html>
