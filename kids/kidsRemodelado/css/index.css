@@ -1,0 +1,21 @@
+
+.body-background{
+    background-image: url("../imagens/back.png");
+    background-repeat: no-repeat;
+    background-color: rgb(72, 208, 222);
+    background-size: 100%;
+}
+
+.menu{
+    height: 100%;
+    width: 100%;
+   }
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+}

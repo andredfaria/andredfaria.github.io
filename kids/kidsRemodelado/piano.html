@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piano</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/piano.css">
+
+    <link rel="icon" href="imagens/piano.ico">
+</head>
+
+<body>
+    <section>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" href="#">Kids</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="piano.html">
+                            Piano
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="desenho.html">
+                            Desenho
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="somar.html">
+                            Somar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section>
+        <div class="container">
+            <h1 clas="text-center">Criar o teclado</h1>
+
+            <h2>são 7 notas musicais de Dó a Si</h2>
+
+            <button onclick="doo()">
+                <img src="imagens/teclae.png" height="400" width="100" title="Dó">
+            </button>
+            <button onclick="re()">
+                <img src="imagens/teclam.png" height="400" width="100" title="Ré">
+            </button>
+            <button onclick="mi()">
+                <img src="imagens/teclad.png" height="400" width="100" title="Mi">
+            </button>
+            <button onclick="fa()">
+                <img src="imagens/teclae.png" height="400" width="100" title="Fa">
+            </button>
+            <button onclick="sol()">
+                <img src="imagens/teclam.png" height="400" width="100" title="Sol">
+            </button>
+            <button onclick="la()">
+                <img src="imagens/teclad.png" height="400" width="100" title="LA">
+            </button>
+            <button onclick="si()">
+                <img src="imagens/teclae.png" height="400" width="100" title="Sí">
+            </button>
+            <button onclick="doo()">
+                <img src="imagens/teclam.png" height="400" width="100" title="Dó">
+            </button>
+            <button onclick="re()">
+                <img src="imagens/teclad.png" height="400" width="100" title="Ré">
+            </button>
+
+            <audio id="audio1" src="sons/do.mp3">
+            </audio>
+            <audio id="audio2" src="sons/re.mp3">
+            </audio>
+            <audio id="audio3" src="sons/mi.mp3">
+            </audio>
+            <audio id="audio4" src="sons/fa.mp3">
+            </audio>
+            <audio id="audio5" src="sons/sol.mp3">
+            </audio>
+            <audio id="audio6" src="sons/la.mp3">
+            </audio>
+            <audio id="audio7" src="sons/si.mp3">
+            </audio>
+            <audio id="audio1" src="sons/do.mp3">
+            </audio>
+            <audio id="audio2" src="sons/re.mp3">
+            </audio>
+
+            <source src="sons/re.mp3" autoplay />
+            </audio>
+
+            <P> Dó Ré Mi Fá Sol Lá Sí Dó Mi Fá</P>
+        </div>
+    </section>
+    <section>
+        <footer>
+            <div class="card-footer footer navbar-fixed-bottom">
+                Desenvolvido por <a href="https://www.facebook.com/andredefariacarvalho">André de Faria</a>
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>
