@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row">
           <div class="col-xs-6 col-sm-6 col-xs-6 ">
             <small>&#160;</small>
             <input type="number" 
@@ -95,12 +95,12 @@
         let firt = $("#firt-number").val();
         let second = $("#second-number").val();
         let third = $("#third-number").val();
-        let x = 0;
+        let x = parseFloat((third*second)/firt);
 
-        x = parseFloat((third*second)/firt);
+        x = x ? x.toFixed(2) : '';
 
-        $('#result').val(x.toFixed(2))
-        $('#smallThirdNumber').html('Está para ' + x.toFixed(2));
+        $('#result').val(x)
+        $('#smallThirdNumber').html('Está pra ' + x);
       }
     </script>
 </body>
