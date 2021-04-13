@@ -66,16 +66,13 @@
     $('.firstNumeral').click(function () {
       $("#painel").append($(this).html());
 
-      console.log($(this).hasClass('secondNumeral'));
-
-      if($(this).hasClass('secondNumeral'))
+      if(!$(this).hasClass('secondNumeral'))
         first = parseInt($("#painel").html());
       else
         second = parseInt($("#painel").html().split(' ')[$("#painel").html().split(' ').length - 1]);
     });
 
     $('.operacao').click(function () {
-      console.log($(this).text());
       $("#painel").append(' ' + $(this).text() + ' ');
       operador = $(this).text();
 
@@ -87,14 +84,20 @@
         case "+":
           result = parseInt(first) + parseInt(second);
           break;
-        case "-":
+        case "−":
           result = parseInt(first) - parseInt(second);
           break;
-        case "*":
+        case "x":
           result = parseInt(first) * parseInt(second);
           break;
         case "≠":
           result = parseInt(first) / parseInt(second);
+          break;
+        case "/":
+          result = parseInt(first) / parseInt(second);
+          break;
+        case "%":
+          result = parseInt(first) % parseInt(second);
           break;
       }
       console.log(result);
