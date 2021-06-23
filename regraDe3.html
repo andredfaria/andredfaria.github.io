@@ -1,0 +1,110 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Regra de 3</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6109642877288613"
+      crossorigin="anonymous"></script>
+</head>
+<body>
+  <main>
+      <h1 class="hidden text-center">Regra de 3</h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-xs-6 col-xs-6">
+            <small>&#160;</small>
+            <input type="number" 
+                  class="form-control" 
+                  id="firt-number" 
+                  aria-describedby="firtNumber" 
+                  placeholder="Digite o primeiro numero">
+            <small  id="smallFirtNumber" 
+                    class="form-text text-muted">
+                    Está para
+            </small>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-xs-6 col-xs-6">
+            <small  id="smallSecondNumber" 
+                    class="form-text text-muted">
+                    Assim como
+              </small>
+              <input type="number" 
+                    class="form-control" 
+                    id="second-number" 
+                    aria-describedby="secondNumber" 
+                    placeholder="Digite o segundo numero">
+              <small>&#160;</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-xs-6 ">
+            <small>&#160;</small>
+            <input type="number" 
+                  class="form-control" 
+                  id="third-number" 
+                  aria-describedby="thirdNumber" 
+                  placeholder="Digite o terceiro numero">
+            <small  id="smallThirdNumber" 
+                    class="form-text text-muted">
+                    Está pra X
+            </small>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-xs-6 ">
+            <small for="X">&#160;</small>
+            <input type="number" 
+                  class="form-control" 
+                  id="result" 
+                  disabled
+                  aria-describedby="result" 
+                  placeholder="X">
+          </div>
+          <small>&#160;</small>
+        </div>
+
+        <div class="row mt-5">
+          <button type="button" 
+                  onclick="calcular()"
+                  class=" btn-lg btn-block btn btn-primary">Calcular</button>
+        </div>  
+
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <small class="text-center text-muted copyright">desenvolvido <i class="fas fa-globe"></i> Por <a
+            href="https://github.com/andredfaria" target="_blank">André de Faria</a>
+          ©2021</small>
+      </div>
+    </footer>
+    <style>
+    footer {
+      position: fixed;
+      height: 100px;
+      bottom: 0;
+      width: 100%;
+    }
+    </style>
+    <script type="text/javascript">
+      function calcular() {
+        let firt = $("#firt-number").val();
+        let second = $("#second-number").val();
+        let third = $("#third-number").val();
+        let x = parseFloat((third*second)/firt);
+
+        x = x ? x.toFixed(2) : '';
+
+        $('#result').val(x)
+        $('#smallThirdNumber').html('Está pra ' + x);
+      }
+    </script>
+</body>
+</html>
