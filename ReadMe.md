@@ -57,7 +57,7 @@ $ yarn dev
 
 ## 💻 Project
 
-[andredfaria.it](https://andredfaria.github.io/) Preview  🚀
+[andredfaria.io](https://andredfaria.github.io/) Preview  🚀
 
 Esse projeto foi elaborado para a divulgação do portfolio e do meu curriculum
 
