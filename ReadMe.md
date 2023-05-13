@@ -77,4 +77,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 ---
 
-<p align="center">Made with 🚀 by André de Faria Carvalho</p>
+<p align="center">Made with 🚀 by <a href="https://github.com/andredfaria" target="_blank">André de Faria Carvalho</a></p>
