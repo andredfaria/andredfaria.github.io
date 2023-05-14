@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Botão Movendo com o Mouse</title>
+    <style>
+        #botao {
+            position: absolute;
+            left: 55%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #botaoMove {
+            position: absolute;
+            left: 45%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+  </head>
+  <body>
+    <button id="botao">Clique Aqui</button>
+    <button id="botaoMove">Não clique Aqui</button>
+
+    <script>
+        var botaoMove = document.getElementById('botaoMove');
+        var larguraJanela = window.innerWidth;
+        var alturaJanela = window.innerHeight;
+
+        function moverBotaoAleatoriamente() {
+            var novaPosicaoX = Math.floor(Math.random() * larguraJanela);
+            var novaPosicaoY = Math.floor(Math.random() * alturaJanela);
+            botaoMove.style.left = novaPosicaoX + 'px';
+            botaoMove.style.top = novaPosicaoY + 'px';
+        }
+        
+        var botao = document.getElementById('botao');
+
+        function moveBotao(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            botao.style.left = x + 'px';
+            botao.style.top = y + 'px';
+        }
+
+        botaoMove.addEventListener('click', function () {
+            window.location.href = 'https://andredfaria.github.io/';
+        });
+
+        botao.addEventListener('click', function () {
+            window.location.href = 'https://andredfaria.github.io/';
+        });
+
+        botaoMove.addEventListener('mouseover', moverBotaoAleatoriamente);
+        botao.addEventListener('mousemove', moveBotao);
+    </script>
+  </body>
+</html>
