@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trocador de Cores</title>
+	<style>
+		body {
+			background-color: #FFFFFF;
+			text-align: center;
+			padding: 20px;
+			font-size: 2em;
+		}
+
+		button {
+			font-size: 1em;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: #FFFFFF;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Trocador de Cores</h1>
+	<h2 id="cor">#</h2>
+	<button onclick="trocarCor()">Trocar Cor</button>
+
+	<script>
+		function trocarCor() {
+				let cor = gerarCorAleatoria();
+				document.body.style.backgroundColor = cor;
+				document.getElementById("cor").innerText = cor;
+			}
+
+			function gerarCorAleatoria() {
+				let letras = "0123456789ABCDEF";
+				let cor = "#";
+				for (let i = 0; i < 6; i++) {
+					cor += letras[Math.floor(Math.random() * 16)];
+				}
+				return cor;
+			}
+	</script>
+</body>
+</html>
