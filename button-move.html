@@ -6,22 +6,29 @@
     <style>
         #botao {
             position: absolute;
-            left: 55%;
-            top: 50%;
+            left: 45%;
+            top: 60%;
             transform: translate(-50%, -50%);
         }
 
         #botaoMove {
             position: absolute;
-            left: 45%;
-            top: 50%;
+            left: 55%;
+            top: 60%;
             transform: translate(-50%, -50%);
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
     </style>
   </head>
   <body>
-    <button id="botao">Clique Aqui</button>
-    <button id="botaoMove">Não clique Aqui</button>
+    <h1 id="text"></h1>
+    <button id="botao">SIM</button>
+    <button id="botaoMove">NÃO</button>
 
     <script>
         var botaoMove = document.getElementById('botaoMove');
@@ -54,6 +61,14 @@
 
         botaoMove.addEventListener('mouseover', moverBotaoAleatoriamente);
         botao.addEventListener('mousemove', moveBotao);
+
+        function obterParametro() {
+            var url = new URL(window.location.href);
+            var params = new URLSearchParams(url.search);
+            var params = params.get('i');
+            document.getElementById('text').innerHTML = params;
+        }
+        window.onload = obterParametro;
     </script>
   </body>
 </html>
