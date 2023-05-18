@@ -56,7 +56,10 @@
         });
 
         botao.addEventListener('click', function () {
-            window.location.href = 'https://andredfaria.github.io/';
+            var url = new URL(window.location.href);
+            var params = new URLSearchParams(url.search);
+            var params = params.get('i');
+            window.location.href = `http://wa.me/5535991404064?text=Eu%20quero%20` + params;
         });
 
         botaoMove.addEventListener('mouseover', moverBotaoAleatoriamente);
