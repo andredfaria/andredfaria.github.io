@@ -58,8 +58,11 @@
         botao.addEventListener('click', function () {
             var url = new URL(window.location.href);
             var params = new URLSearchParams(url.search);
-            var paramsA = params.get('a');
-            // window.location.href = `http://wa.me/5535991404064?text=Eu%20quero%20` + params;
+            var link = params.get('link');
+            if(link == null) 
+                link = '';
+            
+            window.location.href = `http://wa.me/5535991404064?text=Eu%20quero%20` + link;
             window.location.href = paramsA;
         });
 
@@ -69,9 +72,8 @@
         function obterParametro() {
             var url = new URL(window.location.href);
             var params = new URLSearchParams(url.search);
-            var params = params.get('i');
-            var params = params.get('a');
-            document.getElementById('text').innerHTML = params;
+            var text = params.get('text');
+            document.getElementById('text').innerHTML = text;
         }
         window.onload = obterParametro;
     </script>
