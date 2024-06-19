@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Arquivos PDF</title>
+    <style>
+        /* Estilos opcionais para melhorar a apresentação */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Arquivos PDF</h1>
+    <ul id="lista-pdf">
+        <!-- Aqui serão listados os arquivos PDF -->
+    </ul>
+
+    <script>
+        // Script para buscar e listar os arquivos PDF na pasta /pdfs/
+        document.addEventListener('DOMContentLoaded', function() {
+            const lista = document.getElementById('lista-pdf');
+
+            fetch('./') // Altere o caminho se necessário
+                .then(response => { console.log(response); response.text()} )
+                .then(text => {
+                    const matches = text.match(/href="([^"]+\.pdf)"/gi);
+                    if (matches) {
+                        matches.forEach(match => {
+                            const fileName = match.match(/href="([^"]+\.pdf)"/i)[1];
+                            const listItem = document.createElement('li');
+                            const link = document.createElement('a');
+                            link.href = 'https://andredfaria.github.io/certificados/' + fileName; // Altere o caminho se necessário
+                            link.textContent = fileName;
+                            listItem.appendChild(link);
+                            lista.appendChild(listItem);
+                        });
+                    }
+                })
+                .catch(error => console.error('Erro ao carregar arquivos PDF:', error));
+        });
+    </script>
+</body>
+</html>
