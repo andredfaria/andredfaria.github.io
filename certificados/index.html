@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Certificados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #0a0a0a;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>LISTA DE CERTIFICAÇÕES</h1>
+    <ul id="lista-pdf">
+        <!-- Aqui serão listados os arquivos PDF -->
+    </ul>
+
+    <script>
+        // Script para buscar e listar os arquivos PDF a partir de lista.txt
+        document.addEventListener('DOMContentLoaded', function() {
+            const lista = document.getElementById('lista-pdf');
+
+            fetch('./lista.txt') // Caminho para o arquivo lista.txt
+                .then(response => response.text())
+                .then(text => {
+                    // Dividir o texto em linhas e remover linhas em branco
+                    const lines = text.split('\n').filter(line => line.trim() !== '');
+
+                    lines.forEach(fileName => {
+                        const listItem = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.href = 'https://andredfaria.github.io/certificados/' + fileName.trim(); // Caminho para a pasta /pdfs/
+                        link.textContent = fileName.trim();
+                        listItem.appendChild(link);
+                        lista.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar lista de arquivos:', error));
+        });
+    </script>
+</body>
+</html>
