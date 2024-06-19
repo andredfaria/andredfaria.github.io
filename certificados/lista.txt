@@ -1,0 +1,54 @@
+Agilidade.pdf
+André de Faria Carvalho - Curso Agilidade_ como ela pode ajudar a criar um time de alta performance - Alura.pdf
+André de Faria Carvalho - Curso Aplicações Serverless_ construindo uma API REST - Alura.pdf
+André de Faria Carvalho - Curso Comunicação não violenta_ consciência para agir - Alura.pdf
+André de Faria Carvalho - Curso Comunicação_ como se expressar bem e ser compreendido - Alura.pdf
+André de Faria Carvalho - Curso Feedback_ a arte de orientar e ser orientado com sentido - Alura.pdf
+André de Faria Carvalho - Curso HTTP_ Entendendo a web por baixo dos panos - Alura.pdf
+André de Faria Carvalho - Curso Inovação Aberta_ táticas e ferramentas para implementação - Alura.pdf
+André de Faria Carvalho - Curso Inovação Social e Empreendedorismo_ conduza a mudança e gere impacto - Alura.pdf
+André de Faria Carvalho - Curso Inovação_ descubra como e onde inovar - Alura.pdf
+André de Faria Carvalho - Curso Inteligência artificial Generativa_ Midjourney e ChatGPT - Alura.pdf
+André de Faria Carvalho - Curso Node.js_ API Rest com Express e MongoDB - Alura.pdf
+André de Faria Carvalho - Curso Oratória parte 1_ compartilhe ideias e histórias - Alura.pdf
+André de Faria Carvalho - Curso Oratória parte 2_ apresentações em público - Alura.pdf
+André de Faria Carvalho - Curso ORM com NodeJS_ API com Sequelize e MySQL - Alura.pdf
+ANDRE-INTELIGENCIA-EXAME.pdf
+azureDevOps.pdf
+BasicoFotografia.pdf
+BasicoMecanicaAutomotiva.pdf
+BasicoMetrologia.pdf
+BasicoTI.pdf
+Certificado inciacao 2023.pdf
+certificado-dowhile.pdf
+Certificado-React.pdf
+certificado-semana-dos-dados.pdf
+certificadoQA.pdf
+Comunicacao.pdf
+eu-tenho-esperacao.pdf
+Feedback.pdf
+financasPessoais.pdf
+frontEnd.pdf
+html+css+js.pdf
+HTTP.pdf
+industria4.pdf
+iniciação-cientifica.pdf
+Inovacao.pdf
+jurusZero.pdf
+nodeJS.pdf
+Ominstack11.pdf
+Oratoria.pdf
+Oratoria2.pdf
+PM3-design-produto.pdf
+pm3-metrica-de-negocio.pdf
+PM3-storytelling.pdf
+pythonFlash.pdf
+QA Week 2020..pdf
+react.pdf
+semanaextensaoxiii.pdf
+simplaNovas.pdf
+simposiomed1.pdf
+simposiomed3.pdf
+Sprint Inteligência Artificial aplicada ao RH.pdf
+tolerancia.pdf
+violenciaCibernetica.pd
