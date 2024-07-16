@@ -53,3 +53,11 @@ Sprint Inteligência Artificial aplicada ao RH.pdf
 tolerancia.pdf
 violenciaCibernetica.pdf
 certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+Introdução à Linguagem Solidity.pdf
+Operações da Blockchain.pdf
+Introdução à Blockchain.pdf
+Contribuindo em um Projeto.pdf
+introducao-blockchain-web3.pdf
+conceito-web3.pdf
+conceito-blockchain.pdf
+como-criar-portifolio.pdf
