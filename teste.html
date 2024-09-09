@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduQuest - Aprenda no seu próprio ritmo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 20px;
+            z-index: 999;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .search-bar {
+            float: right;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+        }
+        .hero-section {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-content button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #fff;
+            color: #333;
+            border: none;
+            cursor: pointer;
+        }
+        .featured-courses {
+            padding: 50px;
+        }
+        .course-card {
+            display: inline-block;
+            width: 300px;
+            margin-right: 20px;
+            text-align: center;
+        }
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .success-stories {
+            padding: 50px;
+            background-color: #f5f5f5;
+        }
+        .testimonial {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        footer button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#mathematics">Matemática</a></li>
+                <li><a href="#science">Ciências</a></li>
+                <li><a href="#languages">Idiomas</a></li>
+                <li><a href="#arts">Artes</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar cursos...">
+                <button>Pesquisar</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <video class="hero-video" autoplay loop muted>
+            <source src="placeholder-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 id="slogan">Aprenda no seu próprio ritmo</h1>
+            <button onclick="location.href='#course-catalog'">Comece</button>
+        </div>
+    </section>
+
+    <section class="featured-courses">
+        <h2>Cursos em Destaque</h2>
+        <div class="course-card">
+            <img src="placeholder-image.jpg" alt="Curso 1">
+            <h3>Título do Curso 1</h3>
+            <p>Instrutor: Nome do Instrutor</p>
+            <p>Descrição do curso...</p>
+        </div>
+        <div class="course-card">
+            <img src="placeholder-image.jpg" alt="Curso 2">
+            <h3>Título do Curso 2</h3>
+            <p>Instrutor: Nome do Instrutor</p>
+            <p>Descrição do curso...</p>
+        </div>
+        <div class="course-card">
+            <img src="placeholder-image.jpg" alt="Curso 3">
+            <h3>Título do Curso 3</h3>
+            <p>Instrutor: Nome do Instrutor</p>
+            <p>Descrição do curso...</p>
+        </div>
+    </section>
+
+    <section class="success-stories">
+        <h2>Histórias de Sucesso</h2>
+        <div class="testimonial">
+            <p>"A EduQuest mudou minha vida! Pude aprender no meu próprio ritmo e descobrir novas paixões. Estou muito grato por esta plataforma incrível!"</p>
+            <p>- João Silva</p>
+        </div>
+        <div class="testimonial">
+            <p>"Os cursos da EduQuest são excepcionais. Os instrutores são especialistas em suas áreas e o conteúdo é envolvente. Recomendo a todos!"</p>
+            <p>- Maria Santos</p>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#blog">Blog</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy-policy">Política de Privacidade</a>
+        <button onclick="location.href='#contact-us'">Fale Conosco</button>
+    </footer>
+
+    <script>
+        const slogans = [
+            "Aprenda no seu próprio ritmo",
+            "Descubra novas paixões",
+            "Expanda seus horizontes"
+        ];
+        let currentSlogan = 0;
+
+        function changeSlogan() {
+            const sloganElement = document.getElementById("slogan");
+            sloganElement.textContent = slogans[currentSlogan];
+            currentSlogan = (currentSlogan + 1) % slogans.length;
+        }
+
+        setInterval(changeSlogan, 3000);
+    </script>
+</body>
+</html>
