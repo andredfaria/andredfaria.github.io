@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    color: #555;
+    margin: 15px;
+}
+
+p {
+    line-height: 10px;
+}
+
+.img-carteira {
+    margin: 20px 0;
+    border-radius: 50%;
+}
+
+h3 {
+    color: #2553a3
+}
+
+.matric {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+body {
+  text-align: center;
+  font-family: Arial;
+  color: #555;
+  margin: 15px;
+}
+
+p {
+  line-height: 10px;
+}
+
+.img-carteira {
+  margin: 20px 0;
+  border-radius: 50%;
+}
+
+h3 {
+  color: #2553a3
+}
+
+.matric {
+  text-decoration: underline;
+  font-weight: bold;
+}
