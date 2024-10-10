@@ -1,157 +1,112 @@
-Agilidade.pdf
-André de Faria Carvalho - Curso Agilidade_ como ela pode ajudar a criar um time de alta performance - Alura.pdf
-André de Faria Carvalho - Curso Aplicações Serverless_ construindo uma API REST - Alura.pdf
-André de Faria Carvalho - Curso Comunicação não violenta_ consciência para agir - Alura.pdf
-André de Faria Carvalho - Curso Comunicação_ como se expressar bem e ser compreendido - Alura.pdf
-André de Faria Carvalho - Curso Feedback_ a arte de orientar e ser orientado com sentido - Alura.pdf
-André de Faria Carvalho - Curso HTTP_ Entendendo a web por baixo dos panos - Alura.pdf
-André de Faria Carvalho - Curso Inovação Aberta_ táticas e ferramentas para implementação - Alura.pdf
-André de Faria Carvalho - Curso Inovação Social e Empreendedorismo_ conduza a mudança e gere impacto - Alura.pdf
-André de Faria Carvalho - Curso Inovação_ descubra como e onde inovar - Alura.pdf
-André de Faria Carvalho - Curso Inteligência artificial Generativa_ Midjourney e ChatGPT - Alura.pdf
-André de Faria Carvalho - Curso Node.js_ API Rest com Express e MongoDB - Alura.pdf
-André de Faria Carvalho - Curso Oratória parte 1_ compartilhe ideias e histórias - Alura.pdf
-André de Faria Carvalho - Curso Oratória parte 2_ apresentações em público - Alura.pdf
-André de Faria Carvalho - Curso ORM com NodeJS_ API com Sequelize e MySQL - Alura.pdf
 ANDRE-INTELIGENCIA-EXAME.pdf
-azureDevOps.pdf
-BasicoFotografia.pdf
-BasicoMecanicaAutomotiva.pdf
-BasicoMetrologia.pdf
-BasicoTI.pdf
-Certificado inciacao 2023.pdf
-certificado-dowhile.pdf
-Certificado-React.pdf
-certificado-semana-dos-dados.pdf
-certificadoQA.pdf
-Comunicacao.pdf
-eu-tenho-esperacao.pdf
-Feedback.pdf
-financasPessoais.pdf
-frontEnd.pdf
-html+css+js.pdf
-HTTP.pdf
-industria4.pdf
-iniciação-cientifica.pdf
-Inovacao.pdf
-jurusZero.pdf
-nodeJS.pdf
-Ominstack11.pdf
-Oratoria.pdf
-Oratoria2.pdf
-PM3-design-produto.pdf
-pm3-metrica-de-negocio.pdf
-PM3-storytelling.pdf
-pythonFlash.pdf
-QA Week 2020..pdf
-react.pdf
-semanaextensaoxiii.pdf
-simplaNovas.pdf
-simposiomed1.pdf
-simposiomed3.pdf
-Sprint Inteligência Artificial aplicada ao RH.pdf
-tolerancia.pdf
-violenciaCibernetica.pdf
-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
-Introdução à Linguagem Solidity.pdf
-Operações da Blockchain.pdf
-Introdução à Blockchain.pdf
-Contribuindo em um Projeto.pdf
-introducao-blockchain-web3.pdf
-conceito-web3.pdf
-conceito-blockchain.pdf
-como-criar-portifolio.pdf
-Introdução ao dot NET.pdf
-Azure - Criando máquinas Virtuais.pdf
-Manipulando Arrays no Javascrip com Map, Filter e Reduce.pdf
-Tipos de Serviço de Nuvem.pdf
-Organizando Aplicações React.pdf
-Estilização com Styled-Components.pdf
-Convenções e Qualidade de Código React.pdf
-Benefícios da Computação em Nuvem.pdf
-Primeiros Passos na Biblioteca.pdf
-Configuração de Ambiente React.pdf
-Páginas Web com HTML.pdf
-Estilizando Páginas com CSS.pdf
-Tornando Páginas Web.pdf
-Entendendo a DOM.pdf
-Fundamentos do TypeScript.pdf
-Microsoft Azure - Localizando Serviços.pdf
-Introdução a Computação em Nuvem.pdf
-Conceitos Fundamentais para.pdf
-Introdução ao Desenvolvimento Full Stack com a XP.pdf
-Crie o seu NFT de Pokémon com.pdf
-Criando uma Organização.pdf
-Blockchain Developer with Solidity.pdf
-G4-FundamentosOKRs.pdf
-Decentralized Autonomous.pdf
-Criando o Seu Primeiro Token.pdf
-Como Token Fungíveis Funcionam.pdf
-O Mercado de Blockchain.pdf
-Criando a Sua Primeira.pdf
-Desenvolvimento de Smart.pdf
-Introdução à Linguagem Solidity.pdf
-Operações da Blockchain.pdf
-introducao-blockchain-web3.pdf
-Introdução à Blockchain.pdf
-Contribuindo em um Projeto.pdf
-conceito-web3.pdf
-conceito-blockchain.pdf
-como-criar-portifolio.pdf
 Andre-Publicidade-Rubens.pdf
-andre.pdf
-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+Automação de Testes de Software.pdf
+Azure - Criando máquinas Virtuais.pdf
+BasicoFotografia.pdf
+BasicoMecanicaAutomotiva.pdf
+BasicoMetrologia.pdf
+BasicoTI.pdf
+Benefícios da Computação em Nuvem.pdf
+Blockchain Developer with Solidity.pdf
 Certificado-React.pdf
-QA Week 2020..pdf
-Sprint Inteligência Artificial aplicada ao RH.pdf
-ANDRE-INTELIGENCIA-EXAME.pdf
-PM3-storytelling.pdf
-pm3-metrica-de-negocio.pdf
-PM3-design-produto.pdf
-violenciaCibernetica.pdf
-tolerancia.pdf
-simposiomed3.pdf
-simposiomed1.pdf
-simplaNovas.pdf
-semanaextensaoxiii.pdf
-react.pdf
-pythonFlash.pdf
-Oratoria2.pdf
-Oratoria.pdf
+CertificadoInciacaoCientificaPUC2023.pdf
+Como Token Fungíveis Funcionam.pdf
+Conceitos Fundamentais para.pdf
+Configuração de Ambiente React.pdf
+Construindo um Sistema de Agendamento de Tarefas com Entity Framework.pdf
+Contribuindo em um Projeto.pdf
+Convenções e Qualidade de Código React.pdf
+Criando a Sua Primeira.pdf
+Criando o Seu Blog Pessoal Com Next.pdf
+Criando o Seu Primeiro Token.pdf
+Criando um Sistema e Abstraindo um Celular com POO em C#.pdf
+Criando uma Organização.pdf
+Crie o seu NFT de Pokémon com.pdf
+Curso de Gestão do Tempo.pdf
+DECLARAÇÃO DE TÉRMINO DE TRIMESTRE ANDRÉ DE FARIA.pdf
+Decentralized Autonomous.pdf
+Desenvolvimento de Smart.pdf
+Designer de Serviço - cópia.pdf
+Designer de Serviço.pdf
+Entendendo a DOM.pdf
+Estilização com Styled-Components.pdf
+Estilizando Páginas com CSS.pdf
+Exceções e Coleções com C#.pdf
+Full Stack Developer-DIO.pdf
+Fundamentos de Gestão de Produto: Conceitos e prática.pdf
+Fundamentos do TypeScript.pdf
+G4-FundamentosOKRs.pdf
+Implementando Validações de Testes Unitários com C.pdf
+Introdução à Blockchain.pdf
+Introdução a Computação em Nuvem.pdf
+Introdução à Linguagem Solidity.pdf
+Introdução ao Desenvolvimento Full Stack com a XP.pdf
+Introdução ao dot NET.pdf
+Manipulando Arrays no Javascrip com Map, Filter e Reduce.pdf
+Métricas de Negócios Digitais - cópia.pdf
+Métricas de Negócios Digitais.pdf
+Microsoft Azure - Localizando Serviços.pdf
+Montando Consultas Relacionais no SQL Server.pdf
+Nuget, Serializar e Atributos no C#.pdf
+O Mercado de Blockchain.pdf
 Ominstack11.pdf
-nodeJS.pdf
-jurusZero.pdf
-Inovacao.pdf
-iniciação-cientifica.pdf
-industria4.pdf
-HTTP.pdf
-html+css+js.pdf
-frontEnd.pdf
-financasPessoais.pdf
-Feedback.pdf
-eu-tenho-esperacao.pdf
-Comunicacao.pdf
+Operações da Blockchain.pdf
+Organizando Aplicações React.pdf
+PM3-design-produto.pdf
+PM3-storytelling.pdf
+PUC-eu-tenho-esperacao.pdf
+PUC-semanaextensaoxiii.pdf
+PUC-simposiomed1.pdf
+PUC-simposiomed3.pdf
+PUC-tolerancia.pdf
+PUC-violenciaCibernetica.pdf
+Páginas Web com HTML.pdf
+Primeiros Passos na Biblioteca.pdf
+QA Week 2020..pdf
+SQL SERVER - Dominando Tabelas e Tipos de Dados.pdf
+SQL SERVER - Manipulando Dados.pdf
+Sprint Inteligência Artificial aplicada ao RH.pdf
+Tipos de Serviço de Nuvem.pdf
+Tornando Páginas Web.pdf
+Trabalhando Com Hooks Básicos
+Tuplas, Operador Ternário e Desconstrução de um Objeto com C#.pdf
+alura-AgilidadeTimeDeAltaPerformance.pdf
+alura-Feedback.pdf
+alura-HTTP.pdf
+alura-Inovacao.pdf
+alura-InovacaoSocial_Empreendedorismo.pdf
+alura-InteligênciaArtificialGenerativa_MidjourneyChatGPT.pdf
+alura-comoEOndeInovar.pdf
+alura-comunicação.pdf
+alura-comunicaçãoNãoViolenta.pdf
+alura-cursoAplicaçõesServerlessConstruindo umaAPI-REST.pdf
+alura-cursoORMcomNodeJS_ APIcom Sequelize e MySQL.pdf
+alura-nodejs_API-RestComExpressMongoDB.pdf
+alura-oratoria1.pdf
+alura-oratoria2.pdf
+andre.pdf
+azureDevOps.pdf
+certificado-dowhile.pdf
 certificado-semana-dos-dados.pdf
 certificadoQA.pdf
-Certificado inciacao 2023.pdf
-certificado-dowhile.pdf
-BasicoTI.pdf
-BasicoMetrologia.pdf
-BasicoMecanicaAutomotiva.pdf
-BasicoFotografia.pdf
-azureDevOps.pdf
-André de Faria Carvalho - Curso ORM com NodeJS_ API com Sequelize e MySQL - Alura.pdf
-André de Faria Carvalho - Curso Oratória parte 2_ apresentações em público - Alura.pdf
-André de Faria Carvalho - Curso Oratória parte 1_ compartilhe ideias e histórias - Alura.pdf
-André de Faria Carvalho - Curso Node.js_ API Rest com Express e MongoDB - Alura.pdf
-André de Faria Carvalho - Curso Inteligência artificial Generativa_ Midjourney e ChatGPT - Alura.pdf
-André de Faria Carvalho - Curso Inovação Social e Empreendedorismo_ conduza a mudança e gere impacto - Alura.pdf
-André de Faria Carvalho - Curso Inovação_ descubra como e onde inovar - Alura.pdf
-André de Faria Carvalho - Curso Inovação Aberta_ táticas e ferramentas para implementação - Alura.pdf
-André de Faria Carvalho - Curso HTTP_ Entendendo a web por baixo dos panos - Alura.pdf
-André de Faria Carvalho - Curso Feedback_ a arte de orientar e ser orientado com sentido - Alura.pdf
-André de Faria Carvalho - Curso Comunicação não violenta_ consciência para agir - Alura.pdf
-André de Faria Carvalho - Curso Comunicação_ como se expressar bem e ser compreendido - Alura.pdf
-André de Faria Carvalho - Curso Aplicações Serverless_ construindo uma API REST - Alura.pdf
-André de Faria Carvalho - Curso Agilidade_ como ela pode ajudar a criar um time de alta performance - Alura.pdf
-Agilidade.pdf
+certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+comando.txt
+como-criar-portifolio.pdf
+conceito-blockchain.pdf
+conceito-web3.pdf
+financasPessoais.pdf
+frontEnd.pdf
+harvardxcs50.png
+html+css+js.pdf
+implementacaoAgildeIA - cópia.pdf
+implementacaoAgildeIA.pdf
+index.html
+industria4.pdf
+introducao-blockchain-web3.pdf
+introducao-nextjs.pdf
+lista.txt
+nocaoBásicasDeGestaoFinanceira.pdf
+novasTecnologiaPraNegocio.pdf
+pm3-metrica-de-negocio.pdf
+pythonFlash.pdf
+react.pdf
