@@ -1,113 +1,111 @@
-ANDRE-INTELIGENCIA-EXAME.pdf
-Andre-Publicidade-Rubens.pdf
-Automação de Testes de Software.pdf
-Azure - Criando máquinas Virtuais.pdf
-BasicoFotografia.pdf
-BasicoMecanicaAutomotiva.pdf
-BasicoMetrologia.pdf
-BasicoTI.pdf
-Benefícios da Computação em Nuvem.pdf
-Blockchain Developer with Solidity.pdf
-Certificado-React.pdf
-CertificadoInciacaoCientificaPUC2023.pdf
-Como Token Fungíveis Funcionam.pdf
-Conceitos Fundamentais para.pdf
-Configuração de Ambiente React.pdf
-Construindo um Sistema de Agendamento de Tarefas com Entity Framework.pdf
-Contribuindo em um Projeto.pdf
-Convenções e Qualidade de Código React.pdf
-Criando a Sua Primeira.pdf
-Criando o Seu Blog Pessoal Com Next.pdf
-Criando o Seu Primeiro Token.pdf
-Criando um Sistema e Abstraindo um Celular com POO em C#.pdf
-Criando uma Organização.pdf
-Crie o seu NFT de Pokémon com.pdf
-Curso de Gestão do Tempo.pdf
-DECLARAÇÃO DE TÉRMINO DE TRIMESTRE ANDRÉ DE FARIA.pdf
-Decentralized Autonomous.pdf
-Desenvolvimento de Smart.pdf
-Designer de Serviço - cópia.pdf
-Designer de Serviço.pdf
-Entendendo a DOM.pdf
-Estilização com Styled-Components.pdf
-Estilizando Páginas com CSS.pdf
-Exceções e Coleções com C#.pdf
-Full Stack Developer-DIO.pdf
-Fundamentos de Gestão de Produto: Conceitos e prática.pdf
-Fundamentos do TypeScript.pdf
-G4-FundamentosOKRs.pdf
-Implementando Validações de Testes Unitários com C.pdf
-Introdução à Blockchain.pdf
-Introdução a Computação em Nuvem.pdf
-Introdução à Linguagem Solidity.pdf
-Introdução ao Desenvolvimento Full Stack com a XP.pdf
-Introdução ao dot NET.pdf
-Manipulando Arrays no Javascrip com Map, Filter e Reduce.pdf
-Métricas de Negócios Digitais - cópia.pdf
-Métricas de Negócios Digitais.pdf
-Microsoft Azure - Localizando Serviços.pdf
-Montando Consultas Relacionais no SQL Server.pdf
-Nuget, Serializar e Atributos no C#.pdf
-O Mercado de Blockchain.pdf
-Ominstack11.pdf
-Operações da Blockchain.pdf
-Organizando Aplicações React.pdf
-PM3-design-produto.pdf
-PM3-storytelling.pdf
-PUC-eu-tenho-esperacao.pdf
-PUC-semanaextensaoxiii.pdf
-PNL.pdf
-PUC-simposiomed1.pdf
-PUC-simposiomed3.pdf
-PUC-tolerancia.pdf
-PUC-violenciaCibernetica.pdf
-Páginas Web com HTML.pdf
-Primeiros Passos na Biblioteca.pdf
-QA Week 2020..pdf
-SQL SERVER - Dominando Tabelas e Tipos de Dados.pdf
-SQL SERVER - Manipulando Dados.pdf
-Sprint Inteligência Artificial aplicada ao RH.pdf
-Tipos de Serviço de Nuvem.pdf
-Tornando Páginas Web.pdf
-Trabalhando Com Hooks Básicos
-Tuplas, Operador Ternário e Desconstrução de um Objeto com C#.pdf
 alura-AgilidadeTimeDeAltaPerformance.pdf
+alura-comoEOndeInovar.pdf
+alura-comunicaçãoNãoViolenta.pdf
+alura-comunicação.pdf
+alura-cursoAplicaçõesServerlessConstruindo umaAPI-REST.pdf
+alura-cursoORMcomNodeJS_ APIcom Sequelize e MySQL.pdf
 alura-Feedback.pdf
 alura-HTTP.pdf
 alura-Inovacao.pdf
 alura-InovacaoSocial_Empreendedorismo.pdf
-alura-InteligênciaArtificialGenerativa_MidjourneyChatGPT.pdf
-alura-comoEOndeInovar.pdf
-alura-comunicação.pdf
-alura-comunicaçãoNãoViolenta.pdf
-alura-cursoAplicaçõesServerlessConstruindo umaAPI-REST.pdf
-alura-cursoORMcomNodeJS_ APIcom Sequelize e MySQL.pdf
+alura-InteligênciaArtificialGenerativa_MidjourneyChatGPT.pdf
 alura-nodejs_API-RestComExpressMongoDB.pdf
 alura-oratoria1.pdf
 alura-oratoria2.pdf
 andre.pdf
+Andre-Publicidade-Rubens.pdf
+Aprova-Curso de Gestão do Tempo.pdf
 azureDevOps.pdf
+BasicoFotografia.pdf
+BasicoMecanicaAutomotiva.pdf
+BasicoMetrologia.pdf
+BasicoTI.pdf
+BEE-QA Week 2020..pdf
+Blockchain Developer with Solidity.pdf
 certificado-dowhile.pdf
-certificado-semana-dos-dados.pdf
+CertificadoInciacaoCientificaPUC2023.pdf
 certificadoQA.pdf
-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+certificado-semana-dos-dados.pdf
 comando.txt
-como-criar-portifolio.pdf
-conceito-blockchain.pdf
-conceito-web3.pdf
-financasPessoais.pdf
-frontEnd.pdf
+Cruzeiro-do-sul Automação de Testes de Software.pdf
+DIO-Azure - Criando máquinas Virtuais.pdf
+DIO-Benefícios da Computação em Nuvem.pdf
+DIO-como-criar-portifolio.pdf
+DIO-Como Token Fungíveis Funcionam.pdf
+DIO-conceito-blockchain.pdf
+DIO-Conceitos Fundamentais para.pdf
+DIO-conceito-web3.pdf
+DIO-Configuração de Ambiente React.pdf
+DIO-Construindo um Sistema de Agendamento de Tarefas com Entity Framework.pdf
+DIO-Contribuindo em um Projeto.pdf
+DIO-Convenções e Qualidade de Código React.pdf
+DIO-Criando a Sua Primeira.pdf
+DIO-Criando o Seu Blog Pessoal Com Next.pdf
+DIO-Criando o Seu Primeiro Token.pdf
+DIO-Criando uma Organização.pdf
+DIO-Criando um Sistema e Abstraindo um Celular com POO em C#.pdf
+DIO-Crie o seu NFT de Pokémon com.pdf
+DIO-Decentralized Autonomous.pdf
+DIO-Desenvolvimento de Smart.pdf
+DIO-Entendendo a DOM.pdf
+DIO-Estilização com Styled-Components.pdf
+DIO-Estilizando Páginas com CSS.pdf
+DIO-Exceções e Coleções com C#.pdf
+DIO-Full Stack Developer-DIO.pdf
+DIO-Fundamentos do TypeScript.pdf
+DIO-Implementando Validações de Testes Unitários com C.pdf
+DIO-Introdução à Blockchain.pdf
+DIO-Introdução a Computação em Nuvem.pdf
+DIO-Introdução à Linguagem Solidity.pdf
+DIO-Introdução ao Desenvolvimento Full Stack com a XP.pdf
+DIO-Introdução ao dot NET.pdf
+DIO-introducao-blockchain-web3.pdf
+DIO-introducao-nextjs.pdf
+DIO-Manipulando Arrays no Javascrip com Map, Filter e Reduce.pdf
+DIO-Microsoft Azure - Localizando Serviços.pdf
+DIO-Nuget, Serializar e Atributos no C#.pdf
+DIO-O Mercado de Blockchain.pdf
+DIO-Operações da Blockchain.pdf
+DIO-Organizando Aplicações React.pdf
+DIO-Páginas Web com HTML.pdf
+DIO-Primeiros Passos na Biblioteca.pdf
+DIO-SQL SERVER - Manipulando Dados.pdf
+DIO-Tipos de Serviço de Nuvem.pdf
+DIO-Tornando Páginas Web.pdf
+DIO-Trabalhando Com Hooks Básicos
+DIO-Tuplas, Operador Ternário e Desconstrução de um Objeto com C#.pdf
+Exame-ANDRE-INTELIGENCIA-EXAME.pdf
+Fundamentos de Gestão de Produto: Conceitos e prática.pdf
+G4-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+G4-FundamentosOKRs.pdf
 harvardxcs50.png
-html+css+js.pdf
-implementacaoAgildeIA - cópia.pdf
-implementacaoAgildeIA.pdf
+implementacaoAgildeIA - cópia.pdf
 index.html
-industria4.pdf
-introducao-blockchain-web3.pdf
-introducao-nextjs.pdf
 lista.txt
-nocaoBásicasDeGestaoFinanceira.pdf
+Montando Consultas Relacionais no SQL Server.pdf
+nocaoBásicasDeGestaoFinanceira.pdf
 novasTecnologiaPraNegocio.pdf
+PM3-Designer de Serviço.pdf
+PM3-design-produto.pdf
 pm3-metrica-de-negocio.pdf
-pythonFlash.pdf
-react.pdf
+PM3-Métricas de Negócios Digitais.pdf
+PM3-Sprint Inteligência Artificial aplicada ao RH.pdf
+PM3-storytelling.pdf
+PNL.pdf
+PUC0html+css+js.pdf
+PUC-Certificado-React.pdf
+PUC-eu-tenho-esperacao.pdf
+PUC-frontEnd.pdf
+PUC-pythonFlash.pdf
+PUC-react.pdf
+PUC-semanaextensaoxiii.pdf
+PUC-simposiomed1.pdf
+PUC-simposiomed3.pdf
+PUC-tolerancia.pdf
+PUC-violenciaCibernetica.pdf
+Rocketseat-Ominstack11.pdf
+SENAI-financasPessoais.pdf
+SENAI-industria4.pdf
+SQL SERVER - Dominando Tabelas e Tipos de Dados.pdf
+TERA-implementacaoAgildeIA.pdf
+UPICV-DECLARAÇÃO DE TÉRMINO DE TRIMESTRE ANDRÉ DE FARIA.pdf
