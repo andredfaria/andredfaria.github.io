@@ -1,0 +1,847 @@
+<html>
+  <head>
+    <base href="http://localhost/" />
+    <title>Fishing Simulator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: "Fredoka", sans-serif;
+      }
+
+      #titleScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(lightblue, darkblue);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+      }
+
+      #gameTitle {
+        font-size: 64px;
+        color: white;
+        animation: scaleTitle 0.3s infinite alternate;
+        font-family: "Fredoka", sans-serif;
+        margin: 0;
+      }
+
+      @keyframes scaleTitle {
+        from {
+          transform: scale(1);
+        }
+
+        to {
+          transform: scale(1.2);
+        }
+      }
+
+      #playButton {
+        margin-top: 20px;
+        padding: 15px 30px;
+        font-size: 24px;
+        font-family: "Fredoka", sans-serif;
+        cursor: pointer;
+      }
+
+      #gameCanvas {
+        display: block;
+        background: linear-gradient(#87ceeb 50%, #1e90ff 50%);
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #scoreBoard {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #fff;
+        font-size: 18px;
+        font-family: "Fredoka", sans-serif;
+        text-shadow: 1px 1px 2px #000;
+        z-index: 1;
+      }
+
+      #shopButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-family: "Fredoka", sans-serif;
+        z-index: 1;
+      }
+
+      #bagButton {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-family: "Fredoka", sans-serif;
+        z-index: 1;
+      }
+
+      #shopModal,
+      #newFishModal,
+      #bagModal {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        max-height: 400px;
+        overflow-y: auto;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        box-shadow: 0 0 10px #000;
+        z-index: 2;
+      }
+
+      #shopModal h2,
+      #newFishModal h2,
+      #bagModal h2 {
+        margin-top: 0;
+        text-align: center;
+        font-family: "Fredoka", sans-serif;
+      }
+
+      #shopModal button,
+      #newFishModal button,
+      #bagModal .fishItem button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        font-family: "Fredoka", sans-serif;
+      }
+
+      #bagModal .fishItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 5px;
+        background: rgba(240, 240, 240, 0.8);
+      }
+
+      #confettiCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="titleScreen">
+      <h1 id="gameTitle">Simulador de Pesca</h1>
+      <button id="playButton">Jogar</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <canvas id="confettiCanvas"></canvas>
+    <div id="scoreBoard">Peixes na Bolsa: 0/6<br />Dinheiro: R$0</div>
+    <button id="shopButton">Loja</button>
+    <button id="bagButton">Bolsa</button>
+    <div id="shopModal"></div>
+    <div id="newFishModal"></div>
+    <div id="bagModal"></div>
+    <script>
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const confettiCanvas = document.getElementById("confettiCanvas");
+      const confettiCtx = confettiCanvas.getContext("2d");
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+
+      let fishes = [];
+      let fishing = false;
+      let lineX = 0;
+      let lineY = 0;
+      let lineSpeed = 5;
+      let fishingDown = true;
+      let caughtFish = null;
+
+      let bag = [];
+      let bagCapacity = 6;
+      let money = 0;
+      let capacityUpgradeCost = 5;
+      let lineSpeedUpgradeCost = 15;
+
+      let caughtFishTypes = new Set();
+
+      const fisherman = {
+        x: canvas.width / 2,
+        y: canvas.height / 2 - 200,
+        width: 50,
+        height: 50,
+      };
+
+      let mouseX = fisherman.x + fisherman.width / 2;
+      let mouseY = fisherman.y - 50;
+
+      const fishTypes = [
+        {
+          name: "Sardinha",
+          color: "gray",
+          scale: 1,
+          rarity: 1,
+          sellPrice: 3,
+          unlockCapacity: 0,
+        },
+        {
+          name: "Traíra",
+          color: "blue",
+          scale: 1,
+          rarity: 0.7,
+          sellPrice: 5,
+          unlockCapacity: 8,
+        },
+        {
+          name: "Tilápia",
+          color: "orange",
+          scale: 1,
+          rarity: 0.5,
+          sellPrice: 7,
+          unlockCapacity: 10,
+        },
+        {
+          name: "Pintado",
+          color: "purple",
+          scale: 2,
+          rarity: 0.3,
+          sellPrice: 10,
+          unlockCapacity: 12,
+        },
+        {
+          name: "Dourado",
+          color: "gold",
+          scale: 3,
+          rarity: 0.1,
+          sellPrice: 20,
+          unlockCapacity: 16,
+        },
+        {
+          name: "Tucunaré",
+          color: "darkblue",
+          scale: 3,
+          rarity: 0.15,
+          sellPrice: 15,
+          unlockCapacity: 18,
+        },
+      ];
+
+      let unlockedFishTypes = [];
+
+      function init() {
+        unlockFishTypes();
+        createFishes();
+        canvas.addEventListener("click", startFishing);
+        document
+          .getElementById("shopButton")
+          .addEventListener("click", openShop);
+        document.getElementById("bagButton").addEventListener("click", openBag);
+        canvas.addEventListener("mousemove", function (e) {
+          const rect = canvas.getBoundingClientRect();
+          mouseX = e.clientX - rect.left;
+          mouseY = e.clientY - rect.top;
+        });
+        animate();
+      }
+
+      function unlockFishTypes() {
+        unlockedFishTypes = fishTypes.filter(
+          (fishType) => bagCapacity >= fishType.unlockCapacity
+        );
+      }
+
+      function addFishes(count) {
+        for (let i = 0; i < count; i++) {
+          let fishType = getRandomFishType();
+          let fish = {
+            x: Math.random() * canvas.width,
+            y: canvas.height / 2 + Math.random() * (canvas.height / 2 - 50),
+            speed: Math.random() * 2 + 1,
+            direction: Math.random() < 0.5 ? -1 : 1,
+            width: 30 * fishType.scale,
+            height: 15 * fishType.scale,
+            type: fishType,
+          };
+          fishes.push(fish);
+        }
+      }
+
+      function createFishes() {
+        fishes = [];
+        addFishes(20);
+      }
+
+      function getRandomFishType() {
+        let totalRarity = unlockedFishTypes.reduce(
+          (sum, fishType) => sum + fishType.rarity,
+          0
+        );
+        let random = Math.random() * totalRarity;
+        let sum = 0;
+        for (let fishType of unlockedFishTypes) {
+          sum += fishType.rarity;
+          if (random <= sum) {
+            return fishType;
+          }
+        }
+        return unlockedFishTypes[0];
+      }
+
+      function drawFishes() {
+        fishes.forEach((fish) => {
+          ctx.save();
+          ctx.translate(fish.x, fish.y);
+          if (fish.direction === -1) {
+            ctx.scale(-1, 1);
+          }
+          ctx.fillStyle = fish.type.color;
+
+          if (fish.type.name === "Whale") {
+            ctx.beginPath();
+            ctx.ellipse(
+              0,
+              0,
+              fish.width * 1.5,
+              fish.height * 0.8,
+              0,
+              0,
+              Math.PI * 2
+            );
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(-fish.width * 1.5, 0);
+            ctx.lineTo(-fish.width * 1.5 - 15, -10 * fish.type.scale);
+            ctx.lineTo(-fish.width * 1.5 - 15, 10 * fish.type.scale);
+            ctx.closePath();
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(0, -fish.height * 0.8);
+            ctx.lineTo(0, -fish.height * 0.8 - 15);
+            ctx.lineTo(10 * fish.type.scale, -fish.height * 0.8);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            ctx.arc(
+              fish.width / 2,
+              -fish.height / 4,
+              3 * fish.type.scale,
+              0,
+              Math.PI * 2
+            );
+            ctx.fill();
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(
+              fish.width / 2,
+              -fish.height / 4,
+              1.5 * fish.type.scale,
+              0,
+              Math.PI * 2
+            );
+            ctx.fill();
+          } else {
+            ctx.beginPath();
+            ctx.ellipse(0, 0, fish.width, fish.height, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(-fish.width, 0);
+            ctx.lineTo(-fish.width - 10, -10 * fish.type.scale);
+            ctx.lineTo(-fish.width - 10, 10 * fish.type.scale);
+            ctx.closePath();
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(-fish.width / 2, -fish.height);
+            ctx.lineTo(0, -fish.height - 10 * fish.type.scale);
+            ctx.lineTo(fish.width / 2, -fish.height);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(
+              fish.width / 2,
+              -fish.height / 4,
+              2 * fish.type.scale,
+              0,
+              Math.PI * 2
+            );
+            ctx.fill();
+          }
+          ctx.restore();
+
+          fish.x += fish.speed * fish.direction;
+          if (fish.x < -fish.width || fish.x > canvas.width + fish.width) {
+            fish.direction *= -1;
+          }
+        });
+      }
+
+      function startFishing(e) {
+        if (getBagUsage() >= bagCapacity) {
+          alert("Your bag is full! Go to the shop to sell your fish.");
+          return;
+        }
+        if (!fishing) {
+          fishing = true;
+          lineX = e.clientX;
+          lineY = fisherman.y + fisherman.height;
+          fishingDown = true;
+        } else {
+          fishingDown = false;
+        }
+      }
+
+      function getBagUsage() {
+        return bag.reduce((sum, fish) => sum + fish.type.scale, 0);
+      }
+
+      function drawFishingLine() {
+        if (fishing) {
+          ctx.strokeStyle = "#000";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(fisherman.x + fisherman.width / 2, fisherman.y);
+          ctx.lineTo(lineX, lineY);
+          ctx.stroke();
+
+          if (fishingDown) {
+            lineY += lineSpeed;
+            if (lineY >= canvas.height) {
+              fishingDown = false;
+            }
+            fishes.forEach((fish) => {
+              if (
+                lineX >= fish.x - fish.width &&
+                lineX <= fish.x + fish.width &&
+                lineY >= fish.y - fish.height &&
+                lineY <= fish.y + fish.height
+              ) {
+                caughtFish = fish;
+                fishingDown = false;
+              }
+            });
+          } else {
+            lineY -= lineSpeed;
+            if (caughtFish) {
+              caughtFish.x = lineX;
+              caughtFish.y = lineY;
+            }
+            if (lineY <= fisherman.y) {
+              fishing = false;
+              if (caughtFish) {
+                bag.push(caughtFish);
+                updateScoreBoard();
+                if (!caughtFishTypes.has(caughtFish.type.name)) {
+                  caughtFishTypes.add(caughtFish.type.name);
+                  showNewFishModal(caughtFish.type);
+                }
+                fishes.splice(fishes.indexOf(caughtFish), 1);
+                caughtFish = null;
+                if (getBagUsage() >= bagCapacity) {
+                  alert("Your bag is full! Go to the shop to sell your fish.");
+                }
+              }
+            }
+          }
+        }
+      }
+
+      function drawFisherman() {
+        ctx.fillStyle = "#8B4513";
+        ctx.fillRect(0, fisherman.y + fisherman.height, canvas.width, 20);
+
+        ctx.fillStyle = "#FFDAB9";
+        ctx.fillRect(
+          fisherman.x,
+          fisherman.y,
+          fisherman.width,
+          fisherman.height
+        );
+
+        ctx.strokeStyle = "#000";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(fisherman.x + fisherman.width / 2, fisherman.y);
+
+        let dx = mouseX - (fisherman.x + fisherman.width / 2);
+        let dy = mouseY - fisherman.y;
+        let angle = Math.atan2(dy, dx);
+
+        let rodLength = 50;
+
+        ctx.lineTo(
+          fisherman.x + fisherman.width / 2 + rodLength * Math.cos(angle),
+          fisherman.y + rodLength * Math.sin(angle)
+        );
+        ctx.stroke();
+      }
+
+      function updateScoreBoard() {
+        document.getElementById("scoreBoard").innerHTML =
+          "Fish in Bag: " +
+          getBagUsage() +
+          "/" +
+          bagCapacity +
+          "<br>Money: $" +
+          money;
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Check if there are 10 or fewer fishes and spawn 12 more
+        if (fishes.length <= 10) {
+          addFishes(12);
+        }
+
+        drawFishes();
+        drawFishingLine();
+        drawFisherman();
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener("resize", function () {
+        resizeCanvas();
+        fisherman.x = canvas.width / 2;
+        fisherman.y = canvas.height / 2 - 200;
+      });
+
+      function openShop() {
+        const shopModal = document.getElementById("shopModal");
+        shopModal.style.display = "block";
+
+        shopModal.innerHTML = `
+                  <h2>Loja</h2>
+                  <p>Você tem ${getBagUsage()} / ${bagCapacity} de capacidade da bolsa usada.</p>
+                  <p>Você tem R$${money}.</p>
+                  <button id="sellFishButton">Vender Peixes</button>
+                  <button id="upgradeBagButton">Aumentar Capacidade da Bolsa em 2 (R$${capacityUpgradeCost})</button>
+                  <button id="upgradeLineSpeedButton">Melhorar Velocidade da Linha (x1.5) (R$${lineSpeedUpgradeCost})</button>
+                  <button id="closeShopButton">Fechar Loja</button>
+              `;
+        document
+          .getElementById("sellFishButton")
+          .addEventListener("click", sellFish);
+        document
+          .getElementById("upgradeBagButton")
+          .addEventListener("click", upgradeBag);
+        document
+          .getElementById("upgradeLineSpeedButton")
+          .addEventListener("click", upgradeLineSpeed);
+        document
+          .getElementById("closeShopButton")
+          .addEventListener("click", closeShop);
+      }
+
+      function openBag() {
+        const bagModal = document.getElementById("bagModal");
+        bagModal.style.display = "block";
+        renderBagContents();
+      }
+
+      function closeBag() {
+        const bagModal = document.getElementById("bagModal");
+        bagModal.style.display = "none";
+      }
+
+      function renderBagContents() {
+        const bagModal = document.getElementById("bagModal");
+        bagModal.innerHTML = "<h2>Sua Bolsa</h2>";
+
+        bag.forEach((fish, index) => {
+          const fishItem = document.createElement("div");
+          fishItem.className = "fishItem";
+
+          fishItem.innerHTML = `
+                    <span>${fish.type.name} (Escala: ${fish.type.scale})</span>
+                    <button class="discardButton" data-index="${index}">Descartar</button>
+                `;
+          bagModal.appendChild(fishItem);
+        });
+
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "Fechar";
+        closeButton.addEventListener("click", closeBag);
+        bagModal.appendChild(closeButton);
+
+        const discardButtons = bagModal.querySelectorAll(".discardButton");
+        discardButtons.forEach((button) => {
+          button.addEventListener("click", discardFish);
+        });
+      }
+
+      function discardFish(event) {
+        const index = event.target.getAttribute("data-index");
+        bag.splice(index, 1);
+        updateScoreBoard();
+        renderBagContents();
+      }
+
+      function sellFish() {
+        if (bag.length > 0) {
+          let earnings = 0;
+          bag.forEach((fish) => {
+            earnings += fish.type.sellPrice;
+          });
+          money += earnings;
+          bag = [];
+          caughtFishTypes.clear();
+          updateScoreBoard();
+          alert(`Você vendeu seus peixes por R$${earnings}!`);
+          unlockFishTypes();
+          openShop();
+        } else {
+          alert("Você não tem peixes para vender!");
+        }
+      }
+
+      function upgradeBag() {
+        if (money >= capacityUpgradeCost) {
+          money -= capacityUpgradeCost;
+          bagCapacity += 2;
+          capacityUpgradeCost *= 2;
+          updateScoreBoard();
+          alert(
+            `Capacidade da bolsa aumentada! Nova capacidade é ${bagCapacity}.`
+          );
+          unlockFishTypes();
+          createFishes();
+          openShop();
+        } else {
+          alert("Dinheiro insuficiente para melhorar a bolsa!");
+        }
+      }
+
+      function upgradeLineSpeed() {
+        if (money >= lineSpeedUpgradeCost) {
+          money -= lineSpeedUpgradeCost;
+          lineSpeed *= 1.5;
+          lineSpeedUpgradeCost *= 3;
+          updateScoreBoard();
+          alert(
+            `Velocidade da linha aumentada! Nova velocidade é ${lineSpeed.toFixed(
+              2
+            )}.`
+          );
+          openShop();
+        } else {
+          alert("Dinheiro insuficiente para melhorar a velocidade da linha!");
+        }
+      }
+
+      function closeShop() {
+        const shopModal = document.getElementById("shopModal");
+        shopModal.style.display = "none";
+      }
+
+      let confettiParticles = [];
+      let confettiAnimation;
+
+      function startConfetti() {
+        confettiParticles = [];
+        for (let i = 0; i < 150; i++) {
+          confettiParticles.push({
+            x: Math.random() * confettiCanvas.width,
+            y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+            r: Math.random() * 6 + 4,
+            d: Math.random() * 10 + 10,
+            color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+            tilt: Math.random() * 10 - 10,
+          });
+        }
+        confettiAnimation = requestAnimationFrame(updateConfetti);
+      }
+
+      function stopConfetti() {
+        cancelAnimationFrame(confettiAnimation);
+        confettiCtx.clearRect(
+          0,
+          0,
+          confettiCanvas.width,
+          confettiCanvas.height
+        );
+      }
+
+      function updateConfetti() {
+        confettiCtx.clearRect(
+          0,
+          0,
+          confettiCanvas.width,
+          confettiCanvas.height
+        );
+        confettiParticles.forEach((p) => {
+          confettiCtx.beginPath();
+          confettiCtx.lineWidth = p.r / 2;
+          confettiCtx.strokeStyle = p.color;
+          confettiCtx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          confettiCtx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          confettiCtx.stroke();
+
+          p.y += Math.cos(p.d) + 1 + p.r / 2 / 2;
+          p.x += Math.sin(0);
+          p.tilt = Math.sin(p.d) * 15;
+
+          if (p.y > confettiCanvas.height) {
+            p.y = Math.random() * confettiCanvas.height - confettiCanvas.height;
+            p.x = Math.random() * confettiCanvas.width;
+          }
+        });
+        confettiAnimation = requestAnimationFrame(updateConfetti);
+      }
+
+      function showNewFishModal(fishType) {
+        startConfetti();
+        const newFishModal = document.getElementById("newFishModal");
+        newFishModal.style.display = "block";
+
+        newFishModal.innerHTML = `
+              <h2>Você pegou um novo peixe!</h2>
+              <canvas id="fishPreviewCanvas" width="100" height="50"></canvas>
+              <p><strong>Nome:</strong> ${fishType.name}</p>
+              <p><strong>Escala:</strong> ${fishType.scale}</p>
+              <p><strong>Raridade de Aparição:</strong> ${Math.round(
+                fishType.rarity * 100
+              )}%</p>
+              <p><strong>Preço de Venda:</strong> R$ ${fishType.sellPrice}</p>
+              <button id="closeNewFishButton">Fechar</button>
+          `;
+        drawFishPreview(fishType);
+
+        document
+          .getElementById("closeNewFishButton")
+          .addEventListener("click", () => {
+            newFishModal.style.display = "none";
+            stopConfetti();
+          });
+      }
+
+      function drawFishPreview(fishType) {
+        const previewCanvas = document.getElementById("fishPreviewCanvas");
+        const previewCtx = previewCanvas.getContext("2d");
+
+        previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+
+        previewCtx.save();
+        previewCtx.translate(previewCanvas.width / 2, previewCanvas.height / 2);
+        previewCtx.fillStyle = fishType.color;
+
+        if (fishType.name === "Whale") {
+          previewCtx.beginPath();
+          previewCtx.ellipse(
+            0,
+            0,
+            30 * fishType.scale * 1.5,
+            15 * fishType.scale * 0.8,
+            0,
+            0,
+            Math.PI * 2
+          );
+          previewCtx.fill();
+          previewCtx.beginPath();
+          previewCtx.moveTo(-30 * fishType.scale * 1.5, 0);
+          previewCtx.lineTo(
+            -30 * fishType.scale * 1.5 - 15,
+            -10 * fishType.scale
+          );
+          previewCtx.lineTo(
+            -30 * fishType.scale * 1.5 - 15,
+            10 * fishType.scale
+          );
+          previewCtx.closePath();
+          previewCtx.fill();
+          previewCtx.beginPath();
+          previewCtx.moveTo(0, -15 * fishType.scale * 0.8);
+          previewCtx.lineTo(0, -15 * fishType.scale * 0.8 - 15);
+          previewCtx.lineTo(10 * fishType.scale, -15 * fishType.scale * 0.8);
+          previewCtx.closePath();
+          previewCtx.fill();
+          previewCtx.fillStyle = "white";
+          previewCtx.beginPath();
+          previewCtx.arc(
+            15 * fishType.scale,
+            -3 * fishType.scale,
+            3 * fishType.scale,
+            0,
+            Math.PI * 2
+          );
+          previewCtx.fill();
+          previewCtx.fillStyle = "black";
+          previewCtx.beginPath();
+          previewCtx.arc(
+            15 * fishType.scale,
+            -3 * fishType.scale,
+            1.5 * fishType.scale,
+            0,
+            Math.PI * 2
+          );
+          previewCtx.fill();
+        } else {
+          previewCtx.beginPath();
+          previewCtx.ellipse(
+            0,
+            0,
+            30 * fishType.scale,
+            15 * fishType.scale,
+            0,
+            0,
+            Math.PI * 2
+          );
+          previewCtx.fill();
+          previewCtx.beginPath();
+          previewCtx.moveTo(-30 * fishType.scale, 0);
+          previewCtx.lineTo(-30 * fishType.scale - 10, -10 * fishType.scale);
+          previewCtx.lineTo(-30 * fishType.scale - 10, 10 * fishType.scale);
+          previewCtx.closePath();
+          previewCtx.fill();
+          previewCtx.beginPath();
+          previewCtx.moveTo(-15 * fishType.scale, -15 * fishType.scale);
+          previewCtx.lineTo(0, -15 * fishType.scale - 10 * fishType.scale);
+          previewCtx.lineTo(15 * fishType.scale, -15 * fishType.scale);
+          previewCtx.closePath();
+          previewCtx.fill();
+          previewCtx.fillStyle = "black";
+          previewCtx.beginPath();
+          previewCtx.arc(
+            15 * fishType.scale,
+            -3 * fishType.scale,
+            2 * fishType.scale,
+            0,
+            Math.PI * 2
+          );
+          previewCtx.fill();
+        }
+
+        previewCtx.restore();
+      }
+
+      document.getElementById("playButton").addEventListener("click", () => {
+        document.getElementById("titleScreen").style.display = "none";
+        init();
+      });
+    </script>
+  </body>
+</html>
