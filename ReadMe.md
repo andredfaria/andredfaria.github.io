@@ -2,11 +2,11 @@
 
 [andredfaria.io](https://andredfaria.github.io/) Preview  🚀
 
-Esse projeto foi elaborado para a divulgação do portfolio
+This project was made to promote the portfolio
 
-## 👊🏻 social
+## 👤 social
 
-Me encontre nas redes Sociais
+Find me on social midia
 
 - [LinkedIn](https://www.linkedin.com/in/andre-de-faria/)
 - [X](https://x.com/andredfaria)
