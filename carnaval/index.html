@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Moderna</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonte personalizada -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #7f8c8d;
+            --light-color: #ecf0f1;
+            --text-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+        
+        .hero-section {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/800/600') center/cover no-repeat;
+            opacity: 0.05;
+        }
+        
+        .hero-text {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .hero-text h1 {
+            font-weight: 700;
+            font-size: calc(1.8rem + 1.5vw);
+        }
+        
+        .second-section {
+            min-height: 40vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .message-text {
+            font-size: calc(1.2rem + 1vw);
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .floating-shapes div {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .shape1 {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            top: 10%;
+            left: 10%;
+        }
+        
+        .shape2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary-color);
+            bottom: 15%;
+            right: 5%;
+        }
+        
+        .btn-formal {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            border: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-formal:hover {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-10 col-lg-8 hero-text">
+                    <h1 id="impact-phrase" class="mb-4"></h1>
+                    <p class="lead mb-5">Contagem atual: <span id="random-count"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segunda Seção - Texto -->
+    <section class="second-section">
+        <div class="floating-shapes">
+            <div class="shape1"></div>
+            <div class="shape2"></div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-10 col-lg-8">
+                    <p class="message-text">Já que está aqui, paga uma cerveja! 🍺</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Array de frases de impacto
+        const phrases = [
+          "Mais um curioso caiu!",
+          "A curiosidade matou o gato na esquina!",
+          "A vida é feita de escolhas… e você escolheu escanear um QR Code no meio do Carnaval!",
+          "Você poderia estar curtindo o Carnaval, mas escolheu escanear um QR Code aleatório!",
+          "Bem-vindo à sociedade secreta dos curiosos! Senha pra entrar: 1 litrão!",
+          "Você podia ter ignorado esse QR Code, mas agora já era!",
+          "Agora que chegou até aqui, só falta mandar um Pix e a missão tá completa!",
+          "Você tem duas opções: voltar pro bloco ou pagar minha cerveja. Escolha sabiamente!",
+        ];
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function changePhrase() {
+            const phraseElement = document.getElementById('impact-phrase');
+            const currentPhrase = phraseElement.textContent;
+            let newPhrase;
+            
+            do {
+                const randomIndex = Math.floor(Math.random() * phrases.length);
+                newPhrase = phrases[randomIndex];
+            } while (newPhrase === currentPhrase && currentPhrase !== "Carregando...");
+            
+            phraseElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                phraseElement.textContent = newPhrase;
+                phraseElement.style.opacity = 1;
+            }, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const phraseElement = document.getElementById('impact-phrase');
+            const countElement = document.getElementById('random-count');
+
+            phraseElement.style.transition = 'opacity 0.3s ease-in-out';
+
+            // Definir número aleatório para contagem
+            countElement.textContent = getRandomNumber(10, 80);
+
+            setTimeout(changePhrase, 500);
+        });
+
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('shouldChangePhraseOnLoad', 'true');
+        });
+    </script>
+</body>
+</html>
