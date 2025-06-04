@@ -30,7 +30,31 @@
         <i>Ciência da Computação - CAMPUS POÇOS DE CALDAS - PPC</i>
         <p>Situação:  <span class="matric">Matriculado</span></p>
         <p>Matricula:  <b>624145</b></p>
+        <p>Validade:  <b id="validade-data"></b></p>
         <br>
     </div>
+
+    <script>
+        // Função para calcular data de validade (3 meses a partir de hoje)
+        function calcularDataValidade() {
+            const hoje = new Date();
+            const dataValidade = new Date(hoje);
+            
+            // Adiciona 3 meses
+            dataValidade.setMonth(dataValidade.getMonth() + 3);
+            
+            // Formata a data para dd/mm/yyyy
+            const dia = String(dataValidade.getDate()).padStart(2, '0');
+            const mes = String(dataValidade.getMonth() + 1).padStart(2, '0');
+            const ano = dataValidade.getFullYear();
+            
+            return `${dia}/${mes}/${ano}`;
+        }
+        
+        // Preenche o campo de validade quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('validade-data').textContent = calcularDataValidade();
+        });
+    </script>
 
 <div id="loom-companion-mv3" ext-id="liecbddmkiiihnedobmlmillhodjkdmb"><section id="shadow-host-companion"></section></div></body></html>
