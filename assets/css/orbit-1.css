@@ -338,3 +338,21 @@ p {
     margin-bottom: 0;
   }
 }
+
+.show-more-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #42A8C0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background-color: #2d7788;
+}
