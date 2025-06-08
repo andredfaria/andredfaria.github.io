@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eBooks de IA </title>
+  <meta name="description"
+    content="Domine a Inteligência Artificial com nossos eBooks especializados. Guia Prático de IA e Engenharia de Prompt para transformar sua carreira." />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #06b6d4;
+      --accent-color: #f59e0b;
+      --success-color: #10b981;
+      --dark-color: #1f2937;
+      --light-color: #f8fafc;
+    }
+
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      line-height: 1.7;
+      color: var(--dark-color);
+    }
+
+    .navbar {
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary-color) !important;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,100 1000,0"/></svg>');
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(45deg, var(--accent-color), #f97316);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-primary-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(249, 115, 22, 0.4);
+    }
+
+    .product-card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card .card-header {
+      background: linear-gradient(135deg,
+          var(--primary-color),
+          var(--secondary-color));
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border: none;
+    }
+
+    .product-card .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    .product-card .card-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-card .card-content {
+      flex-grow: 1;
+    }
+
+    .product-card .card-footer {
+      margin-top: auto;
+      padding-top: 1.5rem;
+    }
+
+    .author-section {
+      background: var(--light-color);
+      padding: 80px 0;
+    }
+
+    .author-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .author-avatar {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg,
+          var(--primary-color),
+          var(--secondary-color));
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      font-weight: 700;
+      overflow: hidden;
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .benefits-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .benefit-item {
+      text-align: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--success-color), #059669);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .pricing-section {
+      background: linear-gradient(135deg, #1f2937, #374151);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .price-card {
+      background: white;
+      color: var(--dark-color);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .price-original {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-current {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .linkedin-btn {
+      background: #0077b5;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .linkedin-btn:hover {
+      background: #005885;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .btn-primary-custom {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <i class="bi bi-book-half"></i> Guias de IA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#produtos">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#autor">Quem criou</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#garantias">Garantias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#comprar">Comprar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center hero-content">
+          <h1 class="hero-title">Domine a Inteligência Artificial</h1>
+          <p class="hero-subtitle">
+            Transforme sua carreira com conhecimento prático e teórico em IA.
+            Dois eBooks completos para você se destacar no mercado digital.
+          </p>
+          <!-- <a href="#comprar" class="btn btn-primary-custom pulse-animation">
+            <i class="bi bi-cart-fill me-2"></i>
+            COMPRAR AGORA
+          </a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="produtos" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Produtos</h2>
+      <div class="row g-4">
+        <!-- Produto 1 -->
+        <div class="col-lg-6">
+          <div class="card product-card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <i class="bi bi-robot me-2"></i>
+                Guia Prático de Uso de IA
+              </h3>
+            </div>
+            <div class="card-body">
+              <div class="card-content">
+                <p class="card-text">
+                  Descubra como utilizar a Inteligência Artificial no seu dia a
+                  dia, nos negócios e na sua vida pessoal. Este guia prático
+                  oferece ferramentas, tutoriais e estratégias para você
+                  aprender a usar IA de forma eficiente, produtiva e segura.
+                </p>
+                <p class="card-text">
+                  Com exemplos reais de prompt, dicas e explicações claras, com estilos de prompt para cada caso.
+                </p>
+                <p class="card-text">
+                  <strong>Ideal para:</strong> Quem quer dominar essa tecnologia
+                  e se destacar no mercado digital.
+                </p>
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="badge bg-success fs-6">Acesso Imediato</span>
+                  <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                </div> -->
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <div class="mb-2">
+                    <span class="h7 text-muted">De</span>
+                    <span class="h6 text-gray fw-bold text-decoration-line-through">R$ 68,97</span>
+                  </div>
+                  <div class="mb-2">
+                    <span class="h5 text-muted">Por apenas</span>
+                    <span class="h4 text-success fw-bold">R$ 18,97</span>
+                  </div>
+                  <a href="https://pay.hotmart.com/B99955791Q" target="_blank" class="btn btn-primary-custom">
+                    <i class="bi bi-cart-fill me-2"></i>
+                    COMPRAR AGORA
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="col-lg-6">
+          <div class="card product-card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <i class="bi bi-code-slash me-2"></i>
+                Guia Teórico de Engenharia de Prompt
+              </h3>
+            </div>
+            <div class="card-body">
+              <div class="card-content">
+                <p class="card-text">
+                  Aprenda a arte de criar interações poderosas com modelos de
+                  linguagem. Este ebook traz uma abordagem completa de teoria e
+                  prática para dominar a construção de prompts eficazes com
+                  LLMs.
+                </p>
+                <p class="card-text">
+                  Com exemplos reais, dicas e explicações claras, você vai
+                  otimizar resultados, personalizar respostas e aplicar IA em
+                  sua área de atuação.
+                </p>
+                <p class="card-text">
+                  <strong>Ideal para:</strong> Iniciantes e profissionais que
+                  desejam dominar uma habilidade que já está moldando o futuro.
+                </p>
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="badge bg-success fs-6">Acesso Imediato</span>
+                  <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                </div> -->
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <div class="mb-2">
+                    <span class="h7 text-muted">De</span>
+                    <span class="h6 text-gray fw-bold text-decoration-line-through">R$ 68,97</span>
+                  </div>
+                  <div class="mb-2">
+                    <span class="h5 text-muted">Por apenas</span>
+                    <span class="h4 text-success fw-bold">R$ 18,97</span>
+                  </div>
+                  <a href="https://pay.hotmart.com/Y97304612O?off=r0lu6nnz" target="_blank"
+                    class="btn btn-primary-custom">
+                    <i class="bi bi-cart-fill me-2"></i>
+                    COMPRAR AGORA
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author Section -->
+  <section id="autor" class="author-section">
+    <div class="container">
+      <h2 class="section-title">Quem criou o conteúdo</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="author-card">
+            <div class="author-avatar">
+              <img src="arquivos/eu.jpg" alt="André De Faria Carvalho" class="img-fluid rounded-circle" />
+            </div>
+            <h3 class="h2 mb-3">André De Faria Carvalho</h3>
+            <p class="lead mb-4">
+              Especialista em desenvolvimento e inteligência artificial, com
+              mais de 5 anos de experiência no setor de tecnologia. Possui
+              sólida vivência na aplicação prática de IA no mercado.
+            </p>
+            <p class="mb-4">
+              A missão destes eBooks é guiar você no domínio das ferramentas
+              que estão transformando o mundo do trabalho e da inovação.
+            </p>
+            <a href="https://www.linkedin.com/in/andre-de-faria/" target="_blank" class="linkedin-btn">
+              <i class="bi bi-linkedin"></i>
+              Conecte-se no LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="garantias" class="benefits-section">
+    <div class="container">
+      <h2 class="section-title">Benefícios e Garantias</h2>
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <h4>Acesso Imediato</h4>
+            <p>Em qualquer dispositivo, a qualquer hora</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="bi bi-shield-lock-fill"></i>
+            </div>
+            <h4>100% Confidencial</h4>
+            <p>Seus dados são totalmente seguros</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="bi bi-credit-card-fill"></i>
+            </div>
+            <h4>Compra Segura</h4>
+            <p>Pagamento 100% protegido</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="bi bi-arrow-clockwise"></i>
+            </div>
+            <h4>Garantia Total</h4>
+            <p>Dinheiro de volta sem perguntas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="comprar" class="pricing-section">
+    <div class="container">
+      <h2 class="section-title text-white">Escolha seu eBook</h2>
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-5">
+          <div class="price-card">
+            <h4 class="mb-3">
+              <i class="bi bi-robot me-2"></i>
+              Guia Prático de IA
+            </h4>
+            <div class="price-current">R$ 18,97</div>
+            <p class="mb-4">
+              <strong>Guia completo de uso prático</strong><br />
+              Acesso vitalício • Suporte incluso
+            </p>
+            <a href="https://pay.hotmart.com/B99955791Q" target="_blank"
+              class="btn btn-primary-custom w-100 mb-3 pulse-animation">
+              <i class="bi bi-cart-fill me-2"></i>
+              COMPRAR AGORA
+            </a>
+            <p class="small text-muted mb-0">
+              <i class="bi bi-shield-check me-1"></i>
+              Pagamento 100% seguro com acesso imediato
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="price-card">
+            <h4 class="mb-3">
+              <i class="bi bi-code-slash me-2"></i>
+              Engenharia de Prompt
+            </h4>
+            <div class="price-current">R$ 18,97</div>
+            <p class="mb-4">
+              <strong>Guia teórico completo</strong><br />
+              Acesso vitalício • Suporte incluso
+            </p>
+            <a href="https://pay.hotmart.com/Y97304612O?off=r0lu6nnz" target="_blank"
+              class="btn btn-primary-custom w-100 mb-3 pulse-animation">
+              <i class="bi bi-cart-fill me-2"></i>
+              COMPRAR AGORA
+            </a>
+            <p class="small text-muted mb-0">
+              <i class="bi bi-shield-check me-1"></i>
+              Pagamento 100% seguro com acesso imediato
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8 text-center">
+          <p class="text-white-50">
+            <i class="bi bi-info-circle me-2"></i>
+            Cada eBook é vendido separadamente. Você pode adquirir um ou ambos
+            conforme sua necessidade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            &copy; 2025 André De Faria Carvalho. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-light me-3">Política de Privacidade</a>
+          <a href="#" class="text-light">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Smooth Scrolling -->
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("bg-white");
+        navbar.classList.remove("bg-light");
+      } else {
+        navbar.classList.add("bg-light");
+        navbar.classList.remove("bg-white");
+      }
+    });
+  </script>
+</body>
+
+</html>
