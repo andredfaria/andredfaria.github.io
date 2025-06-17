@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Trocador de Cores</title>
-	<style>
-		body {
-			background-color: #FFFFFF;
-			text-align: center;
-			padding: 20px;
-			font-size: 2em;
-		}
+  <head>
+    <title>Trocador de Cores</title>
+    <style>
+      body {
+        background-color: #ffffff;
+        text-align: center;
+        padding: 20px;
+        font-size: 2em;
+      }
 
-		button {
-			font-size: 1em;
-			padding: 10px 20px;
-			background-color: #4CAF50;
-			color: #FFFFFF;
-			border: none;
-			border-radius: 4px;
-			cursor: pointer;
-		}
-	</style>
-</head>
-<body>
-	<h1>Trocador de Cores</h1>
-	<h2 id="cor">#</h2>
-	<button onclick="trocarCor()">Trocar Cor</button>
+      button {
+        font-size: 1em;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Trocador de Cores</h1>
+    <h2 id="cor">#</h2>
+    <button onclick="trocarCor()">Trocar Cor</button>
+    <br>
+    <br>
+    <button onclick="exibirImagem()">Exibir Imagem</button>
+    <br>
+    <br>
+    <img id="randomImage" src="" alt="Imagem Aleatória" />
 
-	<script>
-		function trocarCor() {
-				let cor = gerarCorAleatoria();
-				document.body.style.backgroundColor = cor;
-				document.getElementById("cor").innerText = cor;
-			}
+    <script>
+      function trocarCor() {
+        let cor = gerarCorAleatoria();
+        document.body.style.backgroundColor = cor;
+        document.getElementById("cor").innerText = cor;
+      }
 
-			function gerarCorAleatoria() {
-				let letras = "0123456789ABCDEF";
-				let cor = "#";
-				for (let i = 0; i < 6; i++) {
-					cor += letras[Math.floor(Math.random() * 16)];
-				}
-				return cor;
-			}
-	</script>
-</body>
+      function gerarCorAleatoria() {
+        let letras = "0123456789ABCDEF";
+        let cor = "#";
+        for (let i = 0; i < 6; i++) {
+          cor += letras[Math.floor(Math.random() * 16)];
+        }
+        return cor;
+      }
+      function exibirImagem() {
+        const imgElement = document.getElementById("randomImage");
+        imgElement.src =
+          "https://picsum.photos/200/300?random=" + new Date().getTime();
+      }
+    </script>
+  </body>
 </html>
