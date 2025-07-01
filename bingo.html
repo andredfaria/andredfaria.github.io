@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Bingo Personalizado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .bingo-card {
+            border: 2px solid #333;
+            padding: 5px;
+            background-color: #fff;
+            page-break-inside: avoid;
+        }
+        .bingo-card h5 {
+            background-color: #0d6efd;
+            color: white;
+            padding: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .bingo-card table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bingo-card th, .bingo-card td {
+            border: 1px solid #ccc;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px 2px;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+        .bingo-card th {
+            background-color: #e9ecef;
+            font-size: 20px;
+        }
+        .free-space {
+            background-color: #dcfce7;
+            color: #166534;
+            font-size: 12px !important;
+        }
+        #game-board {
+            display: none;
+        }
+        .drawn-number-display {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #0d6efd;
+            text-align: center;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 15px;
+            border: 5px solid #0d6efd;
+            margin-bottom: 1rem;
+            min-height: 180px;
+        }
+        .called-board {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 5px;
+            margin-top: 1.5rem;
+        }
+        .called-item {
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .called-item.drawn {
+            background-color: #198754;
+            color: white;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #cards-container, #cards-container * {
+                visibility: visible;
+            }
+            #cards-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .bingo-card {
+                margin-bottom: 20px;
+            }
+            .col-md-4 {
+                 width: 33.33% !important;
+                 float: left !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <!-- Configuration Section -->
+        <div id="setup-section">
+            <div class="text-center">
+                <h1 class="mb-4">Gerador e Jogo de Bingo</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">1. Tipo de Bingo</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="bingoType" id="numericBingo" value="numeric" checked>
+                                <label class="form-check-label" for="numericBingo">
+                                    Numérico (1 a 75)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="bingoType" id="customBingo" value="custom">
+                                <label class="form-check-label" for="customBingo">
+                                    Personalizado (com palavras)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">2. Configurações</h5>
+                            <!-- <div class="mb-3">
+                                <label for="bingoTitle" class="form-label">Título do Evento</label>
+                                <input type="text" class="form-control" id="bingoTitle" placeholder="Ex: Chá de Bebê da Ana">
+                            </div> -->
+                            <div class="mb-3">
+                                <label for="cardQuantity" class="form-label">Quantidade de Cartelas</label>
+                                <input type="number" class="form-control" id="cardQuantity" value="10" min="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4" id="custom-items-section" style="display: none;">
+                <div class="card-body">
+                    <h5 class="card-title">3. Itens Personalizados</h5>
+                    <p class="card-text">Digite ou cole os itens para o bingo, um por linha. Mínimo de 24 itens recomendados.</p>
+                    <textarea class="form-control" id="customItems" rows="8" placeholder="Item 1
+Item 2
+Item 3..."></textarea>
+                </div>
+            </div>
+            <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary btn-lg" id="generate-cards-btn">Gerar Cartelas</button>
+            </div>
+        </div>
+
+        <!-- Cards & Game Start Section -->
+        <div id="cards-section" style="display: none;">
+            <div class="text-center mb-4">
+                <h2 id="generated-title"></h2>
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                    <button class="btn btn-success" id="start-game-btn">Iniciar Jogo</button>
+                    <button class="btn btn-info" id="share-btn">Compartilhar</button>
+                    <button class="btn btn-secondary" onclick="window.print()">Imprimir Cartelas</button>
+                    <button class="btn btn-outline-danger" onclick="location.reload()">Criar Novo Bingo</button>
+                </div>
+            </div>
+            <div id="cards-container" class="row g-4"></div>
+        </div>
+
+        <!-- Game Board Section -->
+        <div id="game-board" style="display: none;">
+            <div class="text-center mb-4">
+                <h2 id="game-title"></h2>
+                <button class="btn btn-outline-danger" onclick="location.reload()">Encerrar e Criar Novo Bingo</button>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Próximo Sorteio</h4>
+                    <button class="btn btn-primary btn-lg w-100 mb-3" id="draw-next-btn">Sortear!</button>
+                    <div class="drawn-number-display d-flex align-items-center justify-content-center">
+                        <span id="drawn-item-display"></span>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h4>Itens Sorteados</h4>
+                    <div id="called-board-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let gameState = {
+            type: 'numeric',
+            title: '',
+            items: [],
+            cards: [], // To store each card's data
+            drawPile: [],
+            calledItems: []
+        };
+
+        // DOM Elements
+        const setupSection = document.getElementById('setup-section');
+        const cardsSection = document.getElementById('cards-section');
+        const gameBoard = document.getElementById('game-board');
+        const customItemsSection = document.getElementById('custom-items-section');
+        const numericBingoRadio = document.getElementById('numericBingo');
+        const customBingoRadio = document.getElementById('customBingo');
+        const generateBtn = document.getElementById('generate-cards-btn');
+        const startGameBtn = document.getElementById('start-game-btn');
+        const drawNextBtn = document.getElementById('draw-next-btn');
+        const shareBtn = document.getElementById('share-btn');
+
+        // Event Listeners
+        window.addEventListener('DOMContentLoaded', init);
+        numericBingoRadio.addEventListener('change', () => {
+            customItemsSection.style.display = 'none';
+        });
+        customBingoRadio.addEventListener('change', () => {
+            customItemsSection.style.display = 'block';
+        });
+        generateBtn.addEventListener('click', generateCards);
+        startGameBtn.addEventListener('click', startGame);
+        drawNextBtn.addEventListener('click', drawNext);
+        shareBtn.addEventListener('click', shareBingo);
+
+        // --- Core Functions ---
+
+        function init() {
+            try {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const decodedData = JSON.parse(atob(hash));
+                    if (decodedData.title && decodedData.type && decodedData.items && decodedData.cards) {
+                        generateCardsFromData(decodedData);
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to load data from URL:", e);
+                // If loading fails, just show the normal setup screen
+            }
+        }
+
+        function generateCards() {
+            const type = document.querySelector('input[name="bingoType"]:checked').value;
+            const title = 'Bingo';
+            const quantity = parseInt(document.getElementById('cardQuantity').value, 10);
+            
+            gameState.type = type;
+            gameState.title = title;
+            gameState.cards = []; // Reset cards
+
+            let items = [];
+            if (type === 'custom') {
+                items = document.getElementById('customItems').value.split('\n').map(item => item.trim()).filter(item => item);
+                if (items.length < 24) {
+                    alert('Para um bingo personalizado, por favor, forneça pelo menos 24 itens.');
+                    return;
+                }
+            } else {
+                for (let i = 1; i <= 75; i++) items.push(i);
+            }
+            gameState.items = items;
+
+            const cardsContainer = document.getElementById('cards-container');
+            cardsContainer.innerHTML = '';
+
+            for (let i = 0; i < quantity; i++) {
+                let cardData;
+                if (type === 'numeric') {
+                    cardData = generateNumericCardData();
+                } else {
+                    cardData = generateCustomCardData(items);
+                }
+                gameState.cards.push(cardData);
+                const cardElement = createCardElement(title, type, cardData);
+                cardsContainer.appendChild(cardElement);
+            }
+
+            document.getElementById('generated-title').textContent = title;
+            setupSection.style.display = 'none';
+            cardsSection.style.display = 'block';
+        }
+        
+        function generateCardsFromData(data) {
+            gameState = data;
+            const cardsContainer = document.getElementById('cards-container');
+            cardsContainer.innerHTML = '';
+
+            data.cards.forEach(cardData => {
+                const cardElement = createCardElement(data.title, data.type, cardData);
+                cardsContainer.appendChild(cardElement);
+            });
+
+            document.getElementById('generated-title').textContent = data.title;
+            setupSection.style.display = 'none';
+            cardsSection.style.display = 'block';
+        }
+
+        function createCardElement(title, type, cardNumbers) {
+            const cardCol = document.createElement('div');
+            cardCol.className = 'col-md-4';
+
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'bingo-card';
+
+            const titleEl = document.createElement('h5');
+            titleEl.className = 'text-center';
+            titleEl.textContent = title;
+
+            const table = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tbody = document.createElement('tbody');
+            
+            const headers = type === 'numeric' ? ['B', 'I', 'N', 'G', 'O'] : 'BINGO'.split('');
+            const trHead = document.createElement('tr');
+            headers.forEach(h => {
+                const th = document.createElement('th');
+                th.textContent = h;
+                trHead.appendChild(th);
+            });
+            thead.appendChild(trHead);
+
+            for (let i = 0; i < 5; i++) { // rows
+                const tr = document.createElement('tr');
+                for (let j = 0; j < 5; j++) { // columns
+                    const td = document.createElement('td');
+                    if (i === 2 && j === 2) {
+                        td.textContent = 'GRÁTIS';
+                        td.className = 'free-space';
+                    } else {
+                        td.textContent = cardNumbers[j][i];
+                    }
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+
+            table.append(thead, tbody);
+            cardDiv.append(titleEl, table);
+            cardCol.appendChild(cardDiv);
+            return cardCol;
+        }
+
+        function generateNumericCardData() {
+            const columns = [
+                shuffleAndPick(getNumbers(1, 15), 5),
+                shuffleAndPick(getNumbers(16, 30), 5),
+                shuffleAndPick(getNumbers(31, 45), 4), // For N column
+                shuffleAndPick(getNumbers(46, 60), 5),
+                shuffleAndPick(getNumbers(61, 75), 5)
+            ];
+            // Insert the free space marker for data consistency
+            columns[2].splice(2, 0, 'GRÁTIS');
+            return columns;
+        }
+
+        function generateCustomCardData(items) {
+            const pickedItems = shuffleAndPick(items, 24);
+            const columns = [
+                pickedItems.slice(0, 5),
+                pickedItems.slice(5, 10),
+                pickedItems.slice(10, 14),
+                pickedItems.slice(14, 19),
+                pickedItems.slice(19, 24)
+            ];
+            // Insert the free space marker for data consistency
+            columns[2].splice(2, 0, 'GRÁTIS');
+            return columns;
+        }
+
+        async function shareBingo() {
+            const dataToShare = {
+                title: gameState.title,
+                type: gameState.type,
+                items: gameState.items,
+                cards: gameState.cards
+            };
+            const jsonString = JSON.stringify(dataToShare);
+            const base64String = btoa(jsonString);
+            
+            const url = new URL(window.location.href.split('#')[0]);
+            url.hash = base64String;
+            
+            const shareData = {
+                title: `Bingo: ${gameState.title}`,
+                text: `Jogue bingo comigo! Abra este link para ver suas cartelas:`,
+                url: url.href,
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    await navigator.clipboard.writeText(url.href);
+                    alert('Link de compartilhamento copiado para a área de transferência!');
+                }
+            } catch (err) {
+                console.error('Share failed:', err);
+                alert('Falha ao compartilhar. O link foi copiado para a área de transferência.');
+                await navigator.clipboard.writeText(url.href);
+            }
+        }
+
+        function startGame() {
+            cardsSection.style.display = 'none';
+            gameBoard.style.display = 'block';
+            document.getElementById('game-title').textContent = `Jogo: ${gameState.title}`;
+
+            gameState.drawPile = shuffle([...gameState.items]);
+            gameState.calledItems = [];
+
+            renderCalledBoard();
+        }
+
+        function drawNext() {
+            if (gameState.drawPile.length === 0) {
+                document.getElementById('drawn-item-display').textContent = "FIM!";
+                drawNextBtn.disabled = true;
+                return;
+            }
+
+            const drawnItem = gameState.drawPile.pop();
+            gameState.calledItems.push(drawnItem);
+
+            document.getElementById('drawn-item-display').textContent = drawnItem;
+            
+            const itemOnBoard = document.getElementById(`called-item-${drawnItem}`);
+            if(itemOnBoard) {
+                itemOnBoard.classList.add('drawn');
+            }
+        }
+
+        function renderCalledBoard() {
+            const container = document.getElementById('called-board-container');
+            container.innerHTML = '';
+            const board = document.createElement('div');
+            
+            if (gameState.type === 'numeric') {
+                board.className = 'called-board';
+                gameState.items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'called-item';
+                    itemDiv.id = `called-item-${item}`;
+                    itemDiv.textContent = item;
+                    board.appendChild(itemDiv);
+                });
+            } else {
+                 board.className = 'd-flex flex-wrap gap-2';
+                 gameState.items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'called-item p-2';
+                    itemDiv.id = `called-item-${item.replace(/\s+/g, '-')}`;
+                    itemDiv.textContent = item;
+                    board.appendChild(itemDiv);
+                });
+            }
+            container.appendChild(board);
+        }
+
+        // --- Utility Functions ---
+
+        function getNumbers(start, end) {
+            const arr = [];
+            for (let i = start; i <= end; i++) {
+                arr.push(i);
+            }
+            return arr;
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function shuffleAndPick(array, count) {
+            return shuffle([...array]).slice(0, count);
+        }
+
+    </script>
+</body>
+</html>
