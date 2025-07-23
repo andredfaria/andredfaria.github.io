@@ -7,6 +7,7 @@ BasicoMetrologia.pdf
 BasicoTI.pdf
 Blockchain Developer with Solidity.pdf
 Certificado-funcionamento do computador.pdf
+CertificadoDeConclusao_Como Usar a Inteligencia Artificial para Aumentar seu BemEstar.pdf
 CertificadoDeConclusao_Desenvolvimento de Chatbots com Python.pdf
 CertificadoDeConclusao_Fundamentos de Next.js.pdf
 CertificadoDeConclusao_IA Generativa A Evolucao da Busca Online Inteligente-.pdf
