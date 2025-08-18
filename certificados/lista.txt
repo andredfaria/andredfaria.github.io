@@ -1,3 +1,4 @@
+Alinhando-visão-de-marketing.pdf
 Andre-Publicidade-Rubens.pdf
 Aprova-Curso de Gestão do Tempo.pdf
 BEE-QA Week 2020..pdf
@@ -7,9 +8,11 @@ BasicoMetrologia.pdf
 BasicoTI.pdf
 Blockchain Developer with Solidity.pdf
 Certificado-funcionamento do computador.pdf
+CertificadoDeConclusao_Build AI Agents and Automate Workflows with n8n.pdf
 CertificadoDeConclusao_Como Usar a Inteligencia Artificial para Aumentar seu BemEstar.pdf
 CertificadoDeConclusao_Desenvolvimento de Chatbots com Python.pdf
 CertificadoDeConclusao_Fundamentos de Next.js.pdf
+CertificadoDeConclusao_Fundamentos de TypeScript.pdf
 CertificadoDeConclusao_IA Generativa A Evolucao da Busca Online Inteligente-.pdf
 CertificadoDeConclusao_IA Generativa A Evolucao da Busca Online Inteligente.pdf
 CertificadoDeConclusao_Prompt Engineering -Conversar com uma IAGenerativa.pdf
@@ -66,6 +69,8 @@ Exame-ANDRE-INTELIGENCIA-EXAME.pdf
 Fundamentos de Gestão de Produto: Conceitos e prática.pdf
 G4-FundamentosOKRs.pdf
 G4-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+IA-em-4-dimensoes-FIAP-ALURA.jpg
+IA-em-4-dimensoes-FIAP-ALURA.pdf
 Montando Consultas Relacionais no SQL Server.pdf
 PM3-Designer de Serviço.pdf
 PM3-Métricas de Negócios Digitais.pdf
@@ -119,3 +124,4 @@ lista.txt
 nocaoBásicasDeGestaoFinanceira.pdf
 novasTecnologiaPraNegocio.pdf
 pm3-metrica-de-negocio.pdf
+web3-cerficado.pdf
