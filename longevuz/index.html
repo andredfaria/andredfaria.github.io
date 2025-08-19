@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baserow - Tabela User</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .controls {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .controls button {
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .controls button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .controls button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status {
+      margin-left: 20px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .table-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    td {
+      transition: background-color 0.3s ease;
+    }
+
+    tr:hover td {
+      background-color: #f5f5f5;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #c62828;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+      font-style: italic;
+    }
+
+    .record-count {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .controls {
+        text-align: center;
+      }
+
+      .controls button {
+        margin: 5px;
+      }
+
+      th,
+      td {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 Longevuz Dashboard</h1>
+      <p>Sistema de Gerenciamento de Usuários</p>
+    </div>
+
+    <div class="controls">
+      <button id="loadBtn" onclick="loadTableData()">📊 Carregar Dados</button>
+      <button id="refreshBtn" onclick="refreshData()" disabled>🔄 Atualizar</button>
+      <span class="status" id="status">Configure o token API no código</span>
+    </div>
+
+    <div class="table-container">
+      <div id="recordCount" class="record-count"></div>
+      <div id="tableContent">
+        <div class="no-data">
+          🔧 <strong>Buscando dados da tabela...</strong><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = 'https://api.baserow.io/api';
+    let tableId = null;
+
+    // Configure seu token aqui - você pode obter em: Account Settings > API tokens
+    const API_TOKEN = 'nAqJ2STbAYiXPOgbF2CdnXH5ldpHVnGp'; // Substitua pelo seu token real
+
+    // Se você souber o ID da tabela, pode colocar diretamente aqui para acelerar
+    const DIRECT_TABLE_ID = 643707; // ID da tabela baseado no retorno fornecido
+
+    async function findUserTable() {
+      try {
+        // Se o ID da tabela for fornecido diretamente, usar ele
+        if (DIRECT_TABLE_ID) {
+          tableId = DIRECT_TABLE_ID;
+          updateStatus('📋 Usando ID de tabela direto');
+          return true;
+        }
+
+        // Fallback: buscar campos da tabela para verificar se existe
+        const response = await fetch(`${API_BASE}/database/fields/table/643707/`, {
+          headers: {
+            'Authorization': `Token ${API_TOKEN}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro ao buscar campos da tabela: ${response.status}`);
+        }
+
+        const fields = await response.json();
+        console.log('Campos da tabela:', fields);
+        
+        tableId = 643707;
+        updateStatus(`✅ Tabela encontrada (ID: ${tableId}) com ${fields.length} campos`);
+        return true;
+      } catch (error) {
+        console.error('Erro ao encontrar tabela:', error);
+        showError(`Erro ao localizar tabela: ${error.message}`);
+        return false;
+      }
+    }
+
+    async function fetchTableData() {
+      try {
+        const response = await fetch(`${API_BASE}/database/rows/table/${tableId}/?user_field_names=true`, {
+          headers: {
+            'Authorization': `Token ${API_TOKEN}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro ao buscar dados: ${response.status} - Verifique se o token está correto e tem permissões`);
+        }
+
+        const data = await response.json();
+        return data.results || [];
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        showError(`Erro ao carregar dados: ${error.message}`);
+        return null;
+      }
+    }
+
+    async function loadTableData() {
+      const loadBtn = document.getElementById('loadBtn');
+      const refreshBtn = document.getElementById('refreshBtn');
+
+      // Verificar se o token foi configurado
+      if (!API_TOKEN || API_TOKEN === 'SEU_TOKEN_AQUI') {
+        showError('⚠️ Configure seu token API na variável API_TOKEN no código');
+        return;
+      }
+
+      loadBtn.disabled = true;
+      updateStatus('🔍 Conectando ao Baserow...');
+
+      try {
+        // Passo 1: Encontrar ou usar tabela
+        if (!await findUserTable()) {
+          return;
+        }
+
+        // Passo 2: Carregar dados
+        updateStatus('📊 Carregando dados da tabela...');
+        const tableData = await fetchTableData();
+
+        if (tableData !== null) {
+          displayTable(tableData);
+          refreshBtn.disabled = false;
+          updateStatus(`✅ ${tableData.length} registros carregados`);
+        }
+
+      } catch (error) {
+        console.error('Erro geral:', error);
+        showError(`Erro inesperado: ${error.message}`);
+      } finally {
+        loadBtn.disabled = false;
+      }
+    }
+
+    async function refreshData() {
+      if (!API_TOKEN || API_TOKEN === 'SEU_TOKEN_AQUI') {
+        showError('⚠️ Configure seu token API primeiro');
+        return;
+      }
+
+      if (!tableId) {
+        await loadTableData();
+        return;
+      }
+
+      updateStatus('🔄 Atualizando...');
+      const tableData = await fetchTableData();
+
+      if (tableData !== null) {
+        displayTable(tableData);
+        updateStatus(`✅ Atualizado - ${tableData.length} registros`);
+      }
+    }
+
+    function displayTable(data) {
+      const tableContent = document.getElementById('tableContent');
+      const recordCount = document.getElementById('recordCount');
+
+      if (!data || data.length === 0) {
+        tableContent.innerHTML = '<div class="no-data">Nenhum registro encontrado na tabela User</div>';
+        recordCount.textContent = '';
+        return;
+      }
+
+      recordCount.textContent = `Total de registros: ${data.length}`;
+
+      // Campos baseados no retorno fornecido
+      const expectedFields = ['Telefone', 'Nome', 'Aniversario', 'Objetivo', 'Plano', 'Micro Habito'];
+      const firstRecord = data[0];
+
+      // Identificar campos disponíveis (excluindo campos de sistema)
+      const availableFields = Object.keys(firstRecord).filter(key =>
+        !['id', 'created_on', 'updated_on', 'order'].includes(key)
+      );
+
+      let tableHtml = '<table><thead><tr>';
+
+      // Cabeçalhos
+      availableFields.forEach(field => {
+        tableHtml += `<th>${field}</th>`;
+      });
+      tableHtml += '</tr></thead><tbody>';
+
+      // Dados
+      data.forEach(record => {
+        tableHtml += '<tr>';
+        availableFields.forEach(field => {
+          let value = record[field];
+
+          // Formatação especial para diferentes tipos de dados
+          if (value === null || value === undefined) {
+            value = '-';
+          } else if (typeof value === 'boolean') {
+            value = value ? '✅' : '❌';
+          } else if (field.toLowerCase().includes('data') || field.toLowerCase().includes('aniversario')) {
+            // Formatação de data
+            if (value && value.includes('-')) {
+              const date = new Date(value);
+              if (!isNaN(date.getTime())) {
+                value = date.toLocaleDateString('pt-BR');
+              }
+            }
+          }
+
+          tableHtml += `<td>${value}</td>`;
+        });
+        tableHtml += '</tr>';
+      });
+
+      tableHtml += '</tbody></table>';
+      tableContent.innerHTML = tableHtml;
+    }
+
+    function updateStatus(message) {
+      document.getElementById('status').textContent = message;
+    }
+
+    function showError(message) {
+      const tableContent = document.getElementById('tableContent');
+      tableContent.innerHTML = `<div class="error">❌ ${message}</div>`;
+      updateStatus('❌ Erro');
+    }
+
+    // Carregar automaticamente ao abrir a página
+    window.onload = () => setTimeout(loadTableData, 1000);
+  </script>
+</body>
+
+</html>
