@@ -65,12 +65,16 @@ DIO-conceito-blockchain.pdf
 DIO-conceito-web3.pdf
 DIO-introducao-blockchain-web3.pdf
 DIO-introducao-nextjs.pdf
+Databricks-Generative-AI-fundamentals.png
+Diploma PUC.pdf
 Exame-ANDRE-INTELIGENCIA-EXAME.pdf
 Fundamentos de Gestão de Produto: Conceitos e prática.pdf
 G4-FundamentosOKRs.pdf
 G4-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
+IA-NO-MARKETING.pdf
 IA-em-4-dimensoes-FIAP-ALURA.jpg
 IA-em-4-dimensoes-FIAP-ALURA.pdf
+MCP-hungginface.png
 Montando Consultas Relacionais no SQL Server.pdf
 PM3-Designer de Serviço.pdf
 PM3-Métricas de Negócios Digitais.pdf
@@ -78,6 +82,7 @@ PM3-Sprint Inteligência Artificial aplicada ao RH.pdf
 PM3-design-produto.pdf
 PM3-storytelling.pdf
 PNL.pdf
+PUC-CIENCIA-DA-COMPUTACAO.pdf
 PUC-Certificado-React.pdf
 PUC-eu-tenho-esperacao.pdf
 PUC-frontEnd.pdf
@@ -95,6 +100,7 @@ SENAI-industria4.pdf
 SQL SERVER - Dominando Tabelas e Tipos de Dados.pdf
 TERA-implementacaoAgildeIA.pdf
 UPICV-DECLARAÇÃO DE TÉRMINO DE TRIMESTRE ANDRÉ DE FARIA.pdf
+agentes-ia-alura.pdf
 alura-AgilidadeTimeDeAltaPerformance.pdf
 alura-Feedback.pdf
 alura-HTTP.pdf
@@ -114,13 +120,17 @@ amazon-Introduction to Generative.pdf
 andre.pdf
 azureDevOps.pdf
 certificado-dowhile.pdf
+certificado-intensivaoia.jpg
 certificado-semana-dos-dados.pdf
 certificadoQA.pdf
 comando.txt
+fundamento-de-negocio-Stage.pdf
 harvardxcs50.png
 implementacaoAgildeIA - cópia.pdf
 index.html
 lista.txt
+lovable.pdf
+n8n.pdf
 nocaoBásicasDeGestaoFinanceira.pdf
 novasTecnologiaPraNegocio.pdf
 pm3-metrica-de-negocio.pdf
