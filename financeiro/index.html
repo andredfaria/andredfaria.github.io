@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Investimento 2026</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Reset e configurações base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Serif', Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+            text-align-last: left;
+        }
+
+        /* Configuração de página */
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm;
+
+            @top-center {
+                content: string(doctitle);
+                font-size: 9pt;
+                color: #666;
+            }
+
+            @bottom-center {
+                content: counter(page);
+                font-size: 9pt;
+            }
+        }
+
+        @page :first {
+            margin: 0;
+
+            @top-center {
+                content: none;
+            }
+
+            @bottom-center {
+                content: none;
+            }
+        }
+
+        @page cover {
+            margin: 0;
+
+            @top-center {
+                content: none;
+            }
+
+            @bottom-center {
+                content: none;
+            }
+        }
+
+        @page toc {
+            @top-center {
+                content: none;
+            }
+
+            @bottom-center {
+                content: none;
+            }
+        }
+
+        body {
+            string-set: doctitle "";
+        }
+
+        h1 {
+            string-set: doctitle content();
+        }
+
+        /* Capa */
+        .cover {
+            page: cover;
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #2b6cb0 100%);
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+        }
+
+        .cover-decoration {
+            position: absolute;
+            top: 5cm;
+            right: 2cm;
+            width: 8cm;
+            height: 8cm;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+        }
+
+        .cover-decoration-2 {
+            position: absolute;
+            top: 6cm;
+            right: 3cm;
+            width: 6cm;
+            height: 6cm;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .cover-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            z-index: 10;
+            color: white;
+        }
+
+        .cover-icon {
+            font-size: 48pt;
+            margin-bottom: 1cm;
+            opacity: 0.9;
+        }
+
+        .cover-title {
+            font-size: 32pt;
+            font-weight: 700;
+            margin-bottom: 0.5cm;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cover-subtitle {
+            font-size: 16pt;
+            font-weight: 400;
+            margin-bottom: 2cm;
+            opacity: 0.9;
+        }
+
+        .cover-divider {
+            width: 6cm;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+            margin: 0 auto 2cm auto;
+        }
+
+        .cover-meta {
+            font-size: 11pt;
+            line-height: 2;
+            opacity: 0.85;
+        }
+
+        .cover-date {
+            position: absolute;
+            bottom: 3cm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12pt;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 10;
+        }
+
+        /* Sumário */
+        .toc-page {
+            page: toc;
+            page-break-after: always;
+        }
+
+        .toc-title {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1.5cm;
+            padding-bottom: 0.3cm;
+            border-bottom: 2px solid #2b6cb0;
+        }
+
+        .toc {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.4cm;
+        }
+
+        .toc a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .toc a::after {
+            content: leader('.') target-counter(attr(href url), page);
+            flex: 1;
+            text-align: right;
+        }
+
+        .toc-section {
+            font-weight: 700;
+            font-size: 11pt;
+        }
+
+        .toc-subsection {
+            padding-left: 1cm;
+            font-size: 10.5pt;
+        }
+
+        /* Títulos */
+        h1 {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1a365d;
+            margin-top: 0;
+            margin-bottom: 0.8cm;
+            padding-bottom: 0.3cm;
+            border-bottom: 2px solid #2b6cb0;
+            page-break-after: avoid;
+        }
+
+        h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #2c5282;
+            margin-top: 0.8cm;
+            margin-bottom: 0.4cm;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #333;
+            margin-top: 0.6cm;
+            margin-bottom: 0.3cm;
+            page-break-after: avoid;
+        }
+
+        /* Parágrafos */
+        p {
+            margin-bottom: 0.4cm;
+        }
+
+        /* Destaques */
+        .highlight-box {
+            background: #f7fafc;
+            border-left: 4px solid #2b6cb0;
+            padding: 0.5cm;
+            margin: 0.6cm 0;
+            page-break-inside: avoid;
+        }
+
+        .highlight-box-title {
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 0.2cm;
+        }
+
+        /* Tabelas - estilo three-line */
+        table {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin: 0.6cm 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        caption {
+            font-weight: 700;
+            margin-bottom: 0.3cm;
+            text-align: left;
+            color: #333;
+        }
+
+        caption::before {
+            content: attr(data-label) ": ";
+            font-weight: 700;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        thead tr {
+            border-top: 2px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            padding: 0.3cm 0.2cm;
+            text-align: left;
+            font-weight: 700;
+            background: #f7fafc;
+        }
+
+        td {
+            padding: 0.25cm 0.2cm;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:last-child {
+            border-bottom: 2px solid #333;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
+        /* Listas */
+        ul,
+        ol {
+            margin: 0.4cm 0;
+            padding-left: 1cm;
+        }
+
+        li {
+            margin-bottom: 0.2cm;
+        }
+
+        /* Cards de indicadores */
+        .indicators-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4cm;
+            margin: 0.6cm 0;
+        }
+
+        .indicator-card {
+            flex: 1 1 calc(50% - 0.4cm);
+            min-width: 6cm;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.4cm;
+            page-break-inside: avoid;
+        }
+
+        .indicator-label {
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 0.1cm;
+        }
+
+        .indicator-value {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #1a365d;
+        }
+
+        .indicator-trend {
+            font-size: 9pt;
+            margin-top: 0.1cm;
+        }
+
+        .trend-up {
+            color: #38a169;
+        }
+
+        .trend-down {
+            color: #e53e3e;
+        }
+
+        .trend-neutral {
+            color: #718096;
+        }
+
+        /* Seções */
+        .section {
+            page-break-before: always;
+        }
+
+        .section:first-of-type {
+            page-break-before: auto;
+        }
+
+        /* Alertas */
+        .alert {
+            background: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 0.4cm;
+            margin: 0.5cm 0;
+            page-break-inside: avoid;
+        }
+
+        .alert-title {
+            font-weight: 700;
+            color: #c05621;
+            margin-bottom: 0.2cm;
+        }
+
+        /* Recomendações */
+        .recommendation {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+            padding: 0.4cm;
+            margin: 0.5cm 0;
+            page-break-inside: avoid;
+        }
+
+        .recommendation-title {
+            font-weight: 700;
+            color: #276749;
+            margin-bottom: 0.2cm;
+        }
+
+        /* Perfis */
+        .profile-card {
+            border: 1px solid #e2e8f0;
+            margin: 0.5cm 0;
+            page-break-inside: avoid;
+        }
+
+        .profile-header {
+            background: #edf2f7;
+            padding: 0.3cm 0.4cm;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .profile-content {
+            padding: 0.4cm;
+        }
+
+        /* Prevenção de overflow */
+        pre,
+        table,
+        figure,
+        img,
+        svg,
+        blockquote {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #2b6cb0;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        /* Referências */
+        .references {
+            font-size: 9.5pt;
+        }
+
+        .references ol {
+            padding-left: 1.5cm;
+        }
+
+        .references li {
+            padding-left: 0.5cm;
+            text-indent: -0.5cm;
+            margin-bottom: 0.3cm;
+        }
+
+        /* Citações */
+        blockquote {
+            border-left: 3px solid #cbd5e0;
+            padding-left: 0.5cm;
+            margin: 0.5cm 0;
+            color: #4a5568;
+            font-style: italic;
+        }
+    </style>
+    <base target="_blank">
+</head>
+
+<body>
+    <!-- CAPA -->
+    <div class="cover">
+        <div class="cover-decoration"></div>
+        <div class="cover-decoration-2"></div>
+        <div class="cover-content">
+            <div class="cover-icon">&#9670;</div>
+            <h1 class="cover-title">PLANO DE INVESTIMENTO</h1>
+            <p class="cover-subtitle">Cenário e Estratégias para 2026</p>
+            <div class="cover-divider"></div>
+            <div class="cover-meta">
+                <p>Análise Macroeconômica e Recomendações</p>
+                <p>por Perfil de Investidor</p>
+            </div>
+        </div>
+        <div class="cover-date">Fevereiro de 2026</div>
+    </div>
+
+    <!-- SUMÁRIO -->
+    <div class="toc-page">
+        <h2 class="toc-title">Sumário</h2>
+        <ul class="toc">
+            <li class="toc-section"><a href="#sec1">1. Cenário Macroeconômico Global</a></li>
+            <li class="toc-subsection"><a href="#sec1-1">1.1 Crescimento Econômico Mundial</a></li>
+            <li class="toc-subsection"><a href="#sec1-2">1.2 Política Comercial e Geopolítica</a></li>
+            <li class="toc-subsection"><a href="#sec1-3">1.3 Tendências Tecnológicas</a></li>
+            <li class="toc-section"><a href="#sec2">2. Cenário Brasileiro</a></li>
+            <li class="toc-subsection"><a href="#sec2-1">2.1 Indicadores Econômicos Principais</a></li>
+            <li class="toc-subsection"><a href="#sec2-2">2.2 Mercado de Ações (Ibovespa)</a></li>
+            <li class="toc-subsection"><a href="#sec2-3">2.3 Câmbio e Projeções</a></li>
+            <li class="toc-section"><a href="#sec3">3. Setores Promissores para 2026</a></li>
+            <li class="toc-section"><a href="#sec4">4. Plano de Investimento por Perfil</a></li>
+            <li class="toc-subsection"><a href="#sec4-1">4.1 Perfil Conservador</a></li>
+            <li class="toc-subsection"><a href="#sec4-2">4.2 Perfil Moderado</a></li>
+            <li class="toc-subsection"><a href="#sec4-3">4.3 Perfil Arrojado</a></li>
+            <li class="toc-section"><a href="#sec5">5. Recomendações Finais</a></li>
+            <li class="toc-section"><a href="#ref">Referências</a></li>
+        </ul>
+    </div>
+
+    <!-- SEÇÃO 1 -->
+    <div class="section" id="sec1">
+        <h1>1. Cenário Macroeconômico Global</h1>
+
+        <p>O ano de 2026 se apresenta em um contexto de transformações significativas na economia global. Após um
+            período de incertezas marcado por tensões comerciais e ajustes monetários, o cenário atual revela uma
+            economia mundial que demonstra resiliência, embora enfrente desafios estruturais importantes.</p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">Principais Destaques do Cenário Global</div>
+            <ul>
+                <li>Crescimento global estável, com projeção de 3,1% para 2026 (FMI)</li>
+                <li>Desaceleração gradual da economia americana para 2,1% em 2026</li>
+                <li>China projetando crescimento de 4,2%, abaixo dos patamares históricos</li>
+                <li>Inteligência Artificial impulsionando investimentos globais de aproximadamente US$ 500 bilhões</li>
+            </ul>
+        </div>
+
+        <h2 id="sec1-1">1.1 Crescimento Econômico Mundial</h2>
+
+        <p>Segundo o Fundo Monetário Internacional (FMI), a economia global deve manter trajetória de crescimento
+            estável em 2026, embora em ritmo inferior à média histórica. Os Estados Unidos, apesar de resilientes,
+            projetam desaceleração do PIB de 2,8% em 2024 para 2,0% em 2025 e 2,1% em 2026, refletindo o enfraquecimento
+            do consumo e desaceleração do investimento.</p>
+
+        <p>A China, segundo maior economia do mundo, mantém expansão próxima aos níveis atuais, com projeção de 4,8% em
+            2025 e 4,2% em 2026. A atividade chinesa tem sido sustentada por exportações para destinos além dos Estados
+            Unidos e possíveis estímulos de políticas públicas à demanda interna.</p>
+
+        <table>
+            <caption data-label="Tabela 1">Projeções de Crescimento do PIB por Região (2025-2026)</caption>
+            <thead>
+                <tr>
+                    <th>Região/Economia</th>
+                    <th>2025</th>
+                    <th>2026</th>
+                    <th>Tendência</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Estados Unidos</td>
+                    <td>2,0%</td>
+                    <td>2,1%</td>
+                    <td class="trend-neutral">Estável</td>
+                </tr>
+                <tr>
+                    <td>Zona do Euro</td>
+                    <td>1,2%</td>
+                    <td>1,1%</td>
+                    <td class="trend-neutral">Estável</td>
+                </tr>
+                <tr>
+                    <td>China</td>
+                    <td>4,8%</td>
+                    <td>4,2%</td>
+                    <td class="trend-down">Desaceleração</td>
+                </tr>
+                <tr>
+                    <td>Economias Emergentes</td>
+                    <td>4,2%</td>
+                    <td>4,0%</td>
+                    <td class="trend-neutral">Estável</td>
+                </tr>
+                <tr>
+                    <td>Países de Baixa Renda</td>
+                    <td>5,8%</td>
+                    <td>5,6%</td>
+                    <td class="trend-neutral">Estável</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="sec1-2">1.2 Política Comercial e Geopolítica</h2>
+
+        <p>O ambiente de política comercial internacional continua como fator de incerteza relevante. A agenda
+            protecionista, especialmente nos Estados Unidos, tem reconfigurado fluxos comerciais globais e exigido
+            adaptações das cadeias de suprimentos. De acordo com o Banco Mundial, embora as tensões tarifárias tenham
+            gerado preocupações iniciais, o impacto na economia global tem sido mais modesto que o inicialmente temido.
+        </p>
+
+        <p>A depreciação do dólar americano no mercado internacional tem estimulado a migração de capitais para países
+            emergentes, beneficiando moedas como o real brasileiro. Esse movimento de "rotacao de portfolio" tem sido um
+            dos motores da valorização de ativos em mercados emergentes.</p>
+
+        <h2 id="sec1-3">1.3 Tendências Tecnológicas</h2>
+
+        <p>O avanço da Inteligência Artificial representa uma das transformações mais significativas do cenário
+            econômico atual. O crescimento contínuo da IA anuncia potencialmente o início de uma nova era econômica, com
+            consequências ainda em processo de compreensão. Os investimentos orientados por IA devem se aproximar de US$
+            500 bilhões, impulsionando setores de tecnologia, automação e inovação.</p>
+
+        <p>Setores como saúde, finanças, logística e manufatura estão sendo profundamente transformados pela adoção de
+            tecnologias de IA, big data e automação, criando oportunidades de investimento em empresas bem posicionadas
+            nessa transição.</p>
+    </div>
+
+    <!-- SEÇÃO 2 -->
+    <div class="section" id="sec2">
+        <h1>2. Cenário Brasileiro</h1>
+
+        <p>O Brasil inicia 2026 em um momento de transição importante. Após período de juros elevados destinado ao
+            controle inflacionário, o Banco Central sinaliza o início do ciclo de cortes da taxa Selic, enquanto a
+            economia mostra sinais de recuperação com fluxo recorde de capitais estrangeiros.</p>
+
+        <h2 id="sec2-1">2.1 Indicadores Econômicos Principais</h2>
+
+        <div class="indicators-grid">
+            <div class="indicator-card">
+                <div class="indicator-label">Selic Atual</div>
+                <div class="indicator-value">15,00%</div>
+                <div class="indicator-trend trend-down">Projeção 2026: 12,25%</div>
+            </div>
+            <div class="indicator-card">
+                <div class="indicator-label">Projeção IPCA 2026</div>
+                <div class="indicator-value">3,99%</div>
+                <div class="indicator-trend trend-down">Dentro da meta (3% ± 1,5%)</div>
+            </div>
+            <div class="indicator-card">
+                <div class="indicator-label">PIB 2026</div>
+                <div class="indicator-value">1,80%</div>
+                <div class="indicator-trend trend-neutral">Estável vs 2025</div>
+            </div>
+            <div class="indicator-card">
+                <div class="indicator-label">Dólar Projeção</div>
+                <div class="indicator-value">R$ 5,50</div>
+                <div class="indicator-trend trend-neutral">Estável</div>
+            </div>
+        </div>
+
+        <h3>Taxa Selic e Política Monetária</h3>
+
+        <p>O Banco Central manteve a taxa Selic em 15% ao ano durante cinco reuniões consecutivas do Copom, mas
+            sinalizou o início do ciclo de cortes a partir de março de 2026. A mediana das expectativas do mercado
+            financeiro, conforme o boletim Focus, projeta que a Selic encerre 2026 em 12,25%, com redução gradual ao
+            longo do ano.</p>
+
+        <p>Para 2027, a projeção indica Selic em 10,50%, e para 2028, em 10,00%. Esse ciclo de afrouxamento monetário
+            tende a catalisar o fluxo de recursos para a renda variável, historicamente atraindo investidores para o
+            mercado de ações.</p>
+
+        <h3>Inflação</h3>
+
+        <p>A inflação brasileira apresenta trajetória de controle. O mercado financeiro reduziu pela quarta vez
+            consecutiva a expectativa para o IPCA em 2026, projetando alta de 3,99% — dentro da meta estabelecida pelo
+            Conselho Monetário Nacional de 3% com margem de tolerância de 1,5 ponto percentual para mais ou menos.</p>
+
+        <table>
+            <caption data-label="Tabela 2">Evolução das Projeções Econômicas (Focus/BC)</caption>
+            <thead>
+                <tr>
+                    <th>Indicador</th>
+                    <th>2026</th>
+                    <th>2027</th>
+                    <th>2028</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IPCA</td>
+                    <td>3,99%</td>
+                    <td>3,80%</td>
+                    <td>3,50%</td>
+                </tr>
+                <tr>
+                    <td>Selic (fim de ano)</td>
+                    <td>12,25%</td>
+                    <td>10,50%</td>
+                    <td>10,00%</td>
+                </tr>
+                <tr>
+                    <td>PIB</td>
+                    <td>1,80%</td>
+                    <td>1,80%</td>
+                    <td>2,00%</td>
+                </tr>
+                <tr>
+                    <td>Dólar</td>
+                    <td>R$ 5,50</td>
+                    <td>R$ 5,50</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="sec2-2">2.2 Mercado de Ações (Ibovespa)</h2>
+
+        <p>O Ibovespa iniciou 2026 com forte valorização, registrando alta de 12,56% em janeiro — o melhor desempenho
+            mensal desde novembro de 2020. O índice renovou máximas históricas sucessivas, impulsionado principalmente
+            pelo fluxo estrangeiro recorde.</p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">Destaques do Mercado de Ações Brasileiro</div>
+            <ul>
+                <li><strong>Fluxo estrangeiro:</strong> R$ 26,3 bilhões em janeiro de 2026, superando todo o ano de 2025
+                </li>
+                <li><strong>Projeção XP:</strong> Ibovespa em 190 mil pontos (cenário-base) ou 235 mil pontos (cenário
+                    otimista)</li>
+                <li><strong>Valuation:</strong> Ações brasileiras seguem com desconto em relação a mercados emergentes
+                </li>
+                <li><strong>Setores em destaque:</strong> Educação (+34,5%), Mineração (+20,1%), Óleo e Gás (+21,4%)
+                </li>
+            </ul>
+        </div>
+
+        <p>A XP Investimentos revisou para cima suas projeções, elevando o "valor justo" do Ibovespa de 185 mil para 190
+            mil pontos no cenário-base. Em cenário otimista, com lucros 10% superiores e juros reais mais baixos, o
+            índice poderia atingir 235 mil pontos. A Eleven Financial também revisou sua projeção de 175 mil para 195
+            mil pontos.</p>
+
+        <p>O Brasil tem se beneficiado da rotação global de capitais para fora dos ativos americanos, combinando
+            exposição a commodities, perspectiva de queda de juros e preços atrativos em comparação a outros mercados.
+        </p>
+
+        <h2 id="sec2-3">2.3 Câmbio e Projeções</h2>
+
+        <p>O real brasileiro apresentou forte valorização frente ao dólar. Em janeiro de 2026, a moeda americana
+            acumulou queda de aproximadamente 5,5%, continuando a trajetória de desvalorização de 12,2% observada em
+            todo o ano de 2025.</p>
+
+        <p>O mercado financeiro mantém projeção estável para o câmbio ao final de 2026 em R$ 5,50, patamar que se repete
+            há 16 semanas consecutivas no boletim Focus. A depreciação do dólar no mercado global tem contribuído
+            favoravelmente para o balanço de riscos inflacionários no Brasil.</p>
+
+        <div class="alert">
+            <div class="alert-title">Fator de Atenção: Eleições 2026</div>
+            <p>O calendário eleitoral brasileiro de 2026 deve adicionar volatilidade ao mercado, especialmente no
+                segundo semestre. O histórico mostra que períodos pré-eleitorais costumam gerar postergação de decisões
+                de investimento, enquanto períodos pós-eleitorais frequentemente reaquecem o mercado com transações
+                represadas.</p>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 3 -->
+    <div class="section" id="sec3">
+        <h1>3. Setores Promissores para 2026</h1>
+
+        <p>A transição econômica em curso impulsiona diversos setores da economia brasileira, criando oportunidades
+            estratégicas para investidores. A escolha de ativos com base nos setores mais promissores permite capturar
+            tendências estruturais de crescimento com maior potencial de valorização no médio e longo prazo.</p>
+
+        <table>
+            <caption data-label="Tabela 3">Setores em Destaque para 2026</caption>
+            <thead>
+                <tr>
+                    <th>Setor</th>
+                    <th>Tendência</th>
+                    <th>Principais Drivers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Energia Limpa</strong></td>
+                    <td class="trend-up">Alta</td>
+                    <td>Transição energética, incentivos públicos, hidrogênio verde</td>
+                </tr>
+                <tr>
+                    <td><strong>Financeiro</strong></td>
+                    <td class="trend-up">Alta</td>
+                    <td>Redução da inadimplência, juros favoráveis, dividendos</td>
+                </tr>
+                <tr>
+                    <td><strong>Saúde e Biotecnologia</strong></td>
+                    <td class="trend-up">Alta</td>
+                    <td>Longevity economy, inovação em tratamentos</td>
+                </tr>
+                <tr>
+                    <td><strong>Tecnologia e IA</strong></td>
+                    <td class="trend-up">Alta</td>
+                    <td>Automação, big data, soluções em nuvem</td>
+                </tr>
+                <tr>
+                    <td><strong>Logística e Infraestrutura</strong></td>
+                    <td class="trend-up">Alta</td>
+                    <td>Investimentos públicos e privados, concessões</td>
+                </tr>
+                <tr>
+                    <td><strong>Commodities Exportadoras</strong></td>
+                    <td class="trend-neutral">Moderada</td>
+                    <td>Diversificação geográfica, proteção cambial</td>
+                </tr>
+                <tr>
+                    <td><strong>Consumo Discricionário</strong></td>
+                    <td class="trend-neutral">Moderada</td>
+                    <td>Ciclo de queda de juros, recuperação econômica</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Energia Limpa e Renováveis</h3>
+
+        <p>A demanda por fontes renováveis segue em alta, com governos e empresas acelerando a transição para uma matriz
+            energética sustentável. O setor ganha impulso com incentivos públicos e o avanço de tecnologias como solar
+            fotovoltaica, eólica e hidrogênio verde. Empresas bem posicionadas nesse movimento devem atrair capital
+            global.</p>
+
+        <h3>Setor Financeiro</h3>
+
+        <p>Mesmo em cenários adversos, os bancos brasileiros seguem lucrativos e apresentam elevados índices de
+            pagamento de dividendos. Em 2026, com menor inadimplência e perspectiva de retomada econômica, o setor
+            financeiro continua sendo uma âncora de estabilidade nas carteiras de renda variável. Os grandes bancos
+            combinam rentabilidade elevada, eficiência operacional e capacidade de repassar custos.</p>
+
+        <h3>Saúde e Biotecnologia</h3>
+
+        <p>O aumento da longevidade pressiona os sistemas de saúde, mas também abre um vasto campo de oportunidades para
+            empresas do setor. Hospitais, redes laboratoriais, farmacêuticas e companhias de biotecnologia devem se
+            beneficiar da "longevity economy", com destaque para inovação em tratamentos e diagnósticos.</p>
+
+        <h3>Tecnologia e Inteligência Artificial</h3>
+
+        <p>Empresas que desenvolvem ou utilizam inteligência artificial, big data, automação e soluções em nuvem devem
+            seguir valorizadas. O uso de IA na gestão de dados, logística, finanças e saúde transforma o setor de
+            tecnologia em uma das principais alavancas de crescimento de 2026.</p>
+
+        <h3>Logística e Infraestrutura</h3>
+
+        <p>A aceleração dos investimentos públicos e privados em infraestrutura beneficia companhias ligadas a
+            construção, transporte, mobilidade urbana e cadeias logísticas. O setor também se destaca como receptor de
+            capital estrangeiro em busca de ativos reais com geração de caixa previsível.</p>
+    </div>
+
+    <!-- SEÇÃO 4 -->
+    <div class="section" id="sec4">
+        <h1>4. Plano de Investimento por Perfil</h1>
+
+        <p>A construção de uma carteira de investimentos adequada depende fundamentalmente do perfil de risco do
+            investidor. Abaixo, apresentamos recomendações estratégicas para cada perfil, considerando o cenário
+            macroeconômico projetado para 2026.</p>
+
+        <h2 id="sec4-1">4.1 Perfil Conservador</h2>
+
+        <div class="profile-card">
+            <div class="profile-header">Características do Investidor Conservador</div>
+            <div class="profile-content">
+                <ul>
+                    <li>Prioriza segurança e previsibilidade</li>
+                    <li>Tem baixa tolerância a perdas</li>
+                    <li>Busca proteção contra inflação</li>
+                    <li>Horizonte de investimento: curto a médio prazo</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Alocação Recomendada</h3>
+
+        <table>
+            <caption data-label="Tabela 4">Alocação Conservador</caption>
+            <thead>
+                <tr>
+                    <th>Classe de Ativo</th>
+                    <th>Percentual</th>
+                    <th>Opções Sugeridas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Renda Fixa (Tesouro)</td>
+                    <td>50%</td>
+                    <td>Tesouro IPCA+, Tesouro Selic</td>
+                </tr>
+                <tr>
+                    <td>Renda Fixa (Privada)</td>
+                    <td>25%</td>
+                    <td>CDBs de grandes bancos, LCIs, LCAs</td>
+                </tr>
+                <tr>
+                    <td>Fundos Multimercado</td>
+                    <td>15%</td>
+                    <td>Fundos de dívida, multimercado conservador</td>
+                </tr>
+                <tr>
+                    <td>Renda Variável</td>
+                    <td>10%</td>
+                    <td>FIIs, ações pagadoras de dividendos</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="recommendation">
+            <div class="recommendation-title">Estratégia Recomendada</div>
+            <p>Para o perfil conservador, os <strong>títulos públicos indexados à inflação</strong> e
+                <strong>CDBs</strong> emitidos por bancos de primeira linha continuam entre as melhores opções. O
+                Tesouro IPCA+ oferece rentabilidade acima da inflação, protegendo o poder de compra, enquanto os CDBs
+                garantem rendimento estável. Com a Selic em trajetória de queda, priorize títulos pós-fixados atrelados
+                ao IPCA para proteção inflacionária.</p>
+        </div>
+
+        <h2 id="sec4-2">4.2 Perfil Moderado</h2>
+
+        <div class="profile-card">
+            <div class="profile-header">Características do Investidor Moderado</div>
+            <div class="profile-content">
+                <ul>
+                    <li>Busca equilíbrio entre segurança e retorno</li>
+                    <li>Aceita volatilidade controlada</li>
+                    <li>Objetivo: superar a inflação com retorno real</li>
+                    <li>Horizonte de investimento: médio prazo</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Alocação Recomendada</h3>
+
+        <table>
+            <caption data-label="Tabela 5">Alocação Moderado</caption>
+            <thead>
+                <tr>
+                    <th>Classe de Ativo</th>
+                    <th>Percentual</th>
+                    <th>Opções Sugeridas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Renda Fixa</td>
+                    <td>35%</td>
+                    <td>Tesouro IPCA+, CDBs, debêntures</td>
+                </tr>
+                <tr>
+                    <td>Fundos Multimercado</td>
+                    <td>20%</td>
+                    <td>Multimercado balanceado, ETFs de renda fixa</td>
+                </tr>
+                <tr>
+                    <td>Ações (Brasil)</td>
+                    <td>25%</td>
+                    <td>Empresas de setores financeiro, energia, infra</td>
+                </tr>
+                <tr>
+                    <td>FIIs</td>
+                    <td>15%</td>
+                    <td>FIIs de logística, lajes corporativas, papel</td>
+                </tr>
+                <tr>
+                    <td>Internacional</td>
+                    <td>5%</td>
+                    <td>BDRs, ETFs globais</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="recommendation">
+            <div class="recommendation-title">Estratégia Recomendada</div>
+            <p>Os investidores moderados devem buscar <strong>diversificação com gestão ativa</strong>, por meio de
+                fundos multimercado e ETFs de renda fixa. Esses ativos se beneficiam tanto da renda fixa quanto da
+                variável, com menor exposição direta à volatilidade. Na renda variável, foque em setores como
+                financeiro, energia elétrica e infraestrutura, que oferecem boa combinação de crescimento e dividendos.
+            </p>
+        </div>
+
+        <h2 id="sec4-3">4.3 Perfil Arrojado</h2>
+
+        <div class="profile-card">
+            <div class="profile-header">Características do Investidor Arrojado</div>
+            <div class="profile-content">
+                <ul>
+                    <li>Busca maximizar retornos</li>
+                    <li>Tem alta tolerância a riscos e volatilidade</li>
+                    <li>Confortável com oscilações de curto prazo</li>
+                    <li>Horizonte de investimento: longo prazo</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Alocação Recomendada</h3>
+
+        <table>
+            <caption data-label="Tabela 6">Alocação Arrojado</caption>
+            <thead>
+                <tr>
+                    <th>Classe de Ativo</th>
+                    <th>Percentual</th>
+                    <th>Opções Sugeridas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ações (Brasil)</td>
+                    <td>40%</td>
+                    <td>Small caps, setores de tecnologia, commodities</td>
+                </tr>
+                <tr>
+                    <td>Renda Fixa</td>
+                    <td>20%</td>
+                    <td>CDBs, debêntures de médio risco</td>
+                </tr>
+                <tr>
+                    <td>FIIs</td>
+                    <td>15%</td>
+                    <td>FIIs de desenvolvimento, tijolo</td>
+                </tr>
+                <tr>
+                    <td>Internacional</td>
+                    <td>15%</td>
+                    <td>BDRs, ETFs de tecnologia, ações globais</td>
+                </tr>
+                <tr>
+                    <td>Fundos Multimercado</td>
+                    <td>10%</td>
+                    <td>Multimercado dinâmico, hedge funds</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="recommendation">
+            <div class="recommendation-title">Estratégia Recomendada</div>
+            <p>Para o investidor arrojado, a <strong>renda variável</strong> segue atrativa em 2026, principalmente em
+                ações de empresas pagadoras de dividendos, fundos imobiliários com boa gestão e BDRs de empresas
+                globais. Com a economia mostrando sinais de recuperação, esses ativos oferecem oportunidades de
+                valorização, sobretudo em setores como tecnologia, saúde e infraestrutura. Considere também exposição a
+                small caps e empresas de commodities para potencial de alta.</p>
+        </div>
+
+        <h3>Resumo Comparativo por Perfil</h3>
+
+        <table>
+            <caption data-label="Tabela 7">Comparativo de Alocação por Perfil</caption>
+            <thead>
+                <tr>
+                    <th>Classe de Ativo</th>
+                    <th>Conservador</th>
+                    <th>Moderado</th>
+                    <th>Arrojado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Renda Fixa</td>
+                    <td>75%</td>
+                    <td>35%</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Renda Variável (Brasil)</td>
+                    <td>10%</td>
+                    <td>25%</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>Fundos Multimercado</td>
+                    <td>15%</td>
+                    <td>20%</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>FIIs</td>
+                    <td>0%</td>
+                    <td>15%</td>
+                    <td>15%</td>
+                </tr>
+                <tr>
+                    <td>Internacional</td>
+                    <td>0%</td>
+                    <td>5%</td>
+                    <td>15%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SEÇÃO 5 -->
+    <div class="section" id="sec5">
+        <h1>5. Recomendações Finais</h1>
+
+        <p>Com base na análise do cenário macroeconômico e das projeções para 2026, apresentamos as seguintes
+            recomendações estratégicas para investidores:</p>
+
+        <h3>1. Aproveite o Ciclo de Queda da Selic</h3>
+
+        <p>O início do ciclo de cortes de juros projetado para março de 2026 cria oportunidades tanto na renda fixa
+            quanto na variável. Na renda fixa, considere alongar duration gradualmente para capturar as quedas futuras.
+            Na renda variável, histórico mostra que o Ibovespa avança em 100% dos casos nos seis meses seguintes ao
+            primeiro corte de juros.</p>
+
+        <h3>2. Mantenha Exposição a Commodities</h3>
+
+        <p>O regime de desvalorização do dólar e reflação tolerada favorece ativos reais, especialmente commodities. O
+            Brasil, com forte exposição a empresas ligadas a commodities, está posicionado para se beneficiar desse
+            movimento global.</p>
+
+        <h3>3. Diversifique por Setores</h3>
+
+        <p>Priorize setores com fundamentals sólidos e exposição a tendências estruturais: energia limpa, financeiro,
+            saúde, tecnologia e infraestrutura. Esses setores combinam previsibilidade de receitas com potencial de
+            crescimento.</p>
+
+        <h3>4. Atenção às Eleições</h3>
+
+        <p>O calendário eleitoral de 2026 deve adicionar volatilidade, especialmente no segundo semestre. Considere
+            manter reserva de oportunidade para aproveitar possíveis correções e momentos de pessimismo excessivo.</p>
+
+        <h3>5. Invista no Longo Prazo</h3>
+
+        <p>Apesar das incertezas de curto prazo, as condições para investimentos de longo prazo são favoráveis. A
+            combinação de juros em queda, inflação controlada e valuations atrativos cria ambiente propício para a
+            construção de patrimônio ao longo do tempo.</p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">Checklist para 2026</div>
+            <ul>
+                <li>Revise seu perfil de investidor e objetivos financeiros</li>
+                <li>Mantenha reserva de emergência equivalente a 6-12 meses de despesas</li>
+                <li>Diversifique sua carteira entre classes de ativos e setores</li>
+                <li>Considere aportes periódicos (DCA) para reduzir risco de timing</li>
+                <li>Monitore indicadores macroeconômicos e ajuste a alocação conforme necessário</li>
+                <li>Consulte um assessor de investimentos para planejamento personalizado</li>
+            </ul>
+        </div>
+
+        <blockquote>
+            "A cada ano que passa, a economia global vem se mostrando menos capaz de gerar crescimento e, aparentemente,
+            mais resiliente à incerteza em relação às políticas."
+            <br>— Indermit Gill, Economista-Chefe do Banco Mundial
+        </blockquote>
+
+        <p style="margin-top: 1cm; font-size: 10pt; color: #666; text-align: center;">
+            Este documento tem caráter informativo e não constitui recomendação de investimento.<br>
+            Consulte um profissional credenciado antes de tomar decisões de investimento.
+        </p>
+    </div>
+
+    <!-- REFERÊNCIAS -->
+    <div class="section references" id="ref">
+        <h1>Referências</h1>
+
+        <ol>
+            <li id="ref-1">Fundo Monetário Internacional (FMI). <i>Perspectivas Econômicas: América Latina e Caribe</i>.
+                Outubro 2025. Disponível em: imf.org</li>
+            <li id="ref-2">Banco Mundial. <i>Global Economic Prospects</i>. Janeiro 2026. Disponível em: worldbank.org
+            </li>
+            <li id="ref-3">Banco Central do Brasil. <i>Boletim Focus</i>. 3 de fevereiro de 2026. Disponível em:
+                bc.gov.br</li>
+            <li id="ref-4">Mercer. <i>Perspectivas Econômicas e de Mercado para 2026</i>. Dezembro 2025. Disponível em:
+                mercer.com</li>
+            <li id="ref-5">XP Investimentos. <i>Raio-XP Brasil – Estratégia de Ações</i>. 2 de fevereiro de 2026.</li>
+            <li id="ref-6">Eleven Financial. <i>Projeções Ibovespa 2026</i>. Fevereiro 2026.</li>
+            <li id="ref-7">Anbima. <i>Projeções Macroeconômicas</i>. 28 de janeiro de 2026. Disponível em: anbima.com.br
+            </li>
+            <li id="ref-8">Suno Notícias. <i>Top 10 Tendências de Investimento para 2026</i>. 31 de janeiro de 2026.
+                Disponível em: suno.com.br</li>
+            <li id="ref-9">Money Times. <i>Setores Mais Promissores para 2026</i>. 6 de janeiro de 2026. Disponível em:
+                moneytimes.com.br</li>
+            <li id="ref-10">OCDE. <i>Economic Outlook</i>. Projeções 2025-2026. Disponível em: oecd.org</li>
+        </ol>
+    </div>
+</body>
+
+</html>
