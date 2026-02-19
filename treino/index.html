@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Treino - Integrado</title>
     <link rel="stylesheet" href="style.css">
+    <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+        data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+        data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
 </head>
+
 <body>
     <div class="container">
         <header class="app-header">
             <h1>💪 Gerador de Treino</h1>
             <p class="app-subtitle">Treinos organizados por grupos musculares com informações detalhadas</p>
         </header>
-        
+
         <div class="controls">
             <div class="control-group">
                 <label for="muscle-group">Selecione o grupo muscular:</label>
@@ -20,20 +25,23 @@
                     <!-- Opções serão adicionadas dinamicamente pelo JavaScript -->
                 </select>
             </div>
-            
+
             <button id="generate-btn">🎯 Gerar Treino</button>
         </div>
-        
+
         <div id="workout" class="workout-container"></div>
-        
+
         <footer class="app-footer">
-            <p>💡 <strong>Dica:</strong> Clique no botão "ℹ️ Info" de cada exercício para ver demonstrações e instruções detalhadas!</p>
-            <p class="api-status">🔗 <span id="api-status-text">Sistema integrado com base de dados de exercícios</span></p>
+            <p>💡 <strong>Dica:</strong> Clique no botão "ℹ️ Info" de cada exercício para ver demonstrações e instruções
+                detalhadas!</p>
+            <p class="api-status">🔗 <span id="api-status-text">Sistema integrado com base de dados de exercícios</span>
+            </p>
         </footer>
     </div>
-    
+
     <!-- Scripts -->
     <script src="api-config.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

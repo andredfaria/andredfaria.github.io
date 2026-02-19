@@ -1,36 +1,43 @@
-<html><head>
+<html>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Validação Crachá Aluno - PUC Minas</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-<style type="text/css">
-@font-face {
-  font-weight: 400;
-  font-style:  normal;
-  font-family: circular;
+    <style type="text/css">
+        @font-face {
+            font-weight: 400;
+            font-style: normal;
+            font-family: circular;
 
-  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Book.woff2') format('woff2');
-}
+            src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Book.woff2') format('woff2');
+        }
 
-@font-face {
-  font-weight: 700;
-  font-style:  normal;
-  font-family: circular;
+        @font-face {
+            font-weight: 700;
+            font-style: normal;
+            font-family: circular;
 
-  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2') format('woff2');
-}</style></head>
+            src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2') format('woff2');
+        }
+    </style>
+    <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+        data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+        data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
+</head>
+
 <body cz-shortcut-listen="true">
     <div>
-        <img src="puc-img-brasao.png"
-          alt="Brasão da PUC Minas">
+        <img src="puc-img-brasao.png" alt="Brasão da PUC Minas">
     </div>
     <div>
         <img class="img-carteira" src="foto-andre.png" alt="Foto aluno" height="200" width="200">
         <h3>André de Faria Carvalho</h3>
         <i>Ciência da Computação - CAMPUS POÇOS DE CALDAS - PPC</i>
-        <p>Situação:  <span class="matric">Matriculado</span></p>
-        <p>Matricula:  <b>624145</b></p>
-        <p>Validade:  <b id="validade-data"></b></p>
+        <p>Situação: <span class="matric">Matriculado</span></p>
+        <p>Matricula: <b>624145</b></p>
+        <p>Validade: <b id="validade-data"></b></p>
         <br>
     </div>
 
@@ -39,22 +46,27 @@
         function calcularDataValidade() {
             const hoje = new Date();
             const dataValidade = new Date(hoje);
-            
+
             // Adiciona 3 meses
             dataValidade.setMonth(dataValidade.getMonth() + 3);
-            
+
             // Formata a data para dd/mm/yyyy
             const dia = String(dataValidade.getDate()).padStart(2, '0');
             const mes = String(dataValidade.getMonth() + 1).padStart(2, '0');
             const ano = dataValidade.getFullYear();
-            
+
             return `${dia}/${mes}/${ano}`;
         }
-        
+
         // Preenche o campo de validade quando a página carrega
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('validade-data').textContent = calcularDataValidade();
         });
     </script>
 
-<div id="loom-companion-mv3" ext-id="liecbddmkiiihnedobmlmillhodjkdmb"><section id="shadow-host-companion"></section></div></body></html>
+    <div id="loom-companion-mv3" ext-id="liecbddmkiiihnedobmlmillhodjkdmb">
+        <section id="shadow-host-companion"></section>
+    </div>
+</body>
+
+</html>

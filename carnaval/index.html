@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +17,13 @@
             --light-color: #ecf0f1;
             --text-color: #2c3e50;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light-color);
             color: var(--text-color);
         }
-        
+
         .hero-section {
             min-height: 60vh;
             display: flex;
@@ -33,7 +34,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: "";
             position: absolute;
@@ -44,18 +45,18 @@
             background: url('/api/placeholder/800/600') center/cover no-repeat;
             opacity: 0.05;
         }
-        
+
         .hero-text {
             position: relative;
             z-index: 1;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-text h1 {
             font-weight: 700;
             font-size: calc(1.8rem + 1.5vw);
         }
-        
+
         .second-section {
             min-height: 40vh;
             background-color: white;
@@ -64,7 +65,7 @@
             justify-content: center;
             position: relative;
         }
-        
+
         .message-text {
             font-size: calc(1.2rem + 1vw);
             font-weight: 600;
@@ -73,14 +74,14 @@
             background-clip: text;
             color: transparent;
         }
-        
+
         .floating-shapes div {
             position: absolute;
             border-radius: 50%;
             opacity: 0.05;
             z-index: 0;
         }
-        
+
         .shape1 {
             width: 80px;
             height: 80px;
@@ -88,7 +89,7 @@
             top: 10%;
             left: 10%;
         }
-        
+
         .shape2 {
             width: 150px;
             height: 150px;
@@ -96,7 +97,7 @@
             bottom: 15%;
             right: 5%;
         }
-        
+
         .btn-formal {
             background-color: rgba(255, 255, 255, 0.9);
             color: var(--primary-color);
@@ -104,15 +105,19 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn-formal:hover {
             background-color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
             color: var(--primary-color);
         }
     </style>
+    <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+        data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+        data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
 </head>
+
 <body>
     <section class="hero-section">
         <div class="container">
@@ -146,11 +151,11 @@
     <script>
         // Array de frases de impacto
         const phrases = [
-          "Mais um curioso caiu!",
-          "A curiosidade matou o gato na esquina!",
-          "A vida é feita de escolhas… e você escolheu escanear um QR Code no meio do Carnaval! kkkk",
-          "Você poderia estar curtindo o Carnaval, mas escolheu escanear um QR Code aleatório! kkkk",
-          "Bem-vindo à sociedade secreta dos curiosos!"
+            "Mais um curioso caiu!",
+            "A curiosidade matou o gato na esquina!",
+            "A vida é feita de escolhas… e você escolheu escanear um QR Code no meio do Carnaval! kkkk",
+            "Você poderia estar curtindo o Carnaval, mas escolheu escanear um QR Code aleatório! kkkk",
+            "Bem-vindo à sociedade secreta dos curiosos!"
         ];
 
         function getRandomNumber(min, max) {
@@ -161,21 +166,21 @@
             const phraseElement = document.getElementById('impact-phrase');
             const currentPhrase = phraseElement.textContent;
             let newPhrase;
-            
+
             do {
                 const randomIndex = Math.floor(Math.random() * phrases.length);
                 newPhrase = phrases[randomIndex];
             } while (newPhrase === currentPhrase && currentPhrase !== "Carregando...");
-            
+
             phraseElement.style.opacity = 0;
-            
+
             setTimeout(() => {
                 phraseElement.textContent = newPhrase;
                 phraseElement.style.opacity = 1;
             }, 300);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const phraseElement = document.getElementById('impact-phrase');
             const countElement = document.getElementById('random-count');
 
@@ -187,9 +192,10 @@
             setTimeout(changePhrase, 500);
         });
 
-        window.addEventListener('beforeunload', function() {
+        window.addEventListener('beforeunload', function () {
             localStorage.setItem('shouldChangePhraseOnLoad', 'true');
         });
     </script>
 </body>
+
 </html>

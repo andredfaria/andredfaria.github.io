@@ -18,8 +18,11 @@
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6109642877288613"
-      crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6109642877288613"
+    crossorigin="anonymous"></script>
+  <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+    data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+    data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
 </head>
 
 <body>
@@ -27,7 +30,7 @@
     <div class="calc-body">
       <div class="calc-screen">
         <div id="history" class="calc-operation"></div>
-        <div id="painel"class="calc-typed"></div>
+        <div id="painel" class="calc-typed"></div>
       </div>
       <div class="calc-button-row">
         <div id="clear" class="button c">C</div>
@@ -69,7 +72,7 @@
     $('.firstNumeral').click(function () {
       $("#painel").append($(this).html());
 
-      if(!$(this).hasClass('secondNumeral'))
+      if (!$(this).hasClass('secondNumeral'))
         first = parseInt($("#painel").html());
       else
         second = parseInt($("#painel").html().split(' ')[$("#painel").html().split(' ').length - 1]);

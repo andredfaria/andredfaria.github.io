@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +11,46 @@
             line-height: 1.6;
             margin: 20px;
         }
+
         h1 {
             color: #0a0a0a;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             margin-bottom: 10px;
             background-color: #f9f9f9;
             padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         a {
             text-decoration: none;
             color: #007bff;
             font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
         }
     </style>
+    <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+        data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+        data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
 </head>
+
 <body>
     <h1>LISTA DE CERTIFICAÇÕES</h1>
     <ul id="lista-pdf">
     </ul>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const lista = document.getElementById('lista-pdf');
 
             fetch('./lista.txt') // Caminho para o arquivo lista.txt
@@ -62,4 +72,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Botão Movendo com o Mouse</title>
     <style>
@@ -17,6 +18,7 @@
             top: 60%;
             transform: translate(-50%, -50%);
         }
+
         body {
             display: flex;
             justify-content: center;
@@ -24,8 +26,12 @@
             height: 100vh;
         }
     </style>
-  </head>
-  <body>
+    <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+        data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+        data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
+</head>
+
+<body>
     <h1 id="text"></h1>
     <button id="botao">SIM</button>
     <button id="botaoMove">NÃO</button>
@@ -41,7 +47,7 @@
             botaoMove.style.left = novaPosicaoX + 'px';
             botaoMove.style.top = novaPosicaoY + 'px';
         }
-        
+
         var botao = document.getElementById('botao');
 
         function moveBotao(e) {
@@ -53,15 +59,15 @@
 
         botaoMove.addEventListener('click', function () {
             window.location.href = 'https://andredfaria.github.io/';
-        }); 
+        });
 
         botao.addEventListener('click', function () {
             var url = new URL(window.location.href);
             var params = new URLSearchParams(url.search);
             var link = params.get('link');
-            if(link == null) 
+            if (link == null)
                 link = '';
-            
+
             window.location.href = `http://wa.me/5535991404064?text=Eu%20quero%20` + link;
             window.location.href = paramsA;
         });
@@ -77,5 +83,6 @@
         }
         window.onload = obterParametro;
     </script>
-  </body>
+</body>
+
 </html>

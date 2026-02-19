@@ -192,6 +192,9 @@
       }
     }
   </style>
+  <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+    data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+    data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
 </head>
 
 <body>
@@ -249,7 +252,7 @@
 
         const fields = await response.json();
         console.log('Campos da tabela:', fields);
-        
+
         tableId = 643707;
         updateStatus(`✅ Tabela encontrada (ID: ${tableId}) com ${fields.length} campos`);
         return true;

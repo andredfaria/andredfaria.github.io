@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +10,32 @@
         body {
             background-color: #f8f9fa;
         }
+
         .container {
             max-width: 1200px;
         }
+
         .bingo-card {
             border: 2px solid #333;
             padding: 5px;
             background-color: #fff;
             page-break-inside: avoid;
         }
+
         .bingo-card h5 {
             background-color: #0d6efd;
             color: white;
             padding: 5px;
             border-radius: 5px 5px 0 0;
         }
+
         .bingo-card table {
             width: 100%;
             border-collapse: collapse;
         }
-        .bingo-card th, .bingo-card td {
+
+        .bingo-card th,
+        .bingo-card td {
             border: 1px solid #ccc;
             text-align: center;
             font-weight: bold;
@@ -36,18 +43,22 @@
             font-size: 14px;
             vertical-align: middle;
         }
+
         .bingo-card th {
             background-color: #e9ecef;
             font-size: 20px;
         }
+
         .free-space {
             background-color: #dcfce7;
             color: #166534;
             font-size: 12px !important;
         }
+
         #game-board {
             display: none;
         }
+
         .drawn-number-display {
             font-size: 6rem;
             font-weight: bold;
@@ -60,12 +71,14 @@
             margin-bottom: 1rem;
             min-height: 180px;
         }
+
         .called-board {
             display: grid;
             grid-template-columns: repeat(15, 1fr);
             gap: 5px;
             margin-top: 1.5rem;
         }
+
         .called-item {
             padding: 8px;
             border-radius: 5px;
@@ -74,6 +87,7 @@
             font-weight: bold;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .called-item.drawn {
             background-color: #198754;
             color: white;
@@ -83,25 +97,34 @@
             body * {
                 visibility: hidden;
             }
-            #cards-container, #cards-container * {
+
+            #cards-container,
+            #cards-container * {
                 visibility: visible;
             }
+
             #cards-container {
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
             }
+
             .bingo-card {
                 margin-bottom: 20px;
             }
+
             .col-md-4 {
-                 width: 33.33% !important;
-                 float: left !important;
+                width: 33.33% !important;
+                float: left !important;
             }
         }
     </style>
+    <script async src="https://eficienciia-ackee.jqd7au.easypanel.host/tracker.js"
+        data-ackee-server="https://eficienciia-ackee.jqd7au.easypanel.host"
+        data-ackee-domain-id="5159bd3f-d4f5-4880-a73e-7cde1c5d99cc"></script>
 </head>
+
 <body>
     <div class="container py-5">
         <!-- Configuration Section -->
@@ -115,13 +138,15 @@
                         <div class="card-body">
                             <h5 class="card-title">1. Tipo de Bingo</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="bingoType" id="numericBingo" value="numeric" checked>
+                                <input class="form-check-input" type="radio" name="bingoType" id="numericBingo"
+                                    value="numeric" checked>
                                 <label class="form-check-label" for="numericBingo">
                                     Numérico (1 a 75)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="bingoType" id="customBingo" value="custom">
+                                <input class="form-check-input" type="radio" name="bingoType" id="customBingo"
+                                    value="custom">
                                 <label class="form-check-label" for="customBingo">
                                     Personalizado (com palavras)
                                 </label>
@@ -148,7 +173,8 @@
             <div class="card mt-4" id="custom-items-section" style="display: none;">
                 <div class="card-body">
                     <h5 class="card-title">3. Itens Personalizados</h5>
-                    <p class="card-text">Digite ou cole os itens para o bingo, um por linha. Mínimo de 24 itens recomendados.</p>
+                    <p class="card-text">Digite ou cole os itens para o bingo, um por linha. Mínimo de 24 itens
+                        recomendados.</p>
                     <textarea class="form-control" id="customItems" rows="8" placeholder="Item 1
 Item 2
 Item 3..."></textarea>
@@ -252,7 +278,7 @@ Item 3..."></textarea>
             const type = document.querySelector('input[name="bingoType"]:checked').value;
             const title = 'Bingo';
             const quantity = parseInt(document.getElementById('cardQuantity').value, 10);
-            
+
             gameState.type = type;
             gameState.title = title;
             gameState.cards = []; // Reset cards
@@ -288,7 +314,7 @@ Item 3..."></textarea>
             setupSection.style.display = 'none';
             cardsSection.style.display = 'block';
         }
-        
+
         function generateCardsFromData(data) {
             gameState = data;
             const cardsContainer = document.getElementById('cards-container');
@@ -318,7 +344,7 @@ Item 3..."></textarea>
             const table = document.createElement('table');
             const thead = document.createElement('thead');
             const tbody = document.createElement('tbody');
-            
+
             const headers = type === 'numeric' ? ['B', 'I', 'N', 'G', 'O'] : 'BINGO'.split('');
             const trHead = document.createElement('tr');
             headers.forEach(h => {
@@ -385,10 +411,10 @@ Item 3..."></textarea>
             };
             const jsonString = JSON.stringify(dataToShare);
             const base64String = btoa(jsonString);
-            
+
             const url = new URL(window.location.href.split('#')[0]);
             url.hash = base64String;
-            
+
             const shareData = {
                 title: `Bingo: ${gameState.title}`,
                 text: `Jogue bingo comigo! Abra este link para ver suas cartelas:`,
@@ -431,9 +457,9 @@ Item 3..."></textarea>
             gameState.calledItems.push(drawnItem);
 
             document.getElementById('drawn-item-display').textContent = drawnItem;
-            
+
             const itemOnBoard = document.getElementById(`called-item-${drawnItem}`);
-            if(itemOnBoard) {
+            if (itemOnBoard) {
                 itemOnBoard.classList.add('drawn');
             }
         }
@@ -442,7 +468,7 @@ Item 3..."></textarea>
             const container = document.getElementById('called-board-container');
             container.innerHTML = '';
             const board = document.createElement('div');
-            
+
             if (gameState.type === 'numeric') {
                 board.className = 'called-board';
                 gameState.items.forEach(item => {
@@ -453,8 +479,8 @@ Item 3..."></textarea>
                     board.appendChild(itemDiv);
                 });
             } else {
-                 board.className = 'd-flex flex-wrap gap-2';
-                 gameState.items.forEach(item => {
+                board.className = 'd-flex flex-wrap gap-2';
+                gameState.items.forEach(item => {
                     const itemDiv = document.createElement('div');
                     itemDiv.className = 'called-item p-2';
                     itemDiv.id = `called-item-${item.replace(/\s+/g, '-')}`;
@@ -489,4 +515,5 @@ Item 3..."></textarea>
 
     </script>
 </body>
+
 </html>
