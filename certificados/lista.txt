@@ -7,6 +7,7 @@ BasicoMecanicaAutomotiva.pdf
 BasicoMetrologia.pdf
 BasicoTI.pdf
 Blockchain Developer with Solidity.pdf
+CertificacaoAAAE-n8nEnterprise.pdf
 Certificado-funcionamento do computador.pdf
 CertificadoDeConclusao_Build AI Agents and Automate Workflows with n8n.pdf
 CertificadoDeConclusao_Como Usar a Inteligencia Artificial para Aumentar seu BemEstar.pdf
@@ -74,6 +75,7 @@ G4-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
 IA-NO-MARKETING.pdf
 IA-em-4-dimensoes-FIAP-ALURA.jpg
 IA-em-4-dimensoes-FIAP-ALURA.pdf
+LGPD-ed.pdf
 MCP-hungginface.png
 Montando Consultas Relacionais no SQL Server.pdf
 PM3-Designer de Serviço.pdf
@@ -121,6 +123,7 @@ andre.pdf
 azureDevOps.pdf
 certificado-dowhile.pdf
 certificado-intensivaoia.jpg
+certificado-lovable-na-prtica-CERT-74A59695-1772200058907.pdf
 certificado-semana-dos-dados.pdf
 certificadoQA.pdf
 comando.txt
