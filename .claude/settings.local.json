@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /home/andre/Documentos/projetos/andredfaria.github.io/*.html)",
+      "Bash(grep -E \"\\\\.\\(css|js|html\\)$\")",
+      "Bash(python3:*)"
+    ]
+  }
+}
