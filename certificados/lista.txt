@@ -1,5 +1,6 @@
 Alinhando-visão-de-marketing.pdf
 Andre-Publicidade-Rubens.pdf
+Anthropic-AgentsSkills.png
 Aprova-Curso de Gestão do Tempo.pdf
 BEE-QA Week 2020..pdf
 BasicoFotografia.pdf
@@ -7,6 +8,8 @@ BasicoMecanicaAutomotiva.pdf
 BasicoMetrologia.pdf
 BasicoTI.pdf
 Blockchain Developer with Solidity.pdf
+CONTEXQA.pdf
+Calude-Introduction to agent skills.pdf
 CertificacaoAAAE-n8nEnterprise.pdf
 Certificado-funcionamento do computador.pdf
 CertificadoDeConclusao_Build AI Agents and Automate Workflows with n8n.pdf
@@ -19,6 +22,8 @@ CertificadoDeConclusao_IA Generativa A Evolucao da Busca Online Inteligente.pdf
 CertificadoDeConclusao_Prompt Engineering -Conversar com uma IAGenerativa.pdf
 CertificadoDeConclusao_Prompt Engineering Aprenda a Conversar com uma IA Generativa.pdf
 CertificadoInciacaoCientificaPUC2023.pdf
+Claude-Building with the Claude API.pdf
+Claude-Claude Code in Action.pdf
 Cruzeiro-do-sul Automação de Testes de Software.pdf
 DIO-Azure - Criando máquinas Virtuais.pdf
 DIO-Benefícios da Computação em Nuvem.pdf
@@ -122,6 +127,7 @@ amazon-Introduction to Generative.pdf
 andre.pdf
 azureDevOps.pdf
 certificado-dowhile.pdf
+certificado-formao-de-manychat-CERT-316A48F7-1773837261348.pdf
 certificado-intensivaoia.jpg
 certificado-lovable-na-prtica-CERT-74A59695-1772200058907.pdf
 certificado-semana-dos-dados.pdf
@@ -133,6 +139,7 @@ implementacaoAgildeIA - cópia.pdf
 index.html
 lista.txt
 lovable.pdf
+n8n-flowgrammers.pdf
 n8n.pdf
 nocaoBásicasDeGestaoFinanceira.pdf
 novasTecnologiaPraNegocio.pdf
