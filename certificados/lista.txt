@@ -1,147 +1,155 @@
-Alinhando-visão-de-marketing.pdf
-Andre-Publicidade-Rubens.pdf
+AAAE n8n Enterprise Certificação.pdf
+AWS Building a Generative AI-Ready Organization.pdf
+AWS Introduction to Generative AI Art of the Possible.pdf
+Ada Tech Básico sobre o Funcionamento do Computador.pdf
+Alura Agilidade Como Criar um Time de Alta Performance.pdf
+Alura Aplicações Serverless Construindo uma API REST.pdf
+Alura Comunicação Como se Expressar Bem e Ser Compreendido.pdf
+Alura Comunicação Não Violenta Consciência para Agir.pdf
+Alura Feedback A Arte de Orientar e Ser Orientado.pdf
+Alura Google Imersão Dev Agentes de IA.pdf
+Alura HTTP Entendendo a Web por Baixo dos Panos.pdf
+Alura Inovação Aberta Táticas e Ferramentas para Implementação.pdf
+Alura Inovação Descubra Como e Onde Inovar.pdf
+Alura Inovação Social e Empreendedorismo.pdf
+Alura Inteligência Artificial Generativa Midjourney e ChatGPT.pdf
+Alura Node.js API REST com Express e MongoDB.pdf
+Alura ORM com Node.js API com Sequelize e MySQL.pdf
+Alura Oratória Parte 1 Compartilhe Ideias e Histórias.pdf
+Alura Oratória Parte 2 Apresentações em Público.pdf
+Anthropic Building with the Claude API.pdf
+Anthropic Claude Code in Action.pdf
+Anthropic Introduction to Agent Skills.pdf
 Anthropic-AgentsSkills.png
-Aprova-Curso de Gestão do Tempo.pdf
-BEE-QA Week 2020..pdf
-BasicoFotografia.pdf
-BasicoMecanicaAutomotiva.pdf
-BasicoMetrologia.pdf
-BasicoTI.pdf
-Blockchain Developer with Solidity.pdf
-CONTEXQA.pdf
-Calude-Introduction to agent skills.pdf
-CertificacaoAAAE-n8nEnterprise.pdf
-Certificado-funcionamento do computador.pdf
-CertificadoDeConclusao_Build AI Agents and Automate Workflows with n8n.pdf
-CertificadoDeConclusao_Como Usar a Inteligencia Artificial para Aumentar seu BemEstar.pdf
-CertificadoDeConclusao_Desenvolvimento de Chatbots com Python.pdf
-CertificadoDeConclusao_Fundamentos de Next.js.pdf
-CertificadoDeConclusao_Fundamentos de TypeScript.pdf
-CertificadoDeConclusao_IA Generativa A Evolucao da Busca Online Inteligente-.pdf
-CertificadoDeConclusao_IA Generativa A Evolucao da Busca Online Inteligente.pdf
-CertificadoDeConclusao_Prompt Engineering -Conversar com uma IAGenerativa.pdf
-CertificadoDeConclusao_Prompt Engineering Aprenda a Conversar com uma IA Generativa.pdf
-CertificadoInciacaoCientificaPUC2023.pdf
-Claude-Building with the Claude API.pdf
-Claude-Claude Code in Action.pdf
-Cruzeiro-do-sul Automação de Testes de Software.pdf
-DIO-Azure - Criando máquinas Virtuais.pdf
-DIO-Benefícios da Computação em Nuvem.pdf
-DIO-Como Token Fungíveis Funcionam.pdf
-DIO-Conceitos Fundamentais para.pdf
-DIO-Configuração de Ambiente React.pdf
-DIO-Construindo um Sistema de Agendamento de Tarefas com Entity Framework.pdf
-DIO-Contribuindo em um Projeto.pdf
-DIO-Convenções e Qualidade de Código React.pdf
-DIO-Criando a Sua Primeira.pdf
-DIO-Criando o Seu Blog Pessoal Com Next.pdf
-DIO-Criando o Seu Primeiro Token.pdf
-DIO-Criando um Sistema e Abstraindo um Celular com POO em C#.pdf
-DIO-Criando uma Organização.pdf
-DIO-Crie o seu NFT de Pokémon com.pdf
-DIO-Decentralized Autonomous.pdf
-DIO-Desenvolvimento de Smart.pdf
-DIO-Entendendo a DOM.pdf
-DIO-Estilizando Páginas com CSS.pdf
-DIO-Estilização com Styled-Components.pdf
-DIO-Exceções e Coleções com C#.pdf
-DIO-Full Stack Developer-DIO.pdf
-DIO-Fundamentos do TypeScript.pdf
-DIO-Implementando Validações de Testes Unitários com C.pdf
-DIO-Introdução a Computação em Nuvem.pdf
-DIO-Introdução ao Desenvolvimento Full Stack com a XP.pdf
-DIO-Introdução ao dot NET.pdf
-DIO-Introdução à Blockchain.pdf
-DIO-Introdução à Linguagem Solidity.pdf
-DIO-Manipulando Arrays no Javascrip com Map, Filter e Reduce.pdf
-DIO-Microsoft Azure - Localizando Serviços.pdf
-DIO-Nuget, Serializar e Atributos no C#.pdf
-DIO-O Mercado de Blockchain.pdf
-DIO-Operações da Blockchain.pdf
-DIO-Organizando Aplicações React.pdf
-DIO-Primeiros Passos na Biblioteca.pdf
-DIO-Páginas Web com HTML.pdf
-DIO-SQL SERVER - Manipulando Dados.pdf
-DIO-Tipos de Serviço de Nuvem.pdf
-DIO-Tornando Páginas Web.pdf
-DIO-Trabalhando Com Hooks Básicos.pdf
-DIO-Tuplas, Operador Ternário e Desconstrução de um Objeto com C#.pdf
-DIO-como-criar-portifolio.pdf
-DIO-conceito-blockchain.pdf
-DIO-conceito-web3.pdf
-DIO-introducao-blockchain-web3.pdf
-DIO-introducao-nextjs.pdf
+Aprova Gestão do Tempo.pdf
+Aprova PNL Programação Neurolinguística.pdf
+Azure DevOps Masterclass.pdf
+BEE QA Week 2020.pdf
+Bradesco Introdução à Fotografia Digital.pdf
+CONTEXQA QA Certificado.pdf
+Claude Design Viver de IA.pdf
+DIO Benefícios da Computação em Nuvem.pdf
+DIO Blockchain Developer with Solidity.pdf
+DIO Como Tokens Fungíveis Funcionam.pdf
+DIO Conceitos Fundamentais para React.pdf
+DIO Configuração de Ambiente React.pdf
+DIO Construindo um Sistema de Agendamento de Tarefas com Entity Framework.pdf
+DIO Contribuindo em um Projeto Open Source no GitHub.pdf
+DIO Convenções e Qualidade de Código React.pdf
+DIO Criando Máquinas Virtuais na Azure.pdf
+DIO Criando a Sua Primeira Criptomoeda da Rede Ethereum.pdf
+DIO Criando o Seu Blog Pessoal com Next.js.pdf
+DIO Criando o Seu Primeiro Token do Zero nos Padrões Web3.pdf
+DIO Criando um Sistema e Abstraindo um Celular com POO em C#.pdf
+DIO Criando uma Organização Autônoma Descentralizada nos Padrões Web3.pdf
+DIO Crie o seu NFT de Pokémon com Blockchain.pdf
+DIO Decentralized Autonomous Organizations (DAO).pdf
+DIO Desafios de Projetos Crie Um Portfólio Vencedor.pdf
+DIO Desenvolvimento de Smart Contracts para Blockchain.pdf
+DIO Entendendo Conceitos de Blockchain.pdf
+DIO Entendendo Conceitos de Web3.pdf
+DIO Entendendo a DOM (Document Object Model).pdf
+DIO Estilizando Páginas com CSS.pdf
+DIO Estilização com Styled-Components.pdf
+DIO Exceções e Coleções com C#.pdf
+DIO Fundamentos do TypeScript.pdf
+DIO Implementando Validações de Testes Unitários com C#.pdf
+DIO Introdução ao .NET.pdf
+DIO Introdução ao Desenvolvimento Full Stack com a XP Inc.pdf
+DIO Introdução ao Next.js.pdf
+DIO Introdução à Blockchain.pdf
+DIO Introdução à Computação em Nuvem.pdf
+DIO Introdução à Experiência Blockchain e Web3.pdf
+DIO Introdução à Linguagem Solidity para Blockchain.pdf
+DIO Manipulando Arrays no Javascript com Map Filter e Reduce.pdf
+DIO Microsoft Azure Localizando Serviços por Categoria.pdf
+DIO Montando Consultas Relacionais no SQL Server.pdf
+DIO Nuget Serializar e Atributos no C#.pdf
+DIO O Mercado de Blockchain e Criptomoedas.pdf
+DIO Operações da Blockchain.pdf
+DIO Organizando Aplicações React.pdf
+DIO Primeiros Passos na Biblioteca React.pdf
+DIO Páginas Web com HTML.pdf
+DIO SQL Server Dominando Tabelas e Tipos de Dados.pdf
+DIO SQL Server Manipulando Dados.pdf
+DIO Tipos de Serviço de Nuvem.pdf
+DIO Tornando Páginas Web Interativas com JavaScript.pdf
+DIO Trabalhando com Hooks Básicos.pdf
+DIO Tuplas Operador Ternário e Desconstrução de um Objeto com C#.pdf
+DIO Web3 Certificado.pdf
+DIO XP Inc Full Stack Developer.pdf
 Databricks-Generative-AI-fundamentals.png
-Diploma PUC.pdf
-Exame-ANDRE-INTELIGENCIA-EXAME.pdf
-Fundamentos de Gestão de Produto: Conceitos e prática.pdf
-G4-FundamentosOKRs.pdf
-G4-certificate-fundamentos-em-gestao-por-okrs-62312b0b88925d290b280034.pdf
-IA-NO-MARKETING.pdf
+Exame Inteligência Artificial.pdf
+FIAP Alura IA em 4 Dimensões.pdf
+G4 Educação Fundamentos de OKRs.pdf
+G4 Educação Fundamentos em Gestão por OKRs (2).pdf
 IA-em-4-dimensoes-FIAP-ALURA.jpg
-IA-em-4-dimensoes-FIAP-ALURA.pdf
-LGPD-ed.pdf
+LinkedIn Learning Build AI Agents and Automate Workflows with n8n.pdf
+LinkedIn Learning Como Usar a IA para Aumentar seu Bem-Estar.pdf
+LinkedIn Learning Desenvolvimento de Chatbots com Python.pdf
+LinkedIn Learning Fundamentos de Next.js.pdf
+LinkedIn Learning Fundamentos de TypeScript.pdf
+LinkedIn Learning IA Generativa A Evolução da Busca Online Inteligente (PMI).pdf
+LinkedIn Learning IA Generativa A Evolução da Busca Online Inteligente.pdf
+LinkedIn Learning Prompt Engineering Aprenda a Conversar com uma IA Generativa (PMI).pdf
+LinkedIn Learning Prompt Engineering Aprenda a Conversar com uma IA Generativa.pdf
+Lovable Certificado.pdf
+Lovable Lovable na Prática.pdf
 MCP-hungginface.png
-Montando Consultas Relacionais no SQL Server.pdf
-PM3-Designer de Serviço.pdf
-PM3-Métricas de Negócios Digitais.pdf
-PM3-Sprint Inteligência Artificial aplicada ao RH.pdf
-PM3-design-produto.pdf
-PM3-storytelling.pdf
-PNL.pdf
-PUC-CIENCIA-DA-COMPUTACAO.pdf
-PUC-Certificado-React.pdf
-PUC-eu-tenho-esperacao.pdf
-PUC-frontEnd.pdf
-PUC-pythonFlash.pdf
-PUC-react.pdf
-PUC-semanaextensaoxiii.pdf
-PUC-simposiomed1.pdf
-PUC-simposiomed3.pdf
-PUC-tolerancia.pdf
-PUC-violenciaCibernetica.pdf
-PUC0html+css+js.pdf
-Rocketseat-Ominstack11.pdf
-SENAI-financasPessoais.pdf
-SENAI-industria4.pdf
-SQL SERVER - Dominando Tabelas e Tipos de Dados.pdf
-TERA-implementacaoAgildeIA.pdf
-UPICV-DECLARAÇÃO DE TÉRMINO DE TRIMESTRE ANDRÉ DE FARIA.pdf
-agentes-ia-alura.pdf
-alura-AgilidadeTimeDeAltaPerformance.pdf
-alura-Feedback.pdf
-alura-HTTP.pdf
-alura-Inovacao.pdf
-alura-InovacaoSocial_Empreendedorismo.pdf
-alura-InteligênciaArtificialGenerativa_MidjourneyChatGPT.pdf
-alura-comoEOndeInovar.pdf
-alura-comunicação.pdf
-alura-comunicaçãoNãoViolenta.pdf
-alura-cursoAplicaçõesServerlessConstruindo umaAPI-REST.pdf
-alura-cursoORMcomNodeJS_ APIcom Sequelize e MySQL.pdf
-alura-nodejs_API-RestComExpressMongoDB.pdf
-alura-oratoria1.pdf
-alura-oratoria2.pdf
-amazon-Build-a-Generative-AI.pdf
-amazon-Introduction to Generative.pdf
+ManyChat Formação de ManyChat.pdf
+NDM Treinamento LGPD e Segurança da Informação.pdf
+Novas Tecnologias para Negócio Certificado.pdf
+Nubbi Noções Básicas de Gestão Financeira.pdf
+OpenClaw Certificado.pdf
+PM3 Design de Produto.pdf
+PM3 Designer de Serviço.pdf
+PM3 Fundamentos de Gestão de Produto Conceitos e Prática.pdf
+PM3 Inteligência Artificial Aplicada ao RH.pdf
+PM3 Métricas de Negócios Digitais (2).pdf
+PM3 Métricas de Negócios Digitais.pdf
+PM3 Storytelling.pdf
+PUC Minas Ciência da Computação Diploma (2).pdf
+PUC Minas Convite ao Pensar Tolerância.pdf
+PUC Minas Convite ao Pensar Violência Cibernética.pdf
+PUC Minas Diploma Bacharelado Ciência da Computação.pdf
+PUC Minas Front-end Web com HTML CSS e JScript (2).pdf
+PUC Minas Front-end Web com HTML CSS e JScript.pdf
+PUC Minas I Simpósio de Medicina Plataforma Homem Virtual.pdf
+PUC Minas III Simpósio de Medicina A Telemedicina no Brasil e no Mundo.pdf
+PUC Minas IX Fórum de Iniciação Científica e VI Mostra de Extensão.pdf
+PUC Minas Introdução ao Desenvolvimento Back-End com Python e Flask.pdf
+PUC Minas Oficina Por trás do Hype do React (2).pdf
+PUC Minas Oficina Por trás do Hype do React.pdf
+PUC Minas VII Simpósio Interdisciplinar O País Eu Tenho Esperança.pdf
+PUC Minas XIII Seminário de Extensão Universitária e VII Semana de Pesquisa.pdf
+Palestra A Trajetória de um Artista na Propaganda.pdf
+QA Certificado.pdf
+Rocketseat DoWhile 2020.pdf
+Rocketseat Semana OmniStack 11.pdf
+SENAI Desvendando a Indústria 4.0.pdf
+SENAI Finanças Pessoais.pdf
+SENAI Metrologia.pdf
+SENAI Noções Básicas de Mecânica Automotiva.pdf
+SENAI Tecnologia da Informação e Comunicação.pdf
+Semana dos Dados Certificado.pdf
+Staage Alinhando a Visão sobre o Marketing.pdf
+Staage Fundamentos de Negócios.pdf
+Staage IA em Marketing.pdf
+TERA Implementação Ágil de IA (cópia).pdf
+TERA Implementação Ágil de IA.pdf
+UPCIV Idiomas Declaração de Término de Trimestre.pdf
+Universidade Cruzeiro do Sul Automação de Testes de Software.pdf
 andre.pdf
-azureDevOps.pdf
-certificado-dowhile.pdf
-certificado-formao-de-manychat-CERT-316A48F7-1773837261348.pdf
 certificado-intensivaoia.jpg
-certificado-lovable-na-prtica-CERT-74A59695-1772200058907.pdf
-certificado-semana-dos-dados.pdf
-certificadoQA.pdf
+claude-design-viver-de-ia.pdf
+claude-design-viver-de-ia.pdf:Zone.Identifier
+claude-design-viver-de-ia.pdfZone.Identifier
 comando.txt
-fundamento-de-negocio-Stage.pdf
 harvardxcs50.png
-implementacaoAgildeIA - cópia.pdf
 index.html
 lista.txt
-lovable.pdf
-n8n-flowgrammers.pdf
-n8n.pdf
-nocaoBásicasDeGestaoFinanceira.pdf
-novasTecnologiaPraNegocio.pdf
-pm3-metrica-de-negocio.pdf
-web3-cerficado.pdf
+n8n Certificado.pdf
+n8n Flowgrammers Certificado.pdf
+openClaw.pdf
+openClaw.pdf:Zone.Identifier
+openClaw.pdfZone.Identifier
