@@ -698,12 +698,10 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   text-decoration: none;
 }
-.n8n-sidebar-badge:focus-visible,
-.n8n-card:focus-visible {
+.n8n-sidebar-badge:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 3px;
 }
-.n8n-card:focus-visible { outline-color: var(--n8n-accent-dark); }
 
 .n8n-badge-icon {
   flex-shrink: 0;
@@ -737,90 +735,10 @@ p {
   white-space: nowrap;
 }
 
-/* Main credential strip (after "Quem sou eu") */
-.n8n-highlight { margin-top: -8px; }
-
-.n8n-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid rgba(45, 119, 136, 0.18);
-  border-left: 4px solid var(--n8n-accent);
-  box-shadow: 0 4px 16px var(--glass-shadow);
-  color: var(--text-main);
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition);
+/* "Outras certificações" chip — same shape, amber accent */
+.sidebar-wrapper .certs-badge { margin-top: 8px; }
+.certs-badge .n8n-badge-icon {
+  background: #F5B83D;
+  color: #3d2a00;
+  box-shadow: 0 3px 8px rgba(245, 184, 61, 0.45);
 }
-.n8n-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(45, 119, 136, 0.22);
-  color: var(--text-main);
-  text-decoration: none;
-}
-.n8n-card-icon {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--n8n-accent);
-  color: #fff;
-  font-size: 20px;
-  box-shadow: 0 4px 12px rgba(234, 75, 113, 0.35);
-}
-.n8n-card-body {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-.n8n-card-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--n8n-accent-dark);
-}
-.n8n-card-title {
-  font-size: 18px;
-  font-weight: 800;
-  margin: 2px 0;
-  color: var(--text-main);
-  letter-spacing: -0.2px;
-}
-.n8n-card-meta {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.n8n-card-cta {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 36px;
-  padding: 0 14px;
-  border-radius: 100px;
-  background: rgba(234, 75, 113, 0.1);
-  color: var(--n8n-accent-dark);
-  font-size: 13px;
-  font-weight: 700;
-  transition: background var(--transition), color var(--transition);
-}
-.n8n-card-cta .svg-inline--fa { font-size: 11px; }
-.n8n-card:hover .n8n-card-cta {
-  background: var(--n8n-accent);
-  color: #fff;
-}
-
-@media (max-width: 575.98px) {
-  .n8n-card { flex-wrap: wrap; padding: 16px; }
-  .n8n-card-body { flex-basis: calc(100% - 60px); }
-  .n8n-card-cta { width: 100%; justify-content: center; min-height: 44px; }
-}
-.n8n-brand { text-transform: none; letter-spacing: 0.4px; }
