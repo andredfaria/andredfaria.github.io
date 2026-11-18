@@ -666,3 +666,91 @@ p {
     margin-top: 4px;
   }
 }
+
+/* ─── n8n Certified Expert Partner highlight ─────────── */
+.n8n-sidebar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: #EA4B71;
+  color: #fff !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(234, 75, 113, 0.4);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.n8n-sidebar-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 75, 113, 0.5);
+}
+
+.n8n-highlight { margin-bottom: 32px; }
+
+.n8n-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffffff 60%, var(--teal-xlight) 100%);
+  border: 1px solid rgba(234, 75, 113, 0.3);
+  border-left: 5px solid #EA4B71;
+  box-shadow: 0 10px 30px rgba(234, 75, 113, 0.12);
+  color: var(--text-main) !important;
+  text-decoration: none !important;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.n8n-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(234, 75, 113, 0.2);
+}
+.n8n-card-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EA4B71;
+  color: #fff;
+  font-size: 26px;
+  box-shadow: 0 6px 16px rgba(234, 75, 113, 0.4);
+}
+.n8n-card-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #c7325a;
+  margin-bottom: 4px;
+}
+.n8n-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--text-main);
+}
+.n8n-card-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  color: var(--text-muted);
+}
+.n8n-card-cta {
+  font-size: 13px;
+  font-weight: 700;
+  color: #c7325a;
+}
+.n8n-card:hover .n8n-card-cta { text-decoration: underline; }
+
+@media (max-width: 575.98px) {
+  .n8n-card { flex-direction: column; padding: 20px; }
+  .n8n-card-title { font-size: 19px; }
+}
